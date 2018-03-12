@@ -49,6 +49,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^3.0.0",
     "nodemon": "^1.17.1",
-    "standard": "^10.0.1"
+    "standard": "^10.0.1",
+    "toastr": "^2.1.4"
   }
 }

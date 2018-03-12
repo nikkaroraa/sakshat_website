@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sakshat</title>
+    <meta charset="utf-8">
+    <meta content="ie=edge" http-equiv="x-ua-compatible">
+    <meta content="sakshat app" name="keywords">
+    <meta content="Sakshat Team" name="author">
+    <meta content="Sakshat | SIH-2018" name="description">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="{{ url('/') }}favicon.png" rel="shortcut icon">
+    <link href="{{ url('/') }}apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="//fonts.googleapis.com/css?family=Rubik:300,400,500|Material+Icons" rel="stylesheet" type="text/css">
+    <!--  All Compiled CSS (via npm libraries)  -->
+    <link href="{{ url('/') }}css/all.css" rel="stylesheet">
+    <!--  Bootstrap Core CSS  -->
+    <link href="{{ url('/') }}css/bootstrap.min.css" rel="stylesheet">
+    <!--  Material Dashboard CSS  -->
+    <link href="{{ url('/') }}css/material-dashboard.css?v=1.2.0" rel="stylesheet">
+    <!--  Fonts and Icons  -->
+    <link href="{{ url('/') }}icon_fonts_assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    {% block css %}{% endblock %}
+  </head>
+  <body>
+
+    <div class="wrapper">
+
+
+        {% include 'layouts/sidebar' %}
+
+        {% block content %}{% endblock %}
+
+
+      <div class="display-type"></div>
+    </div>
+
+    <!--  jQuery  -->
+    <script src="{{ url('/') }}js/jquery-3.2.1.min.js"></script>
+    <!--  All Compiled JS (via npm libraries)  -->
+    <script src="{{ url('/') }}js/all.js"></script>
+    <!--  Minified Bootstrap  -->
+    <script src="{{ url('/') }}js/bootstrap.min.js"></script>
+    <!--  Minified Material JS  -->
+    <script src="{{ url('/') }}js/material.min.js"></script>
+    <!--  Material Dashboard JS  -->
+    <script src="{{ url('/') }}js/material-dashboard.js"></script>
+    <script type="text/javascript">
+      {% for key, message in flashMessages %}
+          if ('{{ key }}' === 'success') {
+            toastr["success"]("{{ message }}")
+          } else {
+            toastr["error"]("{{ message }}")
+          }
+      {% endfor %}
+    </script>
+
+    {% block js %}{% endblock %}
+
+    <script type="text/javascript">
+      $(function () {
+          $('[data-toggle="tooltip"]').tooltip()
+      })
+    </script>
+  </body>
+</html>

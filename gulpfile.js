@@ -7,7 +7,8 @@ gulp.task('default', ['js', 'css', 'image', 'fonts'])
 // JavaScript processing
 gulp.task('js', function () {
   gulp.src([
-    'node_modules/moment/min/moment.min.js'
+    'node_modules/moment/min/moment.min.js',
+    'node_modules/toastr/build/toastr.min.js'
   ])
     .pipe(concat('all.js'))
     .pipe(gulp.dest('public/js'))
@@ -18,7 +19,9 @@ gulp.task('js', function () {
 
 // CSS processing
 gulp.task('css', function () {
-  gulp.src([])
+  gulp.src([
+    'node_modules/toastr/build/toastr.min.css'
+  ])
     .pipe(concat('all.css'))
     .pipe(gulp.dest('public/css'))
 
