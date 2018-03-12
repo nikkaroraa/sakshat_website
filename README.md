@@ -34,4 +34,4 @@ npm run watch
 > After the above steps, open your browser and navigate to http://localhost:4040/ to view the project.
 
 
-## [Framework Documentation](https://adonisjs.com/docs/3.2/overview)
+## [AdonisJS Framework Documentation](https://adonisjs.com/docs/3.2/overview)
