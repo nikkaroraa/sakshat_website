@@ -10,7 +10,7 @@
     "lint": "standard",
     "watch": "echo \"\\Starting Sakshat and Watching File Changes\" && nodemon --watch app --watch bootstrap --watch config --watch .env -x node server.js"
   },
-  "author": "",
+  "author": "SAKSHAT",
   "license": "MIT",
   "description": "",
   "private": true,
@@ -35,7 +35,20 @@
     "App": "./app"
   },
   "devDependencies": {
-    "nodemon": "^1.11.0",
+    "babel-eslint": "^7.2.3",
+    "eslint": "^4.18.2",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-html": "^4.0.2",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-filter": "^5.1.0",
+    "gulp-flatten": "^0.4.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^3.0.0",
+    "nodemon": "^1.17.1",
     "standard": "^10.0.1"
   }
 }
