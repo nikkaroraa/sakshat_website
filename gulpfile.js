@@ -7,7 +7,6 @@ gulp.task('default', ['js', 'css', 'image', 'fonts'])
 // JavaScript processing
 gulp.task('js', function () {
   gulp.src([
-    'node_modules/jquery/dist/jquery.min.js',
     'node_modules/moment/min/moment.min.js'
   ])
     .pipe(concat('all.js'))
