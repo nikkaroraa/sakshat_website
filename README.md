@@ -13,7 +13,7 @@ git clone https://github.com/iamoperand/sakshat_website.git sakshat_website
 
 ### 2. Install Dependencies
 
-In order to install all the node dependencies, run the following commands (one by one:
+In order to install all the node dependencies, run the following commands (one by one):
 
 ```
 cd sakshat_website
