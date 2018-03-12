@@ -38,4 +38,17 @@ Http.handleError = function * (error, request, response) {
  * starting http server.
  */
 Http.onStart = function () {
+  // Create a App Specific Global method url()
+  const View = use('View')
+  let baseUrl = '//'
+  baseUrl += Env.get('SERVER', 'localhost:4040') + '/'
+  View.global('url', (path) => {
+    if (typeof path !== 'undefined') {
+      path = (path.substring(0, 1) === '/')
+        ? path.substring(1)
+        : path
+      return baseUrl + path
+    }
+    return baseUrl
+  })
 }

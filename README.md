@@ -28,7 +28,7 @@ npm install
 Run the following command in your terminal:
 
 ```
-npm run serve:dev
+npm run watch
 ```
 
-> After the above steps, open your browser and navigate to http://localhost:3333/ to view the project.
+> After the above steps, open your browser and navigate to http://localhost:4040/ to view the project.
