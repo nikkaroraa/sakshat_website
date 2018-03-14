@@ -2,7 +2,7 @@
 const gulp = require('gulp')
 const concat = require('gulp-concat')
 
-gulp.task('default', ['js', 'css', 'image', 'fonts'])
+gulp.task('default', ['js', 'css', 'image', 'fonts', 'watch'])
 
 // JavaScript processing
 gulp.task('js', function () {
@@ -37,6 +37,13 @@ gulp.task('image', function () {
 
 // Fonts processing
 gulp.task('fonts', function () {
-  return gulp.src('resources/assets/icon_fonts_assets/**')
-    .pipe(gulp.dest('public/icon_fonts_assets'))
+  return gulp.src('resources/assets/fonts/**')
+    .pipe(gulp.dest('public/fonts'))
+})
+
+gulp.task('watch', function () {
+  gulp.watch('resources/assets/js/**', ['js'])
+  gulp.watch('resources/assets/css/**', ['css'])
+  gulp.watch('resources/assets/img/**', ['image'])
+  gulp.watch('resources/assets/fonts/**', ['fonts'])
 })

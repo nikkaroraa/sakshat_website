@@ -10,40 +10,29 @@
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link href="{{ url('/') }}favicon.png" rel="shortcut icon">
     <link href="{{ url('/') }}apple-touch-icon.png" rel="apple-touch-icon">
-    <link href="//fonts.googleapis.com/css?family=Rubik:300,400,500|Material+Icons" rel="stylesheet" type="text/css">
+
     <!--  All Compiled CSS (via npm libraries)  -->
     <link href="{{ url('/') }}css/all.css" rel="stylesheet">
-    <!--  Bootstrap Core CSS  -->
-    <link href="{{ url('/') }}css/bootstrap.min.css" rel="stylesheet">
-    <!--  Material Dashboard CSS  -->
-    <link href="{{ url('/') }}css/material-dashboard.css?v=1.2.0" rel="stylesheet">
-    <!--  Fonts and Icons  -->
-    <link href="{{ url('/') }}icon_fonts_assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!--  Materialize Core CSS  -->
+    <link href="{{ url('/') }}css/materialize.min.css" rel="stylesheet">
     {% block css %}{% endblock %}
   </head>
   <body>
 
     <div class="wrapper">
-
-
-        {% include 'layouts/sidebar' %}
-
+        {% include 'layouts/left-sidebar' %}
+        {% include 'layouts/right-sidebar' %}
         {% block content %}{% endblock %}
-
-
-      <div class="display-type"></div>
+        {% include 'layouts/footer' %}
     </div>
 
     <!--  jQuery  -->
     <script src="{{ url('/') }}js/jquery-3.2.1.min.js"></script>
     <!--  All Compiled JS (via npm libraries)  -->
     <script src="{{ url('/') }}js/all.js"></script>
-    <!--  Minified Bootstrap  -->
-    <script src="{{ url('/') }}js/bootstrap.min.js"></script>
-    <!--  Minified Material JS  -->
-    <script src="{{ url('/') }}js/material.min.js"></script>
-    <!--  Material Dashboard JS  -->
-    <script src="{{ url('/') }}js/material-dashboard.js"></script>
+    <!--  Minified Materialize  -->
+    <script src="{{ url('/') }}js/materialize.min.js"></script>
+
     <script type="text/javascript">
       {% for key, message in flashMessages %}
           if ('{{ key }}' === 'success') {
@@ -55,11 +44,5 @@
     </script>
 
     {% block js %}{% endblock %}
-
-    <script type="text/javascript">
-      $(function () {
-          $('[data-toggle="tooltip"]').tooltip()
-      })
-    </script>
   </body>
 </html>
