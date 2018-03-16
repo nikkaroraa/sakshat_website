@@ -8,21 +8,30 @@
     <meta content="Sakshat Team" name="author">
     <meta content="Sakshat | SIH-2018" name="description">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link href="{{ url('/') }}favicon.png" rel="shortcut icon">
-    <link href="{{ url('/') }}apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="{{ url('/') }}assets/favicon.ico" rel="shortcut icon">
+    <link href="{{ url('/') }}assets/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Fonts (Montserrat(Heading) and Poppins(Normal Text))-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Poppins" rel="stylesheet">
 
     <!--  All Compiled CSS (via npm libraries)  -->
     <link href="{{ url('/') }}css/all.css" rel="stylesheet">
     <!--  Materialize Core CSS  -->
     <link href="{{ url('/') }}css/materialize.min.css" rel="stylesheet">
+    <!--  Materialize Icons  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--  Custom CSS  -->
+    <link href="{{ url('/') }}css/main.css" rel="stylesheet">
     {% block css %}{% endblock %}
   </head>
   <body>
-
+    {% include 'layouts/header' %}
     <div class="wrapper">
         {% include 'layouts/left-sidebar' %}
         {% include 'layouts/right-sidebar' %}
+
         {% block content %}{% endblock %}
+
         {% include 'layouts/footer' %}
     </div>
 
@@ -30,8 +39,10 @@
     <script src="{{ url('/') }}js/jquery-3.2.1.min.js"></script>
     <!--  All Compiled JS (via npm libraries)  -->
     <script src="{{ url('/') }}js/all.js"></script>
-    <!--  Minified Materialize  -->
+    <!--  Materialize JS Minified  -->
     <script src="{{ url('/') }}js/materialize.min.js"></script>
+    <!--  Custom JavaScript  -->
+    <script src="{{ url('/') }}js/main.js"></script>
 
     <script type="text/javascript">
       {% for key, message in flashMessages %}
@@ -42,6 +53,12 @@
           }
       {% endfor %}
     </script>
+
+    <script>
+     // initialise collapse in mobile layout
+     $(".button-collapse").sideNav();
+    </script>
+
 
     {% block js %}{% endblock %}
   </body>
