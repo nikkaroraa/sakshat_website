@@ -1,5 +1,5 @@
 html, body {
-  font-family: 'Lato', 'Montserrat', sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 
 nav.navbar {
@@ -10,7 +10,7 @@ nav.navbar {
 }
 
 nav.navbar .navbar-brand {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .navbar-default .navbar-brand {
@@ -23,5 +23,5 @@ nav a {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
