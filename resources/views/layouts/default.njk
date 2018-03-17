@@ -22,7 +22,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--  Custom CSS  -->
     <link href="{{ url('/') }}css/main.css" rel="stylesheet">
-    {% block css %}{% endblock %}
+    {% block csshead %}{% endblock %}
+    {% block jshead %}{% endblock %}
   </head>
   <body>
     {% include 'layouts/header' %}
@@ -60,6 +61,6 @@
     </script>
 
 
-    {% block js %}{% endblock %}
+    {% block jsfooter %}{% endblock %}
   </body>
 </html>
