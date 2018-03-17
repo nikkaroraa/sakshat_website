@@ -1,0 +1,314 @@
+{% extends 'layouts/default' %}
+
+{% block csshead %}
+<style>
+   
+
+    * {
+        position: relative;
+        box-sizing: border-box;
+    }
+    
+    body {
+        color: 'grey';
+        font-size: 16px;
+    }
+    
+    header {
+        max-height: 600px;
+        height: 600px;
+        overflow: hidden;
+        img {
+                position: fixed;
+                top: 0px;
+                left: 50%;
+                margin-left: -600px;
+                width: 1200px;
+            
+                @media screen and (min-width: $screen-lg) {
+                    top: auto;
+                    left: auto;
+                    margin: 0;
+                    width: 100%;
+                }
+            }
+    }
+
+    .instagram-wrap {
+            background: #eeeeee;
+        }
+        
+    .instagram-content {
+            h3 {
+                text-transform: uppercase;
+                letter-spacing: 0.5em;
+                font-size: 12px;
+                font-weight: 700;
+                text-align: center;
+                padding: 10*5px 0;
+                color: darken(#eeeeee, 20%);
+            }
+
+            .photo-box {
+        margin: 0 0 10px*3 0;
+ 
+        .image-wrap {
+            img {
+                width: 100%;
+            }
+ 
+            .likes {
+                position: absolute;
+                bottom: 5px;
+                left: 15px;
+                padding: 10px/2;
+                background: #000;
+                background: rgba(#000, 0.4);
+                color: #FFF;
+            }
+        }
+        .description {
+            font-family: $sub-font;
+            font-size: 12px;
+            background: #FFF;
+            color: $mediumgrey;
+            letter-spacing: 1px;
+            padding: 10px*1.5;
+            height: 75px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+    
+        
+        }
+
+    .name {
+        font-size: 21px;
+        position: absolute;
+        top: 50px;
+        left: 50px;
+        color: #FFF;
+    }
+ 
+    .titles {
+        position: absolute;
+        bottom: 40%;
+        width: 100%;
+        text-align: center;
+ 
+        @media screen and (min-width: $screen-lg) {
+            bottom: 50%;
+        }
+    }
+ 
+    h1, h2 {
+        width: 100%;
+        color: #FFF;
+        margin: 0;
+    }
+
+    h1 {
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 36px;
+        letter-spacing: 0.06em;
+        margin-bottom: 10px;
+ 
+        span {
+            display: block;
+ 
+            @media screen and (min-width: $screen-md) {
+                display: inline;
+            }
+        }
+     }
+ 
+     h2 {
+        font-size: 16px;
+        width: 70%;
+        margin: 0 auto;
+ 
+        @media screen and (min-width: $screen-lg) {
+            width: 100%;
+            margin: 0;
+        }
+     }
+
+    .fancy-font {
+        font-family: $fancy-font;
+    }
+
+    footer {
+    background: #FFF;
+    padding: 10px*3 0;
+    text-align: center;
+ 
+    @media screen and (min-width: $screen-lg) {
+        padding: 10px*10 0;
+    }
+ 
+    h4 {
+        font-size: 36px;
+        text-align: center;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+ 
+    .about-text {
+        padding: 0 10px*3;
+ 
+        @media screen and (min-width: $screen-lg) {
+            width: 650px;
+            margin: 0 auto;
+        }
+    }
+ 
+    .contact-now-btn {
+        display: inline-block;
+        width: 70%;
+        padding: 10px*2 10px*5;
+        margin-top: 10px*2;
+        color: #FFF;
+        background: $grey;
+        font-size: 13px;
+        letter-spacing: 1px;
+        text-decoration: none;
+        text-transform: uppercase;
+ 
+        @media screen and (min-width: $screen-md) {
+            width: 60%;
+        }
+ 
+        @media screen and (min-width: $screen-lg) {
+            width: 20%;
+            margin-top: 10px*5;
+        }
+ 
+        &:hover {
+            background: lighten($grey, 5%);
+        }
+    }
+}
+
+.footer-bottom {
+    background: #FFF;
+    padding:  10px*6;
+    border-top: 2px solid $lightgrey;
+    letter-spacing: 2px;
+    text-align: center;
+    color: $mediumgrey;
+    text-transform: uppercase;
+ 
+    @media screen and (min-width: $screen-md) {
+        padding: 10px*4 0;
+    }
+}
+
+    {# .social {
+        position: absolute;
+        top: 55px;
+        right: 50px;
+        overflow: hidden;
+ 
+        a {
+            float: left;
+            width: 26px;
+            height: 26px;
+            margin: 0 5px;
+            text-indent: -9999px;
+            background: url(../images/social-sprite.png) no-repeat;
+            opacity: 0.8;
+ 
+            &:hover {
+                opacity: 1.0;
+            }
+ 
+            @media screen and (-webkit-min-device-pixel-ratio: 2), screen and (-min-device-pixel-ratio: 2) {
+                background: url(../images/social-sprite@2x.png) no-repeat;
+                background-size: 76px 26px;
+            }
+ 
+            &.facebook {
+                background-position: 0px 0px;
+            }
+ 
+            &.twitter {
+                background-position: -25px 0px;
+            }
+ 
+            &.instagram {
+                background-position: -50px 0px;
+            }
+        }
+     } #}
+
+</style>
+{% endblock %}
+
+{% block jshead %}
+<script type="text/javascript" src="js/modernizr.js"></script>
+{% endblock %}
+
+{% block content %}
+
+    <header>
+        <img src="img/landingImage.png" alt="Mountains">
+        <div class="name fancy-font">
+                Team Sakshat
+        </div>
+        <div class="titles">
+            <h1>Hello! <span>Do a good deed today</span></h1>
+            <h2>Contribute a bit to these well meaning projects</h2>
+        </div>
+        <div class="social">
+            <a class="facebook" href="#">Facebook</a>
+            <a class="twitter" href="#">Twitter</a>
+            <a class="instagram" href="#">Instagram</a>
+        </div>
+    </header>
+    <section class="instagram-wrap">
+        <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="instagram-content">
+                    <h3>Latest Projects</h3>
+                    <div class="row photos-wrap">
+                    <!-- Instafeed target div -->
+                    <div id="instafeed"></div>
+                    <!-- The following HTML will be our template inside instafeed -->
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="photo-box">
+                            <div class="image-wrap">
+                                <img src="http://via.placeholder.com/260x240">
+                                <div class="likes">309 Likes</div>
+                            </div>
+                            <div class="description">
+                                Fantastic Architecture #architecture #testing
+                                <div class="date">September 16, 2014</div>
+                            </div>
+                        </div>
+                    </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <footer>
+ 
+    </footer>
+    <section class="footer-bottom">
+        Team Sakshat all rights reserved.
+    </section>
+
+
+{% endblock %}
+
+
+
+{% block jsfooter%}
+<script type="text/javascript" src="js/instafeed.min.js"></script>
+{% endblock %}
+

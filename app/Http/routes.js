@@ -18,3 +18,5 @@
 const Route = use('Route')
 
 Route.on('/').render('landing.index')
+Route.on('/project').render('project.event')
+Route.on('/projects').render('project.project_thumbnail')
