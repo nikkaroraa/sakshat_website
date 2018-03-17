@@ -1,12 +1,22 @@
-html {
-  font-family: 'Poppins', ''Montserrat', sans-serif;
+html, body {
+  font-family: 'Lato', 'Montserrat', sans-serif;
 }
 
-nav.nav-container {
+nav.navbar {
+  -webkit-box-shadow: 0 0 8px #999;
+  -moz-box-shadow: 0 0 8px #999;
+  box-shadow: 0 0 8px #999;
   background-color: #fff;
-  color: #000
+}
+
+nav.navbar .navbar-brand {
+  font-family: 'Poppins', sans-serif;
 }
 
 nav a {
-  color: #000;
+  color:#4A4A4A;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
 }
