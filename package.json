@@ -36,6 +36,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
+    "bootstrap": "^4.0.0",
     "eslint": "^4.18.2",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-html": "^4.0.2",

@@ -16,12 +16,9 @@
 
     <!--  All Compiled CSS (via npm libraries)  -->
     <link href="{{ url('/') }}css/all.css" rel="stylesheet">
-    <!--  Materialize Core CSS  -->
-    <link href="{{ url('/') }}css/materialize.min.css" rel="stylesheet">
-    <!--  Materialize Icons  -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <!--  Custom CSS  -->
-    <link href="{{ url('/') }}css/main.css" rel="stylesheet">
+    <link href="{{ url('/') }}css/custom.css" rel="stylesheet">
     {% block csshead %}{% endblock %}
     {% block jshead %}{% endblock %}
   </head>
@@ -37,13 +34,11 @@
     </div>
 
     <!--  jQuery  -->
-    <script src="{{ url('/') }}js/jquery-3.2.1.min.js"></script>
+    <script src="{{ url('/') }}js/jquery-3.3.1.min.js"></script>
     <!--  All Compiled JS (via npm libraries)  -->
     <script src="{{ url('/') }}js/all.js"></script>
-    <!--  Materialize JS Minified  -->
-    <script src="{{ url('/') }}js/materialize.min.js"></script>
     <!--  Custom JavaScript  -->
-    <script src="{{ url('/') }}js/main.js"></script>
+    <script src="{{ url('/') }}js/custom.js"></script>
 
     <script type="text/javascript">
       {% for key, message in flashMessages %}
@@ -53,11 +48,6 @@
             toastr["error"]("{{ message }}")
           }
       {% endfor %}
-    </script>
-
-    <script>
-     // initialise collapse in mobile layout
-     $(".button-collapse").sideNav();
     </script>
 
 
