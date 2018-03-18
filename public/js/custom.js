@@ -1,10 +1,10 @@
+// CUSTOM JS
 $(function () {
-  // #18. CUSTOM JS
 
   let client_secret
   const client = new ClientJS()
   new Fingerprint2().get(function(result, components){
-    client_secret = result+client.getFingerprint()
+    client_secret = result + client.getFingerprint()
   })
 
   toastr.options = {

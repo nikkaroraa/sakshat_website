@@ -6,12 +6,9 @@ const Hash = use('Hash')
 
 class AuthController {
   * index (request, response) {
-    let req = rq
-
-    let url = Env.get('MANAGE_URL') + 'status'
 
     const cookie = request.cookie('access_token')
-    const fingerprint = request.cookie('sakshat')
+    const fingerprint = request.cookie('maple_concierge')
 
     if (cookie == null || fingerprint == null) {
       yield response.sendView('auth.login')
@@ -25,23 +22,14 @@ class AuthController {
       return
     }
 
-    var options = {
-      method: 'GET',
-      uri: url,
-      auth: {
-        'bearer': token
-      }
-    }
-
-    let body = yield req(options)
-    body = JSON.parse(body)
-
-    if (body.status) {
-      response.route('home')
+    const isLoggedIn = yield request.auth.check()
+    if (isLoggedIn) {
+      response.route('feed')
       return
     }
 
     yield response.sendView('auth.login')
+    return
   }
 
   * login (request, response) {
