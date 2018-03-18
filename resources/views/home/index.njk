@@ -1,0 +1,146 @@
+{% extends 'layouts/default' %}
+
+{% block csshead %}
+<style>
+  .wrapper-container {
+    margin-top: 30vh;
+  }
+
+  .wrapper-container .heading-wrapper {
+
+  }
+
+  .wrapper-container .content-wrapper {
+
+  }
+</style>
+{% endblock %}
+{% block jshead %}{% endblock %}
+
+{% block content %}
+<div class='container-fluid'>
+  <div class='row'>
+    <div class='col-12 col-md-6'>
+      <div class="wrapper-container mx-auto">
+        <div class="heading-wrapper">
+          <h1>Sakshat</h1>
+        </div>
+
+        <div class="content-wrapper">
+          <p>A (modular, highly tweakable) responsive one-page template designed by HTML5 UP and released for free under the Creative Commons.</p>
+
+          <button class="button fancy-button">
+            Get Started
+            <div class="button__horizontal"></div>
+            <div class="button__vertical"></div>
+          </button>
+        </div>
+
+      </div>
+    </div>
+    <div class='col-12 col-md-6'>
+      <img src="http://via.placeholder.com/641x692" />
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Log In</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="loginForm" action="{{ url('/') }}auth/login" method="post">
+          {{ csrfField }}
+          <input type="hidden" name="client_secret" id="login_client_secret" value="">
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="login_email" placeholder="Enter email" name="email">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="login_password" placeholder="Password" name="password">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="btn-login-form">Log In</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="registerModalLabel">Register</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="registerForm" action="{{ url('/') }}auth/register" method="post">
+          {{ csrfField }}
+          <input type="hidden" name="client_secret" id="register_client_secret" value="">
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="register_email" aria-describedby="emailHelp" placeholder="Enter email" name="email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="register_username" placeholder="Enter username" name="username">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="register_password" placeholder="Password" name="password">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="btn-register-form">Sign Up</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block jsfooter %}
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.btn').on('click', function(e) {
+      if($(this).hasClass('btn-login')) {
+        $('#loginModal').modal('show');
+      } else if($(this).hasClass('btn-register')) {
+        $('#registerModal').modal('show');
+      }
+    });
+
+    $('#btn-login-form').on('click', function(e) {
+      $('#loginForm').submit();
+    });
+    $('#btn-register-form').on('click', function(e) {
+      $('#registerForm').submit();
+    });
+  })
+
+
+  let client_secret
+  const client = new ClientJS()
+  new Fingerprint2().get(function(result, components){
+    client_secret = result+client.getFingerprint()
+    $('#register_client_secret').val(client_secret)
+    $('#login_client_secret').val(client_secret)
+  })
+
+</script>
+{% endblock %}

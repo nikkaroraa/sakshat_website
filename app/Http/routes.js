@@ -17,4 +17,9 @@
 
 const Route = use('Route')
 
-Route.on('/').render('landing.index')
+Route.get('/', 'HomeController.index').as('home')
+
+Route.post('auth/login', 'AuthController.login')
+Route.post('auth/register', 'RegisterController.register')
+
+Route.get('feed', 'FeedController.index').as('feed')
