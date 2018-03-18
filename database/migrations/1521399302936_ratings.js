@@ -2,22 +2,23 @@
 
 const Schema = use('Schema')
 
-class DonatorsTableSchema extends Schema {
+class RatingsTableSchema extends Schema {
 
   up () {
-    this.create('donators', (table) => {
+    this.create('ratings', (table) => {
       table.increments()
+      table.integer('rating').nullable()
+      table.text('review').nullable()
       table.integer('project_id').unsigned().references('id').inTable('projects').onDelete('CASCADE').onUpdate('CASCADE')
       table.integer('user_id').unsigned().references('id').inTable('users').onDelete('CASCADE').onUpdate('CASCADE')
-      table.float('amount').defaultTo(0)
       table.timestamps()
     })
   }
 
   down () {
-    this.drop('donators')
+    this.drop('ratings')
   }
 
 }
 
-module.exports = DonatorsTableSchema
+module.exports = RatingsTableSchema
