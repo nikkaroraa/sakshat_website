@@ -17,6 +17,14 @@ class User extends Lucid {
     })
   }
 
+  static get table () {
+    return 'users'
+  }
+
+  static get hidden () {
+    return ['password']
+  }
+
   apiTokens () {
     return this.hasMany('App/Model/Token')
   }
