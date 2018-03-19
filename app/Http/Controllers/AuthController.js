@@ -47,7 +47,6 @@ class AuthController {
       let user = yield User.query().where('email', email).first()
       user = user.toJSON()
 
-      delete user.password
       delete user.created_at
       delete user.updated_at
 
@@ -64,6 +63,10 @@ class AuthController {
       })
 
       yield request.session.put('user', user)
+
+      yield request
+          .with({success: loginMessage.success})
+          .flash()
       response.route('feed')
       return
     }

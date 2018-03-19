@@ -14,11 +14,13 @@ class RegisterController {
     yield user.save()
 
     var registerMessage = {
-      success: 'Registration Successful! Now go ahead and login'
+      success: 'Registration Successful! Now go ahead and login!!'
     }
 
-
-    yield response.route('home')
+    yield request
+          .with({success: registerMessage.success})
+          .flash()
+    response.route('home')
   }
 
 }
