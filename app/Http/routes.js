@@ -19,7 +19,19 @@ const Route = use('Route')
 
 Route.get('/', 'HomeController.index').as('home')
 
-Route.post('auth/login', 'AuthController.login')
-Route.post('auth/register', 'RegisterController.register')
+Route.get('login', 'HomeController.index')
 
-Route.get('feed', 'FeedController.index').as('feed')
+Route.post('login', 'AuthController.login')
+Route.post('register', 'RegisterController.register').as('register')
+
+Route.get('logout', 'AuthController.logout').as('logout')
+
+// Secured Routes under Auth Middleware //
+Route.group('secured', function () {
+  Route.resource('profile', 'ProfileController')
+    .only(['index', 'store'])
+
+  Route.resource('feed', 'FeedController')
+    .only(['index', 'store'])
+})
+.middleware('web')

@@ -19,16 +19,12 @@
 
     <!--  Custom CSS  -->
     <link href="{{ url('/') }}css/custom.css" rel="stylesheet">
-
-    <!--  FontAwesome JS  -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
     {% block csshead %}{% endblock %}
     {% block jshead %}{% endblock %}
   </head>
   <body>
-    {% include 'layouts/header' %}
-    <div class="container-fluid" style="padding: 0">
+    {% include 'layouts/homeHeader' %}
+    <div class="container-fluid">
         {% include 'layouts/left-sidebar' %}
         {% include 'layouts/right-sidebar' %}
 
@@ -43,7 +39,6 @@
     <script src="{{ url('/') }}js/all.js"></script>
     <!--  Custom JavaScript  -->
     <script src="{{ url('/') }}js/custom.js"></script>
-
 
     <script type="text/javascript">
       {% for key, message in flashMessages %}
