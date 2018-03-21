@@ -29,7 +29,21 @@ Http.handleError = function * (error, request, response) {
   /**
    * PRODUCTION REPORTER
    */
-  console.error(error.stack)
+  if (error.name === 'ModelNotFoundException') {
+    yield response.status(404).sendView('errors/404', {error})
+    return
+  }
+
+  if (error.name === 'InvalidLoginException') {
+    yield response.status(401).sendView('errors/401', {error})
+    return
+  }
+
+  if (error.name === 'PasswordMisMatchException') {
+    yield response.status(401).sendView('errors/401', {error})
+    return
+  }
+
   yield response.status(status).sendView('errors/index', {error})
 }
 

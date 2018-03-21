@@ -8,7 +8,7 @@
     "serve:dev": "nodemon --watch app --watch bootstrap --watch config --watch .env -x node server.js",
     "serve": "node server.js",
     "lint": "standard",
-    "watch": "echo \"\\Starting Sakshat and Watching File Changes\" && nodemon --watch app --watch bootstrap --watch config --watch .env -x node server.js"
+    "watch": "echo \"---- Starting Sakshat and Watching File Changes ----\" && nodemon --watch app --watch bootstrap --watch config --watch .env -x node server.js"
   },
   "author": "SAKSHAT",
   "license": "MIT",
@@ -23,6 +23,13 @@
     "adonis-lucid": "^3.0.14",
     "adonis-middleware": "^1.0.11",
     "adonis-websocket": "^1.0.3",
+    "bootstrap": "^4.0.0",
+    "clientjs": "^0.1.11",
+    "crypto-js": "^3.1.9-1",
+    "fingerprintjs2": "^1.6.1",
+    "mysql": "^2.15.0",
+    "request-promise": "^4.2.2",
+    "toastr": "^2.1.4",
     "youch": "^2.0.4"
   },
   "standard": {
@@ -36,10 +43,11 @@
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
-    "bootstrap": "^4.0.0",
     "eslint": "^4.18.2",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-html": "^4.0.2",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-promise": "^3.7.0",
     "eslint-plugin-standard": "^3.0.1",
     "gulp": "^3.9.1",
@@ -50,7 +58,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^3.0.0",
     "nodemon": "^1.17.1",
-    "standard": "^10.0.1",
-    "toastr": "^2.1.4"
+    "popper.js": "^1.14.1",
+    "standard": "^11.0.1"
   }
 }

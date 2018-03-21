@@ -9,7 +9,9 @@ gulp.task('js', function () {
   gulp.src([
     'node_modules/moment/min/moment.min.js',
     'node_modules/toastr/build/toastr.min.js',
-    'node_modules/bootstrap/dist/js/bootstrap.min.js'
+    'node_modules/bootstrap/dist/js/bootstrap.min.js',
+    'node_modules/clientjs/dist/client.min.js',
+    'node_modules/fingerprintjs2/dist/fingerprint2.min.js'
   ])
     .pipe(concat('all.js'))
     .pipe(gulp.dest('public/js'))

@@ -1,0 +1,227 @@
+{% extends 'layouts/default' %}
+
+{% block csshead %}
+<style>
+  body{
+    background: #eee;
+  }
+  .wrapper{
+    width: 650px;
+  }
+  .shadow{
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,0.14);
+  }
+  .form textarea {
+    border: none;
+    height: 40px;
+    min-height: 40px;
+    resize: none;
+    line-height: 28px;
+    transition: height 0.3s ease-in-out;
+  }
+  .form textarea:hover{
+    box-shadow: none;
+  }
+  .form textarea:focus{
+    border: 1px solid #ddd;
+    height: 150px;
+    line-height: 21px;
+  }
+  .form .btn{
+    margin-top: 2px;
+  }
+  .item{
+    float: left;
+    width: 100%;
+    margin: 15px 0;
+  }
+  .item .label{
+    margin-top: -1px;
+  }
+</style>
+{% endblock %}
+{% block jshead %}{% endblock %}
+
+{% block content %}
+
+<!--  Modulr CSS  -->
+<link href="{{ url('/') }}css/modulr.css" rel="stylesheet">
+    
+<!-- Social Wrapper Start -->
+<div class="wrapper center padding-40">
+
+  <!-- Social Form Start -->
+  <div class="white shadow padding-10 margin-bottom">
+    <form class="form xl relative">
+      <div class="col-1 col-persist -margin">
+        <img class="pull-left width-100 round" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245018/profile/profile-80.jpg" />
+      </div>
+      <div class="col-9 col-persist gutter-h-10 padding-top-5 -margin">
+        <textarea  placeholder="What's new?"></textarea>
+      </div>
+      <div class="col-2 col-persist -margin">
+        <a class="btn l icon round text-gray hover-text-red">
+          <i class="fa fa-camera"></i>
+        </a>
+        <a class="btn l icon round text-gray hover-text-red">
+          <i class="fa fa-video-camera"></i>
+        </a>
+      </div>
+    </form>
+  </div>
+  <!-- Social Form End -->
+
+  <!-- Feed Item Start -->
+  <div class="item white shadow cf">
+
+      <!-- Item Header Start -->
+      <div class="row padding">
+        <div class="col-1 col-persist -margin">
+          <img class="pull-left width-100 round" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245018/profile/profile-80.jpg" />
+        </div>
+
+        <div class="col-11 col-persist gutter-h-10 padding-top-15">
+          <h5 class="text-15 text700 pull-left">A Front-End Language</h5>
+          <a href="#" class="label red pull-left margin-left hover-tooltip">
+            <span class="tooltip top text-capitalize">Shared Publicly</span>
+            public
+          </a>
+          <a href="#" class="pull-right label fill-white text-gray">12h ago</a>
+        </div>
+      </div>
+      <!-- Item Header End -->
+
+      <!-- Item Content Start -->
+      <div class="row">
+        <p class="padding -padding-top">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry
+          Lorem Ipsum is simply dummy text Lorem Ipsum
+        </p>
+       <img class="pull-left width-100" src="https://decorator.io/media/1.jpg" />
+      </div>
+      <!-- Item Content End -->
+
+      <!-- Item Meta Start -->
+      <div class="row padding">
+        <div class="pull-left">
+          <a class="btn icon round text-red fill-silver">
+            <i class="fa fa-thumbs-up"></i>
+          </a>
+          <a class="btn white hover-disable text-red text600">256</a>
+        </div>
+        <div class="pull-right">
+          <a class="btn icon round text-gray hover-text-red">
+            <i class="fa fa-comment"></i>
+          </a>
+          <a class="btn white hover-disable text-red text600">80</a>
+        </div>
+      </div>
+      <!-- Item Meta End -->
+  </div>
+  <!-- Feed Item End -->
+
+
+  <!-- Feed Item Start -->
+  <div class="item white shadow cf">
+
+      <!-- Item Header Start -->
+      <div class="row padding">
+        <div class="col-1 col-persist -margin">
+          <img class="pull-left width-100 round" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245018/profile/profile-80.jpg" />
+        </div>
+
+        <div class="col-11 col-persist gutter-h-10 padding-top-15">
+          <h5 class="text-15 text700 pull-left">A Front-End Language</h5>
+          <a href="#" class="label red pull-left margin-left hover-tooltip">
+            <span class="tooltip top text-capitalize">Shared Publicly</span>
+            public
+          </a>
+          <a href="#" class="pull-right label fill-white text-gray">12h ago</a>
+        </div>
+      </div>
+      <!-- Item Header End -->
+
+      <!-- Item Content Start -->
+      <div class="row">
+       <img class="pull-left width-100" src="https://decorator.io/media/3.jpg" />
+      </div>
+      <!-- Item Content End -->
+
+      <!-- Item Meta Start -->
+      <div class="row padding">
+        <div class="pull-left">
+          <a class="btn icon round text-red fill-silver">
+            <i class="fa fa-thumbs-up"></i>
+          </a>
+          <a class="btn white hover-disable text-red text600">125</a>
+        </div>
+        <div class="pull-right">
+          <a class="btn icon round text-gray hover-text-red">
+            <i class="fa fa-comment"></i>
+          </a>
+          <a class="btn white hover-disable text-red text600">30</a>
+        </div>
+      </div>
+      <!-- Item Meta End -->
+  </div>
+  <!-- Feed Item End -->
+
+
+  <!-- Feed Item Start -->
+  <div class="item white shadow cf">
+
+      <!-- Item Header Start -->
+      <div class="row padding">
+        <div class="col-1 col-persist -margin">
+          <img class="pull-left width-100 round" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245018/profile/profile-80.jpg" />
+        </div>
+
+        <div class="col-11 col-persist gutter-h-10 padding-top-15">
+          <h5 class="text-15 text700 pull-left">A Front-End Language</h5>
+          <a href="#" class="label red pull-left margin-left hover-tooltip">
+            <span class="tooltip top text-capitalize">Shared Publicly</span>
+            public
+          </a>
+          <a href="#" class="pull-right label fill-white text-gray">12h ago</a>
+        </div>
+      </div>
+      <!-- Item Header End -->
+
+      <!-- Item Content Start -->
+      <div class="row">
+       <img class="pull-left width-100" src="https://decorator.io/media/9.jpg" />
+      </div>
+      <!-- Item Content End -->
+
+      <!-- Item Meta Start -->
+      <div class="row padding">
+        <div class="pull-left">
+          <a class="btn icon round text-red fill-silver">
+            <i class="fa fa-thumbs-up"></i>
+          </a>
+          <a class="btn white hover-disable text-red text600">125</a>
+        </div>
+        <div class="pull-right">
+          <a class="btn icon round text-gray hover-text-red">
+            <i class="fa fa-comment"></i>
+          </a>
+          <a class="btn white hover-disable text-red text600">30</a>
+        </div>
+      </div>
+      <!-- Item Meta End -->
+  </div>
+  <!-- Feed Item End -->
+
+
+  <!-- Footer Start -->
+  <div class="item padding-10 white shadow">
+    <div>Is it working yet ?</div>
+  </div>
+  <!-- Footer End -->
+</div>
+<!-- Social Wrapper Start -->
+{% endblock %}
+
+{% block jsfooter %}
+
+{% endblock %}
