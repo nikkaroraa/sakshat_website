@@ -19,6 +19,8 @@
 
     <!--  Custom CSS  -->
     <link href="{{ url('/') }}css/custom.css" rel="stylesheet">
+
+    
     {% block csshead %}{% endblock %}
     {% block jshead %}{% endblock %}
   </head>
@@ -39,6 +41,7 @@
     <script src="{{ url('/') }}js/all.js"></script>
     <!--  Custom JavaScript  -->
     <script src="{{ url('/') }}js/custom.js"></script>
+    
 
     <script type="text/javascript">
       {% for key, message in flashMessages %}

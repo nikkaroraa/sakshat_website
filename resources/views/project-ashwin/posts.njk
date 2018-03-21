@@ -1,0 +1,364 @@
+{# This uses bootstrap for posts. I seem to understand this #}
+
+{% extends 'layouts/default' %}
+
+{% block csshead %}
+    <style>
+    .img-circle {
+    border-radius: 50%;
+    }
+
+    .thumbnail img {
+        height:250px;
+        width:250px;
+    }
+
+    .col-md-3{
+        background:#66a9be;
+    }
+
+    .col-md-6{
+        background:#ffffff;
+    }
+
+    h1{
+        padding-top:10px;
+        color:#ADD8E6
+    }
+
+    {#Rating bar#}
+    .rating-bar{
+    background:#66a9be ;
+    padding:3px;
+    }
+    .rating-bar span{
+    display:block;
+    height:15px;
+    }
+    .rating-bar, .rating-bar span {
+    border-radius:4px; 
+    }
+
+    /* Used to color the bars */
+    .blue{ background: #ADD8E6; }
+   
+
+    /* .rate-n, n being the rating from 1 to 10 */
+    .rate-1{ width:10%; }
+    .rate-2{ width:20%; }
+    .rate-3{ width:30%; }
+    .rate-4{ width:40%; }
+    .rate-5{ width:50%; }
+    .rate-6{ width:60%; }
+    .rate-7{ width:70%; }
+    .rate-8{ width:80%; }
+    .rate-9{ width:90%; }
+    .rate-10{ width:100%; }
+
+    /* CSS3 Animation */
+    .animate{
+    animation: progress 2s linear;
+    -moz-animation: progress 2s linear;
+    -webkit-animation: progress 2s linear;
+    -ms-animation: progress 2s linear;
+    -o-animation: progress 2s linear;
+    }
+    /* Span fills 100% of parent div (.rate-n) which may be 10-100% of the width of black bar (.rating) */
+    @-webkit-keyframes progress {
+    from { width:0% }
+    to { width:100%; }
+    }
+    @-moz-keyframes progress {
+    from { width:0% }
+    to { width:100%; }
+    }
+    @-ms-keyframes progress {
+    from { width:0% }
+    to { width:100%; }
+    }
+    @-o-keyframes progress {
+    from { width:0% }
+    to { width:100%; }
+    }
+    @keyframes progress {
+    from { width:0% }
+    to { width:100%; }
+    }
+    {#Rating bar#}
+
+    </style>
+{% endblock %}
+
+{% block content %}
+
+<h1>
+    <strong> Your feed</strong>
+</h1>
+
+<!--Section: posts-->
+<section class="pt-5 mt-4 pb-3">
+    <div class="row">
+        <div class="col-md-3 ">
+        </div>
+
+        
+        <div class="col-md-6 ">
+        <!--heading-->
+            <h4>
+                Recommended projects for you
+                <hr>
+            </h4>
+
+        <!--Post 1-->
+            <div class="card">
+                <!--Grid row-->
+                <div class="row">
+                    <div class="col-md-6">
+                        <!--Featured image-->
+                        <div class="card card-cascade wider reverse">
+                            <div class="view overlay">
+                                <img src="img/landingImage.png" alt="Wide sample post image" class="img-fluid">
+                                <a>
+                                    <div class="mask rgba-white-slight"></div>
+                                </a>
+                            </div>
+
+                            <!--Post data-->
+                            <div class="card-body text-center">
+                                <h2>
+                                    <a class="font-weight-bold">Teach girl Child</a>
+                                </h2>
+                                <p>Posted by
+                                    <a>Child Rights and You pvt. limited</a>, 26/08/2018</p>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h4 class="mt-1">
+                                            <strong>Donator satisfaction : <span>90/100 </span></strong>
+                                            <div class="rating-bar">
+                                                <div class="rate-9">
+                                                <span class="animate blue"></span>
+                                                </div>
+                                            </div>
+                                        </h4>
+                                    </div>
+                                </div>    
+
+                                <!--Social shares-->
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                    <button class="btn btn-outline-primary btn-rounded btn-block btn-block">
+                                        {#subscriber icon#}
+                                        <span class="clearfix d-none d-md-inline-block">Subscribe </span>
+                                    </button>
+                                    <span class="badge badge-primary badge-pill">46</span>
+                                    </div>
+                                   
+                                    <div class="col-md-6">
+                                    <button class="btn btn-outline-danger btn-rounded btn-block">
+                                        <span class="clearfix d-none d-md-inline-block">Donate</span>
+                                    </button>
+                                    <span class="badge badge-primary badge-pill">  22</span>
+                                    </div>
+
+                                </div>    
+                                <br>
+
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                    <button class="btn btn-outline-success btn-rounded btn-block">
+                                        <span class="clearfix d-none d-md-inline-block">Volunteer</span>
+                                    </button>
+                                    <span class="badge badge-primary badge-pill"> 32</span>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                    <button class="btn btn-outline-warning btn-rounded btn-block ">
+                                        <span class="clearfix d-none d-md-inline-block"> Share </span>
+                                    </button>
+                                    <span class="badge badge-primary badge-pill">  18</span>
+                                    </div>
+                                
+
+                                </div>
+                                <!--Social shares-->
+
+                            </div>
+                            <!--Post data-->
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        
+                        <!--Card-->
+                        <div>
+                
+                            <!--Background color-->
+                            <div class="card-up blue-gradient">
+                            </div>
+                
+                            <!--Avatar-->
+                            <div class="thumbnail">
+                                <img src="img/cry.jpg" class= "img-circle">
+                            </div>
+                
+                            <div class="card-body">
+                                <!--Name-->
+                                <h4 class="mt-1">
+                                    <strong>CRY org</strong>
+                                    <p><a href="#">www.cry.org</a></p>
+                                </h4>
+                                 <h4 class="mt-1">
+                                    <strong>Credibility Score : <span class="rating" > 4/5</span></strong>
+                                </h4>           
+                                
+                                <hr>
+                                <!--Quotation-->
+                                <p> About the project </p>
+                                <p class="dark-grey-text">Neque cupiditate assumenda in maiores repudiandae mollitia architecto <p class="read-more"><a href="#" class="button">Read More</a></p>
+                            </div>
+                
+                        </div>
+                        <!--Card-->
+                    </div>
+                </div>
+                <!--Grid row-->
+            </div>
+            
+        <!--Post 1-->
+
+        <!--Post 2-->
+            {# <div class="card">
+                <!--Grid row-->
+                <div class="row">
+                    <div class="col-md-6">
+                        <!--Featured image-->
+                        <div class="card card-cascade wider reverse">
+                            <div class="view overlay">
+                                <img src="img/landingImage.png" alt="Wide sample post image" class="img-fluid">
+                                <a>
+                                    <div class="mask rgba-white-slight"></div>
+                                </a>
+                            </div>
+
+                            <!--Post data-->
+                            <div class="card-body text-center">
+                                <h2>
+                                    <a class="font-weight-bold">Teach girl Child</a>
+                                </h2>
+                                <p>Posted by
+                                    <a>Child Rights and You pvt. limited</a>, 26/08/2018</p>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h4 class="mt-1">
+                                            <strong>Donator satisfaction : <span>90/100 </span></strong>
+                                            <div class="rating-bar">
+                                                <div class="rate-9">
+                                                <span class="animate blue"></span>
+                                                </div>
+                                            </div>
+                                        </h4>
+                                    </div>
+                                </div>    
+
+                                <!--Social shares-->
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                    <button class="btn btn-outline-primary btn-rounded btn-block btn-block">
+                                        
+                                        <span class="clearfix d-none d-md-inline-block">Subscribe </span>
+                                    </button>
+                                    <span class="badge badge-primary badge-pill">46</span>
+                                    </div>
+                                   
+                                    <div class="col-md-6">
+                                    <button class="btn btn-outline-danger btn-rounded btn-block">
+                                        <span class="clearfix d-none d-md-inline-block">Donate</span>
+                                    </button>
+                                    <span class="badge badge-primary badge-pill">  22</span>
+                                    </div>
+
+                                </div>    
+                                <br>
+
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                    <button class="btn btn-outline-success btn-rounded btn-block">
+                                        <span class="clearfix d-none d-md-inline-block">Volunteer</span>
+                                    </button>
+                                    <span class="badge badge-primary badge-pill"> 32</span>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                    <button class="btn btn-outline-warning btn-rounded btn-block ">
+                                        <span class="clearfix d-none d-md-inline-block"> Share </span>
+                                    </button>
+                                    <span class="badge badge-primary badge-pill">  18</span>
+                                    </div>
+                                
+
+                                </div>
+                                <!--Social shares-->
+
+                            </div>
+                            <!--Post data-->
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        
+                        <!--Card-->
+                        <div>
+                
+                            <!--Background color-->
+                            <div class="card-up blue-gradient">
+                            </div>
+                
+                            <!--Avatar-->
+                            <div class="thumbnail">
+                                <img src="img/cry.jpg" class= "img-circle">
+                            </div>
+                
+                            <div class="card-body">
+                                <!--Name-->
+                                <h4 class="mt-1">
+                                    <strong>CRY org</strong>
+                                    <p><a href="#">www.cry.org</a></p>
+                                </h4>
+                                 <h4 class="mt-1">
+                                    <strong>Credibility Score : <span class="rating" > 4/5</span></strong>
+                                </h4>           
+                                
+                                <hr>
+                                <!--Quotation-->
+                                <p> About the project </p>
+                                <p class="dark-grey-text">Neque cupiditate assumenda in maiores repudiandae mollitia architecto <p class="read-more"><a href="#" class="button">Read More</a></p>
+                            </div>
+                
+                        </div>
+                        <!--Card-->
+                    </div>
+                </div>
+                <!--Grid row-->
+            </div>#}
+            
+        <!--Post 2-->
+        </div>
+        
+
+        <div class="col-md-3 ">
+        </div>
+        
+        
+    </div>
+    
+</section>
+<!--Section: Blog v.4-->
+            
+            
+{% endblock %}

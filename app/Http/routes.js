@@ -22,4 +22,8 @@ Route.get('/', 'HomeController.index').as('home')
 Route.post('auth/login', 'AuthController.login')
 Route.post('auth/register', 'RegisterController.register')
 
-Route.get('feed', 'FeedController.index').as('feed')
+Route.get('feed', 'FeedController.index').as('feed') // if you are using routes
+
+Route.on('/projects').render('project-ashwin.project-feed') // if you are using simple views
+Route.on('/comments').render('project-ashwin.comments')
+Route.on('/posts').render('project-ashwin.posts')
