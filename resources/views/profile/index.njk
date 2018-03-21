@@ -1,0 +1,462 @@
+{% extends 'layouts/default' %}
+
+{% block csshead %}
+<style>
+  /* ---- Navigation Bar styling starts ---- */
+  nav.navbar {
+    box-shadow: 0 0 8px #999;
+    z-index: 99;
+  }
+
+  ul.navbar-nav .nav-item.nav-icons {
+    margin: auto 10px
+  }
+
+  ul.navbar-nav .nav-item.nav-icons.nav-profile img {
+    height: 40px;
+    border-radius: 50%;
+  }
+  /* ---- Navigation Bar styling ends ---- */
+
+  /* ---- Cover Image styling starts ---- */
+  .cover-image-container {
+    padding: 0;
+  }
+  .cover-image {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+  }
+  .cover-image img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    height: auto;
+    -webkit-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
+  }
+  /* ---- Cover Image styling ends ---- */
+
+  /* ---- Search Icon inside Search bar styling starts ---- */
+  .inner-addon {
+      position: relative;
+  }
+
+  /* style icon */
+  .inner-addon span {
+    position: absolute;
+    padding: 7px 10px;
+    pointer-events: none;
+    color: #a9a9a9;
+  }
+
+  /* align icon */
+  .left-addon span  { left:  0px;}
+  .right-addon span { right: 0px;}
+
+  /* add padding  */
+  .left-addon input  { padding-left:  30px; }
+  .right-addon input { padding-right: 30px; }
+  /* ---- Search Icon inside Search bar styling ends ---- */
+
+  /* ---- Nav Tabs styling starts ---- */
+  .nav-holder {
+    background-color: #FFFFFF;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
+    width: 100vw;
+  }
+
+  .nav-holder .container-fluid {
+    padding-left: 0px;
+    padding-right: 0px;
+    margin: 5px 0px;
+  }
+
+  .nav-holder .container {
+    width: 1050px;
+  }
+
+  .nav-holder .profile-pic {
+    position: absolute;
+    top: -120px;
+    z-index: 99;
+    width: 180px;
+    height: 180px;
+    background: #FFFFFF;
+  }
+
+  .nav-holder .profile-pic img {
+    border-radius: 5px;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  .nav.nav-tabs.nav-custom .nav-link.active {
+    border: 0;
+    border-bottom: 2px solid #D9222A;
+    color: #D9222A
+  }
+
+  .nav.nav-tabs.nav-custom .nav-link {
+    color: rgba(0,0,0,.5);
+    border-bottom: 0;
+  }
+  /* ---- Nav Tabs styling ends ---- */
+
+
+  /* ---- Main Content styling starts ---- */
+  .main-content-container {
+    background-color: #FAFAFA;
+    min-height: 80vh;
+  }
+
+  .main-content {
+    width: 1050px;
+    padding-top: 50px
+  }
+
+  .user-information {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 15px
+  }
+
+  .main-content .user-information h5.user-name {
+    margin-bottom: 0;
+    color: #D9222A;
+  }
+
+  .main-content .user-information h6.user-handle {
+    margin-bottom: 15px;
+    color: rgba(0,0,0,.5);
+    font-size: 0.8em
+  }
+
+  .main-content .user-information hr.full-width-hr {
+    margin: 0 -15px;
+  }
+
+  .main-content .user-information .user-followers {
+    padding-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 0.85em;
+    color: rgba(0,0,0,.5)
+  }
+
+  .main-content .user-information .user-followers .num {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.6)
+  }
+
+  /* ---- Interests section styling starts ---- */
+  .sectional-tabs {
+    background-color: #FAFAFA;
+    padding: 0.5em;
+    margin: 0.3em 1em;
+    border-radius: 12px;
+    border: 1px solid #57595b;
+    color: #57595b;
+    font-size: 0.9em;
+    flex-basis: 200px;
+    text-align: center
+  }
+  /* ---- Interests section styling ends ---- */
+
+  /* ---- Main Content styling ends ---- */
+
+
+</style>
+{% endblock %}
+
+{% block jshead %}{% endblock %}
+
+{% block content %}
+<div class="cover-image-container container-fluid ">
+  <div class="cover-image">
+    <img src="https://s3.ap-south-1.amazonaws.com/static3.tagtaste.com/images/p/160/hi/DtMryWkuZy5AApHMAUXIR7bwVfpf27az.jpg"
+    />
+  </div>
+</div>
+<div class="nav-holder">
+  <div class="container-fluid">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="profile-pic">
+            <img src="https://s3.ap-south-1.amazonaws.com/static3.tagtaste.com/images/p/160/YlLSHH0nVMp8djXOpRDj.jpg" />
+          </div>
+        </div>
+        <div class="nav-section col-sm-9">
+          <ul class="nav nav-tabs nav-custom" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="about-tab" data-toggle="tab" href="#about" role="tab" aria-controls="about" aria-selected="false">ABOUT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="projects-tab" data-toggle="tab" href="#projects" role="tab" aria-controls="projects" aria-selected="false">PROJECTS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="organisations-tab" data-toggle="tab" href="#organisations" role="tab" aria-controls="organisations"
+                aria-selected="false">ORGANISATIONS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="interests-tab" data-toggle="tab" href="#interests" role="tab" aria-controls="interests" aria-selected="false">INTERESTS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="activity-tab" data-toggle="tab" href="#activity" role="tab" aria-controls="activity" aria-selected="false">ACTIVITY</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="main-content-container container-fluid">
+  <div class="main-content container">
+    <div class="row">
+      <div class="col-sm-3 left-side-nav">
+        <div class="box-component user-information">
+          <div class="profile-info-view">
+            <h5 class="user-name">Nikhil Arora</h5>
+            <h6 class="user-handle">@niks</h6>
+            <hr class="full-width-hr" />
+            <div class="user-followers">
+              <div class="following">
+                <span class="num">289</span>
+                Following
+              </div>
+              <div class="followers">
+                <span class="num">122</span>
+                Followers
+              </div>
+            </div>
+          </div>
+          <div class="profile-info-edit">
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-9 general-info">
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="about" role="tabpanel" aria-labelledby="about-tab">
+            <div class="box-component">
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <h6>General</h6>
+                  </div>
+                  <div class="col-sm-12 pt-3">
+                    <div class="row">
+                      <div class="col-sm-2">
+                        <h6 class="light-text small-head bold-weight">
+                          About Me
+                        </h6>
+                      </div>
+                      <div class="col-sm-10">
+                        <p class="light-text small-head">
+                          Lorem Ipsum Introduction
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
+                    <div class="row">
+                      <div class="col-sm-2">
+                        <h6 class="light-text small-head bold-weight">
+                          Skills
+                        </h6>
+                      </div>
+                      <div class="col-sm-10">
+                        <p class="light-text small-head">
+                          LOREM, IPSUM
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
+                    <div class="row">
+                      <div class="col-sm-2">
+                        <h6 class="light-text small-head bold-weight">
+                          Languages Spoken
+                        </h6>
+                      </div>
+                      <div class="col-sm-10">
+                        <p class="light-text small-head">
+                          ENGLISH, HINDI
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="projects" role="tabpanel" aria-labelledby="projects-tab">
+            <div class="box-component">
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <h6>Projects</h6>
+                  </div>
+                  <div class="col-sm-12 pt-3">
+                    <div class="row">
+                      <div class="col-sm-2">
+                        <h6 class="light-text small-head bold-weight">
+                          Project #1
+                        </h6>
+                      </div>
+                      <div class="col-sm-10">
+                        <p class="light-text small-head">
+                          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+                          text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
+                          a type specimen book. It has survived not only five centuries, but also the leap into electronic
+                          typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
+                          of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
+                          like Aldus PageMaker including versions of Lorem Ipsum.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
+                    <div class="row">
+                      <div class="col-sm-2">
+                        <h6 class="light-text small-head bold-weight">
+                          Project #2
+                        </h6>
+                      </div>
+                      <div class="col-sm-10">
+                        <p class="light-text small-head">
+                          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+                          text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
+                          a type specimen book. It has survived not only five centuries, but also the leap into electronic
+                          typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
+                          of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
+                          like Aldus PageMaker including versions of Lorem Ipsum.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
+                    <div class="row">
+                      <div class="col-sm-2">
+                        <h6 class="light-text small-head bold-weight">
+                          Project #3
+                        </h6>
+                      </div>
+                      <div class="col-sm-10">
+                        <p class="light-text small-head">
+                          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+                          text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
+                          a type specimen book. It has survived not only five centuries, but also the leap into electronic
+                          typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
+                          of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
+                          like Aldus PageMaker including versions of Lorem Ipsum.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="organisations" role="tabpanel" aria-labelledby="organisations-tab">
+            <div class="box-component">
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <h6>Organisations</h6>
+                  </div>
+                  <div class="col-sm-12 pt-3">
+                    <div class="row d-flex align-items-center">
+                      <div class="col-sm-2">
+                        <img src="https://ngojobskenya.com//wp-content/uploads/2017/03/care-230x300.png" class="organisation-logo" style="height: 130px;"
+                        />
+                      </div>
+                      <div class="col-sm-10">
+                        <p class="light-text small-head">
+                          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+                          text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
+                          a type specimen book. It has survived not only five centuries, but also the leap into electronic
+                          typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
+                          of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
+                          like Aldus PageMaker including versions of Lorem Ipsum.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
+                    <div class="row d-flex align-items-center">
+                      <div class="col-sm-2">
+                        <img src="http://www.kingonet.or.tz/themes/kingonet/assets/images/our-works/developingicon.png" class="organisation-logo"
+                          style="height: 100px;" />
+                        </h6>
+                      </div>
+                      <div class="col-sm-10">
+                        <p class="light-text small-head">
+                          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+                          text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
+                          a type specimen book. It has survived not only five centuries, but also the leap into electronic
+                          typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
+                          of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
+                          like Aldus PageMaker including versions of Lorem Ipsum.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
+                    <div class="row d-flex align-items-center">
+                      <div class="col-sm-2">
+                        <img src="https://cdn4.iconfinder.com/data/icons/need-a-helping-hand/60/praying-hands-256.png" class="organisation-logo"
+                          style="height: 100px;" />
+                      </div>
+                      <div class="col-sm-10">
+                        <p class="light-text small-head">
+                          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+                          text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
+                          a type specimen book. It has survived not only five centuries, but also the leap into electronic
+                          typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
+                          of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
+                          like Aldus PageMaker including versions of Lorem Ipsum.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="interests" role="tabpanel" aria-labelledby="interests-tab">
+            <div class="box-component">
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <h6>Interests</h6>
+                  </div>
+                  <div class="col-sm-12 pt-3">
+                    <div class="row d-flex align-items-center justify-content-flex-start">
+                      <div class="sectional-tabs">Women Empowerment</div>
+                      <div class="sectional-tabs">Child Empowerment</div>
+                      <div class="sectional-tabs">Women Empowerment</div>
+                      <div class="sectional-tabs">Child Empowerment</div>
+                      <div class="sectional-tabs">Women Empowerment</div>
+                      <div class="sectional-tabs">Child Empowerment</div>
+                      <div class="sectional-tabs">Women Empowerment</div>
+                      <div class="sectional-tabs">Child Empowerment</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block jsfooter %} {% endblock %}

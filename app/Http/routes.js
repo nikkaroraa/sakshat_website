@@ -19,11 +19,24 @@ const Route = use('Route')
 
 Route.get('/', 'HomeController.index').as('home')
 
-Route.post('auth/login', 'AuthController.login')
-Route.post('auth/register', 'RegisterController.register')
+Route.get('login', 'HomeController.index')
 
 Route.get('feed', 'FeedController.index').as('feed') // if you are using routes
 
 Route.on('/projects').render('project-ashwin.project-feed') // if you are using simple views
 Route.on('/comments').render('project-ashwin.comments')
 Route.on('/posts').render('project-ashwin.posts')
+Route.post('login', 'AuthController.login')
+Route.post('register', 'RegisterController.register').as('register')
+
+Route.get('logout', 'AuthController.logout').as('logout')
+
+// Secured Routes under Auth Middleware //
+Route.group('secured', function () {
+  Route.resource('profile', 'ProfileController')
+    .only(['index', 'store'])
+
+  Route.resource('feed', 'FeedController')
+    .only(['index', 'store'])
+})
+.middleware('web')
