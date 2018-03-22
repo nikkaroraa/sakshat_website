@@ -27,6 +27,7 @@ Route.on('/projects').render('project-ashwin.project-feed') // if you are using 
 Route.on('/comments').render('project-ashwin.comments')
 Route.on('/posts').render('project-ashwin.posts')
 Route.post('login', 'AuthController.login')
+Route.get('/abc', 'PostsController.index')
 Route.post('register', 'RegisterController.register').as('register')
 
 Route.get('logout', 'AuthController.logout').as('logout')
@@ -38,5 +39,4 @@ Route.group('secured', function () {
 
   Route.resource('feed', 'FeedController')
     .only(['index', 'store'])
-})
-.middleware('web')
+}).middleware('web')
