@@ -3,12 +3,17 @@ const Database = use('Database')
 
 class PostsController {
   * index (request, response) {
-    const john = yield Database
-      .table('projects')
-      .limit(1)
+      const john = yield Database
+        .table('projects')
+        .limit(1)
 
-    response.json(john)
-  }
+      /** rendering view */
+     const dalip = {
+       name : "dalip"
+     } 
+     //response.json(john);
+     yield response.sendView('project-ashwin.posts', {john})
+    }
 }
 
 module.exports = PostsController
