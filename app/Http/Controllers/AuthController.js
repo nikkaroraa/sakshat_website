@@ -23,8 +23,9 @@ class AuthController {
     }
 
     const isLoggedIn = yield request.auth.check()
+
     if (isLoggedIn) {
-      response.route('feed')
+      response.route('profile')
       return
     }
 

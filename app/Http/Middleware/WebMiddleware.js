@@ -6,7 +6,6 @@ class WebMiddleware {
     const cookie = request.cookie('access_token')
     const fingerprint = request.cookie('sakshat')
 
-    console.log(cookie, fingerprint)
     if (cookie == null || fingerprint == null ) {
       response.route('logout')
       return
