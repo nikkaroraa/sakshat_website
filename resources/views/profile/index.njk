@@ -2,7 +2,51 @@
 
 {% block csshead %}
 <style>
+  .cover-image-container,
+  .profile-pic-container {
+    position: relative;
+  }
 
+  .cover-image-controls {
+    position: absolute;
+    left: 42%;
+    top: 42%;
+    color: #FFFFFF;
+    font-size: 1em;
+    background-color: rgba(0, 0, 0, 0.8);
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 0.8em 2em;
+    z-index: 99;
+    cursor: pointer;
+  }
+
+  .cover-image-controls.disabled,
+  .profile-pic-controls.disabled {
+    display: none;
+  }
+
+  .cover-image-controls.active,
+  .profile-pic-controls.active {
+    display: inline-block;
+  }
+
+  .profile-pic-controls {
+    position: absolute;
+    bottom: -20px;
+    color: #e4e1e1;
+    font-size: 0.73em;
+    background-color: rgba(0, 0, 0, 0.2);
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 0.8em 1em;
+    z-index: 99;
+    cursor: pointer;
+  }
 
 </style>
 {% endblock %}
@@ -10,7 +54,12 @@
 {% block jshead %}{% endblock %}
 
 {% block content %}
-<div class="cover-image-container container-fluid ">
+<div class="cover-image-container container-fluid">
+  <div class="cover-image-controls disabled">
+    <span>
+      <i class="far fa-image"></i> &nbsp; Change Cover Image
+    </span>
+  </div>
   <div class="cover-image">
     <img src="https://s3.ap-south-1.amazonaws.com/static3.tagtaste.com/images/p/160/hi/DtMryWkuZy5AApHMAUXIR7bwVfpf27az.jpg"
     />
@@ -20,7 +69,10 @@
   <div class="container-fluid">
     <div class="container">
       <div class="row">
-        <div class="col-sm-3">
+        <div class="col-sm-3 profile-pic-container">
+          <div class="profile-pic-controls disabled">
+            <i class="far fa-image"></i> &nbsp; Change Profile Image
+          </div>
           <div class="profile-pic">
             <img src="https://s3.ap-south-1.amazonaws.com/static3.tagtaste.com/images/p/160/YlLSHH0nVMp8djXOpRDj.jpg" />
           </div>
@@ -293,4 +345,30 @@
 
 {% endblock %}
 
-{% block jsfooter %} {% endblock %}
+{% block jsfooter %}
+  <script>
+    $(function() {
+      $('.cover-image-container').mouseover(function(e) {
+        $(this).find('.cover-image-controls').removeClass('disabled');
+        $(this).find('.cover-image-controls').addClass('active');
+        console.log('hello');
+      })
+
+      $('.cover-image-container').mouseout(function(e) {
+        $(this).find('.cover-image-controls').removeClass('active');
+        $(this).find('.cover-image-controls').addClass('disabled');
+      })
+
+      $('.profile-pic-container').mouseover(function(e) {
+        $(this).find('.profile-pic-controls').removeClass('disabled');
+        $(this).find('.profile-pic-controls').addClass('active');
+        console.log('hello');
+      })
+
+      $('.profile-pic-container').mouseout(function(e) {
+        $(this).find('.profile-pic-controls').removeClass('active');
+        $(this).find('.profile-pic-controls').addClass('disabled');
+      })
+    });
+  </script>
+{% endblock %}

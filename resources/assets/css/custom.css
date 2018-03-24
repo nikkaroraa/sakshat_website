@@ -95,7 +95,7 @@ a:hover {
 /* -- Navigation Bar styling starts -- */
 nav.navbar {
   box-shadow: 0 0 8px #999;
-  z-index: 99;
+  z-index: 9999;
 }
 
 ul.navbar-nav .nav-item.nav-icons {
