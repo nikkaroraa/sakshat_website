@@ -4,6 +4,9 @@ node_modules
 # Ignoring everything inside storage directory
 storage/*
 
+# Ignoring everything inside public/img/storage directory
+public/img/storage/*
+
 # Keeping storage directory
 !storage/.gitkeep
 
