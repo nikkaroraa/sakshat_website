@@ -23,13 +23,13 @@
     cursor: pointer;
   }
 
-  .cover-image-controls.disabled,
-  .profile-pic-controls.disabled {
+  .cover-image-controls.disabled-customised,
+  .profile-pic-controls.disabled-customised {
     display: none;
   }
 
-  .cover-image-controls.active,
-  .profile-pic-controls.active {
+  .cover-image-controls.active-customised,
+  .profile-pic-controls.active-customised {
     display: inline-block;
   }
 
@@ -48,6 +48,48 @@
     cursor: pointer;
   }
 
+  [contenteditable] {
+    outline: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 5px 10px;
+  }
+
+  .active-customised {
+    display: inline-block!important;
+  }
+
+  .disabled-customised {
+    display: none!important;
+  }
+
+  .profile-pic img {
+    display: block;
+    height: 178px;
+    width: 178px;
+    margin: 0px 0px 10px -14px !important;
+    border-radius: 5px;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+    position: absolute;
+    bottom: -8px;
+    left: 16px;
+    -o-object-fit: scale-down;
+    object-fit: scale-down;
+    z-index: 50;
+    background: #FFFFFF;
+    cursor: pointer;
+  }
+
+  .organisation-image img{
+    display: block;
+    height: 130px;
+    width: 120px;
+    margin: 0px 0px 10px -14px !important;
+    -o-object-fit: scale-down;
+    object-fit: scale-down;
+    z-index: 50;
+    background: #FFFFFF;
+    cursor: pointer;
+  }
 </style>
 {% endblock %}
 
@@ -55,14 +97,20 @@
 
 {% block content %}
 <div class="cover-image-container container-fluid">
-  <div class="cover-image-controls disabled">
+  <div class="cover-image-controls disabled-customised">
     <span>
       <i class="far fa-image"></i> &nbsp; Change Cover Image
     </span>
   </div>
+
   <div class="cover-image">
-    <img src="https://s3.ap-south-1.amazonaws.com/static3.tagtaste.com/images/p/160/hi/DtMryWkuZy5AApHMAUXIR7bwVfpf27az.jpg"
+    {% if user.cover_image %}
+      <img src="{{ user.cover_image }}" />
     />
+    {% else %}
+      <img src="{{ url('/') }}img/defaults/default-cover.jpg"
+    />
+    {% endif %}
   </div>
 </div>
 <div class="nav-holder">
@@ -70,11 +118,15 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-3 profile-pic-container">
-          <div class="profile-pic-controls disabled">
+          <div class="profile-pic-controls disabled-customised">
             <i class="far fa-image"></i> &nbsp; Change Profile Image
           </div>
           <div class="profile-pic">
-            <img src="https://s3.ap-south-1.amazonaws.com/static3.tagtaste.com/images/p/160/YlLSHH0nVMp8djXOpRDj.jpg" />
+          {% if user.profile_image %}
+            <img src="{{ user.profile_image }}" />
+          {% else %}
+            <img src="{{ url('/') }}img/defaults/default-profile.png" />
+          {% endif %}
           </div>
         </div>
         <div class="nav-section col-sm-9">
@@ -92,9 +144,6 @@
             <li class="nav-item">
               <a class="nav-link" id="interests-tab" data-toggle="tab" href="#interests" role="tab" aria-controls="interests" aria-selected="false">INTERESTS</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" id="activity-tab" data-toggle="tab" href="#activity" role="tab" aria-controls="activity" aria-selected="false">ACTIVITY</a>
-            </li>
           </ul>
         </div>
       </div>
@@ -107,8 +156,8 @@
       <div class="col-sm-3 left-side-nav">
         <div class="box-component user-information">
           <div class="profile-info-view">
-            <h5 class="user-name">Nikhil Arora</h5>
-            <h6 class="user-handle">@niks</h6>
+            <h5 class="user-name">{{ user.name }}</h5>
+            <h6 class="user-handle">@{{ user.username }}</h6>
             <hr class="full-width-hr" />
             <div class="user-followers">
               <div class="following">
@@ -131,10 +180,31 @@
             <div class="box-component">
               <div class="container">
                 <div class="row">
-                  <div class="col-sm-12">
-                    <h6>General</h6>
+                  <div class="col-sm-12 d-flex justify-content-between align-items-center">
+                    <div>
+                      <h6>General</h6>
+                    </div>
+                    <div>
+                      <button class="button button-customised active-customised" id="edit-about">Edit</button>
+                      <button class="button button-customised disabled-customised" id="save-about">Save</button>
+                    </div>
                   </div>
+
                   <div class="col-sm-12 pt-3">
+                    <div class="row">
+                      <div class="col-sm-2">
+                        <h6 class="light-text small-head bold-weight">
+                          Name
+                        </h6>
+                      </div>
+                      <div class="col-sm-10">
+                        <p class="light-text small-head editableContent" id="name_input">
+                          {{ user.name }}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
                     <div class="row">
                       <div class="col-sm-2">
                         <h6 class="light-text small-head bold-weight">
@@ -142,8 +212,8 @@
                         </h6>
                       </div>
                       <div class="col-sm-10">
-                        <p class="light-text small-head">
-                          Lorem Ipsum Introduction
+                        <p class="light-text small-head editableContent" id="about_input">
+                          {{ user.about }}
                         </p>
                       </div>
                     </div>
@@ -156,8 +226,8 @@
                         </h6>
                       </div>
                       <div class="col-sm-10">
-                        <p class="light-text small-head">
-                          LOREM, IPSUM
+                        <p class="light-text small-head editableContent" id="skills_input">
+                          {{ user.skills }}
                         </p>
                       </div>
                     </div>
@@ -170,11 +240,20 @@
                         </h6>
                       </div>
                       <div class="col-sm-10">
-                        <p class="light-text small-head">
-                          ENGLISH, HINDI
+                        <p class="light-text small-head editableContent" id="languages_input">
+                          {{ user.languages }}
                         </p>
                       </div>
                     </div>
+                  </div>
+
+                  <div class="disabled-customised">
+                    <form id="profile_about_form" action="" method="POST">
+                      <input type="hidden" name="name" id="name_form_field">
+                      <input type="hidden" name="about" id="about_form_field">
+                      <input type="hidden" name="skills" id="skills_form_field">
+                      <input type="hidden" name="languages" id="languages_form_field">
+                    </form>
                   </div>
                 </div>
               </div>
@@ -187,62 +266,24 @@
                   <div class="col-sm-12">
                     <h6>Projects</h6>
                   </div>
-                  <div class="col-sm-12 pt-3">
-                    <div class="row">
-                      <div class="col-sm-2">
-                        <h6 class="light-text small-head bold-weight">
-                          Project #1
-                        </h6>
-                      </div>
-                      <div class="col-sm-10">
-                        <p class="light-text small-head">
-                          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
-                          text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
-                          a type specimen book. It has survived not only five centuries, but also the leap into electronic
-                          typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
-                          of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
-                          like Aldus PageMaker including versions of Lorem Ipsum.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-12">
-                    <div class="row">
-                      <div class="col-sm-2">
-                        <h6 class="light-text small-head bold-weight">
-                          Project #2
-                        </h6>
-                      </div>
-                      <div class="col-sm-10">
-                        <p class="light-text small-head">
-                          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
-                          text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
-                          a type specimen book. It has survived not only five centuries, but also the leap into electronic
-                          typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
-                          of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
-                          like Aldus PageMaker including versions of Lorem Ipsum.
-                        </p>
+                  <div class="pt-3">
+                  {% for project in projects %}
+                    <div class="col-sm-12">
+                      <div class="row">
+                        <div class="col-sm-2">
+                          <h6 class="light-text small-head bold-weight">
+                            Project #{{ loop.index }}
+                          </h6>
+                        </div>
+                        <div class="col-sm-10">
+                          <h6><a href="{{ url('/') }}projects/{{project.id}}">{{ project.name }}</a></h6>
+                          <p class="light-text small-head">
+                            {{ project.description }}
+                          </p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="col-sm-12">
-                    <div class="row">
-                      <div class="col-sm-2">
-                        <h6 class="light-text small-head bold-weight">
-                          Project #3
-                        </h6>
-                      </div>
-                      <div class="col-sm-10">
-                        <p class="light-text small-head">
-                          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
-                          text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
-                          a type specimen book. It has survived not only five centuries, but also the leap into electronic
-                          typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
-                          of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
-                          like Aldus PageMaker including versions of Lorem Ipsum.
-                        </p>
-                      </div>
-                    </div>
+                  {% endfor %}
                   </div>
                 </div>
               </div>
@@ -255,60 +296,26 @@
                   <div class="col-sm-12">
                     <h6>Organisations</h6>
                   </div>
-                  <div class="col-sm-12 pt-3">
-                    <div class="row d-flex align-items-center">
-                      <div class="col-sm-2">
-                        <img src="https://ngojobskenya.com//wp-content/uploads/2017/03/care-230x300.png" class="organisation-logo" style="height: 130px;"
-                        />
-                      </div>
-                      <div class="col-sm-10">
-                        <p class="light-text small-head">
-                          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
-                          text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
-                          a type specimen book. It has survived not only five centuries, but also the leap into electronic
-                          typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
-                          of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
-                          like Aldus PageMaker including versions of Lorem Ipsum.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-12">
-                    <div class="row d-flex align-items-center">
-                      <div class="col-sm-2">
-                        <img src="http://www.kingonet.or.tz/themes/kingonet/assets/images/our-works/developingicon.png" class="organisation-logo"
-                          style="height: 100px;" />
-                        </h6>
-                      </div>
-                      <div class="col-sm-10">
-                        <p class="light-text small-head">
-                          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
-                          text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
-                          a type specimen book. It has survived not only five centuries, but also the leap into electronic
-                          typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
-                          of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
-                          like Aldus PageMaker including versions of Lorem Ipsum.
-                        </p>
+                  <div class="pt-3">
+                  {% for organisation in organisations %}
+                    <div class="col-sm-12">
+                      <div class="row d-flex align-items-center">
+                        <div class="col-sm-2 organisation-image">
+                          {% if organisation.image %}
+                          <img src="{{ organisation.image }}" class="organisation-logo" alt="{{ organisation.name }}"/>
+                          {% else %}
+                          <img src="{{ url('/') }}img/defaults/default-organisation.png" class="organisation-logo" alt="{{ organisation.name }}" />
+                          {% endif %}
+                        </div>
+                        <div class="col-sm-10">
+                          <h6><a href="{{ url('/') }}organisations/{{organisation.id}}">{{ organisation.name }}</a></h6>
+                          <p class="light-text small-head">
+                           {{ organisation.description }}
+                          </p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="col-sm-12">
-                    <div class="row d-flex align-items-center">
-                      <div class="col-sm-2">
-                        <img src="https://cdn4.iconfinder.com/data/icons/need-a-helping-hand/60/praying-hands-256.png" class="organisation-logo"
-                          style="height: 100px;" />
-                      </div>
-                      <div class="col-sm-10">
-                        <p class="light-text small-head">
-                          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
-                          text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
-                          a type specimen book. It has survived not only five centuries, but also the leap into electronic
-                          typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
-                          of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
-                          like Aldus PageMaker including versions of Lorem Ipsum.
-                        </p>
-                      </div>
-                    </div>
+                  {% endfor %}
                   </div>
                 </div>
               </div>
@@ -323,14 +330,9 @@
                   </div>
                   <div class="col-sm-12 pt-3">
                     <div class="row d-flex align-items-center justify-content-flex-start">
-                      <div class="sectional-tabs">Women Empowerment</div>
-                      <div class="sectional-tabs">Child Empowerment</div>
-                      <div class="sectional-tabs">Women Empowerment</div>
-                      <div class="sectional-tabs">Child Empowerment</div>
-                      <div class="sectional-tabs">Women Empowerment</div>
-                      <div class="sectional-tabs">Child Empowerment</div>
-                      <div class="sectional-tabs">Women Empowerment</div>
-                      <div class="sectional-tabs">Child Empowerment</div>
+                      {% for interest in interests %}
+                      <div class="sectional-tabs">{{ interest }}</div>
+                      {% endfor %}
                     </div>
                   </div>
                 </div>
@@ -348,27 +350,106 @@
 {% block jsfooter %}
   <script>
     $(function() {
+
+      /* Image Change Buttons */
       $('.cover-image-container').mouseover(function(e) {
-        $(this).find('.cover-image-controls').removeClass('disabled');
-        $(this).find('.cover-image-controls').addClass('active');
-        console.log('hello');
+        $(this).find('.cover-image-controls').removeClass('disabled-customised');
+        $(this).find('.cover-image-controls').addClass('active-customised');
       })
 
       $('.cover-image-container').mouseout(function(e) {
-        $(this).find('.cover-image-controls').removeClass('active');
-        $(this).find('.cover-image-controls').addClass('disabled');
+        $(this).find('.cover-image-controls').removeClass('active-customised');
+        $(this).find('.cover-image-controls').addClass('disabled-customised');
       })
 
       $('.profile-pic-container').mouseover(function(e) {
-        $(this).find('.profile-pic-controls').removeClass('disabled');
-        $(this).find('.profile-pic-controls').addClass('active');
-        console.log('hello');
+        $(this).find('.profile-pic-controls').removeClass('disabled-customised');
+        $(this).find('.profile-pic-controls').addClass('active-customised');
       })
 
       $('.profile-pic-container').mouseout(function(e) {
-        $(this).find('.profile-pic-controls').removeClass('active');
-        $(this).find('.profile-pic-controls').addClass('disabled');
+        $(this).find('.profile-pic-controls').removeClass('active-customised');
+        $(this).find('.profile-pic-controls').addClass('disabled-customised');
       })
+
+      $('#edit-about').on('click', function(e) {
+        let editableElements = $('.editableContent');
+        let editButton = $(this);
+        let saveButton = $('#save-about');
+
+        let val = editableElements.attr('contenteditable');
+        if(!val) {
+          editableElements.attr('contenteditable', 'true');
+
+
+        } else {
+          editableElements.removeAttr('contenteditable');
+        }
+
+        saveButton.toggleClass('disabled-customised');
+        saveButton.toggleClass('active-customised');
+        editButton.toggleClass('active-customised');
+        editButton.toggleClass('disabled-customised');
+
+      })
+
+      $('#save-about').on('click', function(e) {
+        let editableElements = $('.editableContent');
+        let saveButton = $(this);
+        let editButton = $('#edit-about');
+        let about_form = $('#profile_about_form');
+
+        let nameFieldVal = $('#name_form_field').val();
+        let aboutFieldVal = $('#about_form_field').val();
+        let skillsFieldVal = $('#skills_form_field').val();
+        let languagesFieldVal = $('#languages_form_field').val();
+
+        let val = editableElements.attr('contenteditable');
+        if(!val) {
+          editableElements.attr('contenteditable', 'true');
+        } else {
+          editableElements.removeAttr('contenteditable');
+
+          $.post("{{ url('/') }}profile/about",
+          {
+            name: nameFieldVal,
+            about: aboutFieldVal,
+            skills: skillsFieldVal,
+            languages: languagesFieldVal
+          }, function (data, status) {
+            if (status) {
+              toastr["success"]('Successfully updated!')
+              setTimeout(function() {
+                location.reload()
+              }, 2000)
+            } else {
+              toastr["error"]('Error sending request!')
+            }
+          })
+        }
+
+        editButton.toggleClass('disabled-customised');
+        editButton.toggleClass('active-customised');
+        saveButton.toggleClass('active-customised');
+        saveButton.toggleClass('disabled-customised');
+      })
+       /*  */
+      $('.editableContent').bind("DOMSubtreeModified",function(){
+        let name = $('#name_input').text().trim();
+        let about = $('#about_input').text().trim();
+        let skills = $('#skills_input').text().trim();
+        let languages = $('#languages_input').text().trim();
+
+        let nameField = $('#name_form_field');
+        let aboutField = $('#about_form_field');
+        let skillsField = $('#skills_form_field');
+        let languagesField = $('#languages_form_field');
+
+        nameField.val(name);
+        aboutField.val(about);
+        skillsField.val(skills);
+        languagesField.val(languages);
+      });
     });
   </script>
 {% endblock %}

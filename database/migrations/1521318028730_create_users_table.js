@@ -22,6 +22,7 @@ class UsersTableSchema extends Schema {
       table.text('about').nullable()
       table.string('skills').nullable()
       table.string('languages').nullable()
+      table.text('interests').nullable()
       table.timestamps()
     })
   }

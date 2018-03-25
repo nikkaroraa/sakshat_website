@@ -32,7 +32,11 @@
         <i class="fas fa-bell"></i>
       </li>
       <li class="nav-item nav-icons nav-profile">
-        <img src="https://s3.ap-south-1.amazonaws.com/static3.tagtaste.com/images/p/160/YlLSHH0nVMp8djXOpRDj.jpg" />
+        {% if user.profile_image %}
+          <img src="{{ user.profile_image }}" />
+        {% else %}
+          <img src="{{ url('/') }}img/defaults/default-profile.png" />
+        {% endif %}
       </li>
     </ul>
   </div>

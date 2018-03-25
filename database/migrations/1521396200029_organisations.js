@@ -11,6 +11,7 @@ class OrganisationsTableSchema extends Schema {
       table.float('credibility_score').defaultTo(0)
       table.string('website').nullable()
       table.text('description').nullable()
+      table.string('image').nullable()
       table.timestamps()
     })
   }

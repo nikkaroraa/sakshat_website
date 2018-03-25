@@ -44,9 +44,8 @@
     <!--  Custom JavaScript  -->
     <script src="{{ url('/') }}js/custom.js"></script>
 
-
-
     <script type="text/javascript">
+
       {% for key, message in flashMessages %}
           if ('{{ key }}' === 'success') {
             toastr["success"]("{{ message }}")

@@ -57,7 +57,6 @@
       </div>
       <div class="modal-body">
         <form id="loginForm" action="{{ url('/') }}login" method="post">
-          {{ csrfField }}
           <input type="hidden" name="client_secret" id="login_client_secret" value="">
           <div class="form-group">
             <label for="email">Email address</label>
@@ -88,7 +87,6 @@
       </div>
       <div class="modal-body">
         <form id="registerForm" action="{{ url('/') }}register" method="post">
-          {{ csrfField }}
           <input type="hidden" name="client_secret" id="register_client_secret" value="">
           <div class="form-group">
             <label for="email">Email address</label>

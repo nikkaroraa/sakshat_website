@@ -36,6 +36,9 @@ Route.get('logout', 'AuthController.logout').as('logout')
 Route.group('secured', function () {
   Route.resource('profile', 'ProfileController')
     .only(['index', 'store'])
+    .addCollection('about', 'POST', (collection) => {
+      collection.bindAction('ProfileController.editAbout')
+    })
 
   Route.resource('feed', 'FeedController')
     .only(['index', 'store'])
