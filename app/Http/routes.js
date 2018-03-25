@@ -39,6 +39,12 @@ Route.group('secured', function () {
     .addCollection('about', 'POST', (collection) => {
       collection.bindAction('ProfileController.editAbout')
     })
+    .addCollection('updateCoverImage', 'POST', (collection) => {
+      collection.bindAction('ProfileController.updateCoverImage')
+    })
+    .addCollection('updateProfileImage', 'POST', (collection) => {
+      collection.bindAction('ProfileController.updateProfileImage')
+    })
 
   Route.resource('feed', 'FeedController')
     .only(['index', 'store'])

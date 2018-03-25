@@ -62,34 +62,7 @@
     display: none!important;
   }
 
-  .profile-pic img {
-    display: block;
-    height: 178px;
-    width: 178px;
-    margin: 0px 0px 10px -14px !important;
-    border-radius: 5px;
-    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
-    position: absolute;
-    bottom: -8px;
-    left: 16px;
-    -o-object-fit: scale-down;
-    object-fit: scale-down;
-    z-index: 50;
-    background: #FFFFFF;
-    cursor: pointer;
-  }
 
-  .organisation-image img{
-    display: block;
-    height: 130px;
-    width: 120px;
-    margin: 0px 0px 10px -14px !important;
-    -o-object-fit: scale-down;
-    object-fit: scale-down;
-    z-index: 50;
-    background: #FFFFFF;
-    cursor: pointer;
-  }
 </style>
 {% endblock %}
 
@@ -98,18 +71,19 @@
 {% block content %}
 <div class="cover-image-container container-fluid">
   <div class="cover-image-controls disabled-customised">
-    <span>
+    <span id="coverImagePlaceholder">
       <i class="far fa-image"></i> &nbsp; Change Cover Image
     </span>
+    <form class="disabled-customised" id="coverImageForm" method="post" action="{{ url('/') }}profile/updateCoverImage" enctype="multipart/form-data">
+      <input type="file" name="cover_image" id="cover_image_input" accept="image/*"/>
+    </form>
   </div>
 
   <div class="cover-image">
     {% if user.cover_image %}
       <img src="{{ user.cover_image }}" />
-    />
     {% else %}
-      <img src="{{ url('/') }}img/defaults/default-cover.jpg"
-    />
+      <img src="{{ url('/') }}img/defaults/default-cover.jpg" />
     {% endif %}
   </div>
 </div>
@@ -119,7 +93,12 @@
       <div class="row">
         <div class="col-sm-3 profile-pic-container">
           <div class="profile-pic-controls disabled-customised">
-            <i class="far fa-image"></i> &nbsp; Change Profile Image
+            <span id="profileImagePlaceholder">
+              <i class="far fa-image"></i> &nbsp; Change Profile Image
+            </span>
+            <form class="disabled-customised" id="profileImageForm" method="post" action="{{ url('/') }}profile/updateProfileImage" enctype="multipart/form-data">
+              <input type="file" name="profile_image" id="profile_image_input" accept="image/*"/>
+            </form>
           </div>
           <div class="profile-pic">
           {% if user.profile_image %}
@@ -450,6 +429,22 @@
         skillsField.val(skills);
         languagesField.val(languages);
       });
+
+      $('#coverImagePlaceholder').on('click', function(e) {
+        $('#cover_image_input').click();
+      })
+
+      $('#cover_image_input').change(function(e) {
+        $('#coverImageForm').submit();
+      })
+
+      $('#profileImagePlaceholder').on('click', function(e) {
+        $('#profile_image_input').click();
+      })
+
+      $('#profile_image_input').change(function(e) {
+        $('#profileImageForm').submit();
+      })
     });
   </script>
 {% endblock %}

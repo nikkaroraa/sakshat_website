@@ -155,6 +155,35 @@ ul.navbar-nav .nav-item.nav-icons.nav-profile img {
           transform: translate(-50%,-50%);
 }
 
+.profile-pic img {
+  display: block;
+  height: 178px;
+  width: 178px;
+  margin: 0px 0px 10px -14px !important;
+  border-radius: 5px;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+  position: absolute;
+  bottom: -8px;
+  left: 16px;
+  -o-object-fit: scale-down;
+  object-fit: scale-down;
+  z-index: 50;
+  background: #FFFFFF;
+  cursor: pointer;
+}
+
+.organisation-image img{
+  display: block;
+  height: 130px;
+  width: 120px;
+  margin: 0px 0px 10px -14px !important;
+  -o-object-fit: scale-down;
+  object-fit: scale-down;
+  z-index: 50;
+  background: #FFFFFF;
+  cursor: pointer;
+}
+
 .button.button-customised {
   padding: 6px 30px;
   border-radius: 0 0 4px 0;
