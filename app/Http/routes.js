@@ -31,6 +31,12 @@ Route.get('/abc', 'PostsController.index')
 Route.post('register', 'RegisterController.register').as('register')
 
 Route.get('logout', 'AuthController.logout').as('logout')
+//facebook login
+Route.get('facebookLogin', 'AuthController.redirect')
+Route.get('facebookAuthenticated', 'AuthController.handleCallback')
+Route.get('test-url', 'AuthController.testUrl')
+
+
 
 // Secured Routes under Auth Middleware //
 Route.group('secured', function () {

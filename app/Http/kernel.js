@@ -17,7 +17,8 @@ const globalMiddleware = [
   'Adonis/Middleware/Shield',
   'Adonis/Middleware/Flash',
   'Adonis/Middleware/AuthInit',
-  'App/Http/Middleware/Helper'
+  'App/Http/Middleware/Helper',
+  'Adonis/Middleware/Ally'
 ]
 
 /*
