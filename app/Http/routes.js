@@ -57,7 +57,12 @@ Route.group('secured', function () {
     .addCollection('add', 'POST', (collection) => {
       collection.bindAction('FeedController.addPost')
     })
-
+    //project detail
+    Route.resource('project','ProjectController')
+      .only(['index','store'])
+      .addCollection(':id', 'GET', (collection) => {
+        collection.bindAction('ProjectController.viewProject')
+      });
   Route.resource('comments', 'CommentController')
     .only([])
     .addCollection('postComments/add', 'POST', (collection) => {

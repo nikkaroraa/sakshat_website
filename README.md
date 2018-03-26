@@ -32,6 +32,8 @@ npm run watch
 ```
 
 > After the above steps, open your browser and navigate to http://localhost:4040/ to view the project.
+### Bugs
+1. project index styling 
 
 
 ## [AdonisJS Framework Documentation](https://adonisjs.com/docs/3.2/overview)
