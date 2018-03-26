@@ -1,0 +1,399 @@
+/* ---- General styling starts ---- */
+:root {
+  --theme-color: #D81B60;
+  --grayish: #626c6d;
+}
+
+html, body {
+  font-family: 'Lato', sans-serif;
+}
+
+nav.navbar {
+  -webkit-box-shadow: 0 0 8px #999;
+  -moz-box-shadow: 0 0 8px #999;
+  box-shadow: 0 0 8px #999;
+  background-color: #fff;
+}
+
+nav.navbar .navbar-brand {
+  font-family: 'Montserrat', sans-serif;
+}
+
+nav a {
+  color:#4A4A4A;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+}
+
+.light-text {
+  color: rgba(0,0,0,.8)
+}
+
+.gray-text {
+  color: rgba(0,0,0,.6)
+}
+
+.small-head {
+  font-size: 0.8em;
+}
+
+.line-height-mid {
+  line-height: 1.35em;
+}
+
+.large-head {
+  font-size: 1.2em;
+}
+
+.bold-weight {
+  font-weight: 600;
+}
+
+.light-border {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.light-border-right {
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 0;
+  border-bottom: 0;
+  border-left: 0
+}
+
+.radius-5 {
+  border-radius: 5px
+}
+
+a:hover {
+  color: var(--theme-color);
+  text-decoration: none;
+}
+
+.box-component {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 15px
+}
+
+.active-customised {
+  display: inline-block!important;
+}
+
+.disabled-customised {
+  display: none!important;
+}
+
+
+
+.text-decoration-none {
+  text-decoration: none
+}
+
+.theme-color {
+  color: var(--theme-color)
+}
+
+.gray-color {
+  color: var(--grayish)
+}
+
+/* -- Navigation Bar styling starts -- */
+nav.navbar {
+  box-shadow: 0 0 8px #999;
+  z-index: 9999;
+}
+
+ul.navbar-nav .nav-item.nav-icons {
+  margin: auto 10px
+}
+
+ul.navbar-nav .nav-item.nav-icons.nav-profile img {
+  height: 40px;
+  border-radius: 50%;
+}
+/* -- Navigation Bar styling ends -- */
+
+/* ---- General styling ends ---- */
+
+
+/* ---- Search Icon inside Search bar styling starts ---- */
+.inner-addon {
+  position: relative;
+}
+
+/* style icon */
+.inner-addon span {
+  position: absolute;
+  padding: 7px 10px;
+  pointer-events: none;
+  color: #a9a9a9;
+}
+
+/* align icon */
+.left-addon span  { left:  0px;}
+.right-addon span { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+/* ---- Search Icon inside Search bar styling ends ---- */
+
+
+/* ---- Cover Image styling starts ---- */
+.cover-image-container {
+  padding: 0;
+}
+.cover-image {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+.cover-image img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  height: auto;
+  -webkit-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
+}
+
+.profile-pic img {
+  display: block;
+  height: 178px;
+  width: 178px;
+  margin: 0px 0px 10px -14px !important;
+  border-radius: 5px;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+  position: absolute;
+  bottom: -8px;
+  left: 16px;
+  -o-object-fit: scale-down;
+  object-fit: scale-down;
+  z-index: 50;
+  background: #FFFFFF;
+  cursor: pointer;
+}
+
+.organisation-image img{
+  display: block;
+  height: 130px;
+  width: 120px;
+  margin: 0px 0px 10px -14px !important;
+  -o-object-fit: scale-down;
+  object-fit: scale-down;
+  z-index: 50;
+  background: #FFFFFF;
+  cursor: pointer;
+}
+
+.button.button-customised {
+  padding: 6px 30px;
+  border-radius: 0 0 4px 0;
+  background-color: var(--theme-color);
+  color: #FFFFFF;
+  line-height: 21px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+/* ---- Cover Image styling ends ---- */
+
+
+/* ---- Nav Tabs styling starts ---- */
+.nav-holder {
+  background-color: #FFFFFF;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
+  width: 100vw;
+}
+
+.nav-holder .container-fluid {
+  padding-left: 0px;
+  padding-right: 0px;
+  margin: 5px 0px;
+}
+
+.nav-holder .container {
+  width: 1050px;
+}
+
+.nav-holder .profile-pic {
+  position: absolute;
+  top: -120px;
+  width: 180px;
+  height: 180px;
+  background: #FFFFFF;
+}
+
+.nav-holder .profile-pic img {
+  border-radius: 5px;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.nav.nav-tabs.nav-custom .nav-link.active {
+  border: 0;
+  border-bottom: 2px solid var(--theme-color);
+  color: var(--theme-color)
+}
+
+.nav.nav-tabs.nav-custom .nav-link {
+  color: rgba(0,0,0,.5);
+  border-bottom: 0;
+}
+/* ---- Nav Tabs styling ends ---- */
+
+
+/* ---- Main Content styling starts ---- */
+.main-content-container {
+  background-color: #FAFAFA;
+  min-height: 80vh;
+}
+
+.main-content {
+  width: 1050px;
+  padding-top: 50px
+}
+
+.user-information {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 15px
+}
+
+.main-content .user-information h5.user-name {
+  margin-bottom: 0;
+  color: var(--theme-color);
+}
+
+.main-content .user-information h6.user-handle {
+  margin-bottom: 15px;
+  color: rgba(0,0,0,.5);
+  font-size: 0.8em
+}
+
+.main-content .user-information hr.full-width-hr {
+  margin: 0 -15px;
+}
+
+.main-content .user-information .user-followers {
+  padding-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 0.85em;
+  color: rgba(0,0,0,.5)
+}
+
+.main-content .user-information .user-followers .num {
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.6)
+}
+
+
+/* -- Interests section styling starts -- */
+.sectional-tabs {
+  background-color: #FAFAFA;
+  padding: 0.5em;
+  margin: 0.3em 1em;
+  border-radius: 12px;
+  border: 1px solid #57595b;
+  color: #57595b;
+  font-size: 0.9em;
+  flex-basis: 200px;
+  text-align: center
+}
+/* -- Interests section styling ends -- */
+
+/* ---- Main Content styling ends ---- */
+
+
+/* ---- Fancy button styling ends ---- */
+.button.fancy-button {
+  --offset: 10px;
+  --border-size: 2px;
+  display: block;
+  position: relative;
+  padding: 1.5em 3em;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: 0;
+  background: transparent;
+  color: #e55743;
+  text-transform: uppercase;
+  letter-spacing: .25em;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 0;
+  -webkit-box-shadow: inset 0 0 0 var(--border-size) currentcolor;
+          box-shadow: inset 0 0 0 var(--border-size) currentcolor;
+  -webkit-transition: background .8s ease;
+  transition: background .8s ease;
+}
+.button.fancy-button:hover {
+  background: rgba(100, 0, 0, 0.03);
+}
+.button.fancy-button .button__horizontal, .button.fancy-button .button__vertical {
+  position: absolute;
+  top: var(--horizontal-offset, 0);
+  right: var(--vertical-offset, 0);
+  bottom: var(--horizontal-offset, 0);
+  left: var(--vertical-offset, 0);
+  -webkit-transition: -webkit-transform .8s ease;
+  transition: -webkit-transform .8s ease;
+  transition: transform .8s ease;
+  transition: transform .8s ease, -webkit-transform .8s ease;
+  will-change: transform;
+}
+.button.fancy-button .button__horizontal::before, .button.fancy-button .button__vertical::before {
+  content: '';
+  position: absolute;
+  border: inherit;
+}
+.button.fancy-button .button__horizontal {
+  --vertical-offset: calc(var(--offset) * -1);
+  border-top: var(--border-size) solid currentcolor;
+  border-bottom: var(--border-size) solid currentcolor;
+}
+.button.fancy-button .button__horizontal::before {
+  top: calc(var(--vertical-offset) - var(--border-size));
+  bottom: calc(var(--vertical-offset) - var(--border-size));
+  left: calc(var(--vertical-offset) * -1);
+  right: calc(var(--vertical-offset) * -1);
+}
+.button.fancy-button:hover .button__horizontal {
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+}
+.button.fancy-button .button__vertical {
+  --horizontal-offset: calc(var(--offset) * -1);
+  border-left: var(--border-size) solid currentcolor;
+  border-right: var(--border-size) solid currentcolor;
+}
+.button.fancy-button .button__vertical::before {
+  top: calc(var(--horizontal-offset) * -1);
+  bottom: calc(var(--horizontal-offset) * -1);
+  left: calc(var(--horizontal-offset) - var(--border-size));
+  right: calc(var(--horizontal-offset) - var(--border-size));
+}
+.button.fancy-button:hover .button__vertical {
+  -webkit-transform: scaleY(0);
+          transform: scaleY(0);
+}
+
+/* ---- Fancy button styling ends ---- */
+
+/* ---- Fixed sidebar styling starts ---- */
+.fixed-sidebar {
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  overflow-x: hidden
+}
+/* ---- Fixed sidebar styling ends ---- */
