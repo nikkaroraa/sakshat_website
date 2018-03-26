@@ -3,7 +3,11 @@
 {% block csshead %}
 <style>
   .wrapper-container {
-    margin-top: 30vh;
+    margin-top: 40vh;
+  }
+
+  .navbar-brand {
+    margin-right: 0
   }
 
   .wrapper-container .heading-wrapper {
@@ -13,120 +17,257 @@
   .wrapper-container .content-wrapper {
 
   }
+
+  .background-home {
+    background-position: center !important;
+    background-size: cover !important;
+    display: block;
+    height: 80vh;
+    position: relative;
+    border-radius: 5px 5px 0 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.44) 0%, transparent 100%);
+  }
+
+  .home-form {
+    flex: 1
+  }
+
+  .form-width-80 {
+    width: 80%
+  }
+
+  /* Shared */
+  .loginBtn a {
+    color: #FFF;
+  }
+  .loginBtn {
+    box-sizing: border-box;
+    position: relative;
+    /* width: 13em;  - apply for fixed size */
+    margin: 0.2em;
+    padding: 0 15px 0 46px;
+    border: none;
+    text-align: left;
+    line-height: 34px;
+    white-space: nowrap;
+    border-radius: 0.2em;
+    font-size: 16px;
+    color: #FFF!important;
+  }
+  .loginBtn:before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 34px;
+    height: 100%;
+  }
+  .loginBtn:focus {
+    outline: none;
+  }
+  .loginBtn:active {
+    box-shadow: inset 0 0 0 32px rgba(0,0,0,0.1);
+  }
+
+
+  /* Facebook */
+  .loginBtn--facebook {
+    background-color: #4C69BA;
+    background-image: linear-gradient(#4C69BA, #3B55A0);
+    /*font-family: "Helvetica neue", Helvetica Neue, Helvetica, Arial, sans-serif;*/
+    text-shadow: 0 -1px 0 #354C8C;
+  }
+  .loginBtn--facebook:before {
+    border-right: #364e92 1px solid;
+    background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/14082/icon_facebook.png') 6px 6px no-repeat;
+  }
+  .loginBtn--facebook:hover,
+  .loginBtn--facebook:focus {
+    background-color: #5B7BD5;
+    background-image: linear-gradient(#5B7BD5, #4864B1);
+  }
+
+  /*Checkboxes styles*/
+  input[type="checkbox"] { display: none; }
+
+  input[type="checkbox"] + label {
+    display: block;
+    position: relative;
+    padding-left: 2.2em;
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 1em;
+    color: var(--theme-color)
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+
+  input[type="checkbox"] + label:last-child { margin-bottom: 0; }
+
+  input[type="checkbox"] + label:before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid var(--theme-color);
+    position: absolute;
+    left: 6em;
+    top: 0;
+    opacity: .6;
+    -webkit-transition: all .12s, border-color .08s;
+    transition: all .12s, border-color .08s;
+  }
+
+  input[type="checkbox"]:checked + label:before {
+    width: 10px;
+    top: -5px;
+    left: 6.1em;
+    border-radius: 0;
+    opacity: 1;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  label[for='setup-organisation'] {
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 </style>
 {% endblock %}
 {% block jshead %}{% endblock %}
 
 {% block content %}
-<div class='container-fluid'>
+<div class='container-fluid p-0'>
   <div class='row'>
-    <div class='col-12 col-md-6'>
-      <div class="wrapper-container mx-auto">
-        <div class="heading-wrapper">
-          <h1>Sakshat</h1>
+    <div class='col-12 text-center background-home' style="background: url('/img/defaults/default-cover.jpg')">
+      <div class="wrapper-container mx-auto" style="max-width: 80vw;">
+        <div class="card">
+          <div class="card-body box-shadow p-5">
+            <div class="mb-5">
+              <h2 style="text-transform: uppercase">Sakshat embodies the spirit of women empowerment</h2>
+            </div>
+            <div>
+              <p class="mb-0">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+              </p>
+            </div>
+          </div>
         </div>
-
-        <div class="content-wrapper">
-          <p>A (modular, highly tweakable) responsive one-page template designed by HTML5 UP and released for free under the Creative Commons.</p>
-
-          <button class="button fancy-button">
-            Get Started
-            <div class="button__horizontal"></div>
-            <div class="button__vertical"></div>
-          </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="d-flex text-center">
+  <div class="home-form">
+    <div class="pt-3">
+      <div class="p-5">
+        <div class="my-5 card p-5 box-shadow">
+          <h2>REGISTER</h2>
+          <br />
+          <form id="registerForm" action="{{ url('/') }}register" method="post" class="card-body">
+            <input type="hidden" name="client_secret" id="register_client_secret" value="">
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" class="form-control" id="register_email" aria-describedby="emailHelp" placeholder="Enter email" name="email">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" class="form-control" id="register_username" placeholder="Enter username" name="username">
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="register_password" placeholder="Password" name="password">
+            </div>
+            <div class="py-2">
+              <input type="checkbox" id="setup-organisation" name="setup_organisation">
+              <label for="setup-organisation">Setup an Organisation?</label>
+            </div>
+            <div class="card my-3 disabled-customised organisation-details">
+              <div class="card-body">
+                <div class="my-3">
+                  <h4>Organisation's Details</h4>
+                </div>
+                <div class="form-group">
+                  <label for="organisation_name">Name</label>
+                  <input type="text" class="form-control" id="organisation_name" placeholder="Organisation's Name" name="organisation_name">
+                </div>
+                <div class="form-group">
+                  <label for="organisation_description">Description</label>
+                  <textarea class="form-control" id="organisation_description" placeholder="Describe the Organisation..." name="organisation_description" rows="1"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="organisation_email">E-Mail</label>
+                  <input type="email" class="form-control" id="organisation_email" placeholder="Organisation's E-mail" name="organisation_email">
+                </div>
+                <div class="form-group">
+                  <label for="organisation_contact">Contact Number</label>
+                  <input type="text" class="form-control" id="organisation_contact" placeholder="Organisation's Contact" name="organisation_contact">
+                </div>
+                <div class="form-group">
+                  <label for="organisation_location">Location</label>
+                  <input type="text" class="form-control" id="organisation_location" placeholder="Organisation's State" name="organisation_location">
+                </div>
+              </div>
+            </div>
+            <div class="py-2">
+              <button type="button" class="btn btn-custom-designed btn-register" id="btn-register-form">SIGN UP</button>
+            </div>
+            <hr />
+            <div>
+              <button class="loginBtn loginBtn--facebook">
+                <a href="{{ url('/facebookLogin') }}">Sign Up with Facebook</a>
+              </button>
+            </div>
+          </form>
         </div>
-
       </div>
-    </div>
-    <div class='col-12 col-md-6'>
-      <img src="http://via.placeholder.com/641x692" />
     </div>
   </div>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="loginModalLabel">Log In</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form id="loginForm" action="{{ url('/') }}login" method="post">
-          <input type="hidden" name="client_secret" id="login_client_secret" value="">
-          <div class="form-group">
-            <label for="email">Email address</label>
-            <input type="email" class="form-control" id="login_email" placeholder="Enter email" name="email">
-          </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" id="login_password" placeholder="Password" name="password">
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="btn-login-form">Log In</button>
+  <div class="home-form">
+    <div class="pt-3">
+      <div class="p-5">
+        <div class="my-5 card p-5 box-shadow">
+          <h2>LOGIN</h2>
+          <br />
+          <form id="loginForm" action="{{ url('/') }}login" method="post" class="card-body">
+            <input type="hidden" name="client_secret" id="login_client_secret" value="">
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" class="form-control" id="login_email" placeholder="Enter email" name="email">
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="login_password" placeholder="Password" name="password">
+            </div>
+            <div class="py-2">
+              <button type="button" class="btn btn-custom-designed btn-login" id="btn-login-form">LOGIN</button>
+            </div>
+            <hr />
+            <div>
+              <button class="loginBtn loginBtn--facebook">
+                <a href="{{ url('/facebookLogin') }}">Login with Facebook</a>
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="registerModalLabel">Register</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form id="registerForm" action="{{ url('/') }}register" method="post">
-          <input type="hidden" name="client_secret" id="register_client_secret" value="">
-          <div class="form-group">
-            <label for="email">Email address</label>
-            <input type="email" class="form-control" id="register_email" aria-describedby="emailHelp" placeholder="Enter email" name="email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-          </div>
-          <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" class="form-control" id="register_username" placeholder="Enter username" name="username">
-          </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" id="register_password" placeholder="Password" name="password">
-          </div>
-          <hr>
-          <div class="form-group">
-
-          <a href="{{ url('/facebookLogin') }}" class="btn btn-info" role="button">Sign Up Using Facebook</a>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="btn-register-form">Sign Up</button>
-      </div>
-    </div>
-  </div>
-</div>
 {% endblock %}
 
 {% block jsfooter %}
 <script type="text/javascript">
   $(document).ready(function() {
-    $('.btn').on('click', function(e) {
-      if($(this).hasClass('btn-login')) {
-        $('#loginModal').modal('show');
-      } else if($(this).hasClass('btn-register')) {
-        $('#registerModal').modal('show');
-      }
-    });
 
     $('#btn-login-form').on('click', function(e) {
       $('#loginForm').submit();
@@ -134,6 +275,19 @@
     $('#btn-register-form').on('click', function(e) {
       $('#registerForm').submit();
     });
+
+    $('#setup-organisation').change(function() {
+      // this will contain a reference to the checkbox
+      let element = $('.organisation-details')
+      if (this.checked) {
+          // the checkbox is now checked
+          element.toggleClass('disabled-customised')
+
+      } else {
+          // the checkbox is now no longer checked
+          element.toggleClass('disabled-customised')
+      }
+    })
   })
 
 
