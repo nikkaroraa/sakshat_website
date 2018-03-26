@@ -1,6 +1,6 @@
 /* ---- General styling starts ---- */
 :root {
-  --theme-color: #D9222A;
+  --theme-color: #D81B60;
   --grayish: #626c6d;
 }
 
@@ -195,7 +195,7 @@ ul.navbar-nav .nav-item.nav-icons.nav-profile img {
 .button.button-customised {
   padding: 6px 30px;
   border-radius: 0 0 4px 0;
-  background-color: #D8232A;
+  background-color: var(--theme-color);
   color: #FFFFFF;
   line-height: 21px;
   outline: none;
