@@ -64,11 +64,11 @@
     border: 0;
   }
 
-  textarea.comment-input.no-expansion {
+  textarea.comment_input.no-expansion {
     resize: none;
   }
 
-  textarea.comment-input.no-expansion:focus {
+  textarea.comment_input.no-expansion:focus {
     outline: 0;
     box-shadow: none;
     border: 1px solid #ced4da;
@@ -127,33 +127,79 @@
     object-fit: cover;
   }
 
-  .comment-input {
+  .comment_input {
     font-size: 0.8em;
   }
 
+  .comments-info {
+    display: inline-block;
+    position: relative;
+    padding: 7px 10px;
+    margin: 0px 0px 10px 0px;
+    border-radius: 10px;
+    background-color: #F0F0F0;
+    width: auto;
+    max-width: 400px;
+  }
 
+  .commentor-name {
+    display: inline-block;
+    color: #0A0B09;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: normal;
+    margin: 4px 0px 5px 0px;
+    position: relative;
+    width: 100%;
+  }
+
+  .commentor-time {
+    display: inline-block;
+    left: inherit;
+    font-size: 12px;
+    font-weight: 100;
+    margin: 0px 0px 0px 10px !important;
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+  .commentor-comment {
+    font-size: 14px !important;
+    line-height: normal;
+    word-wrap: break-word;
+    padding-right: 0px;
+    margin: 5px 0px 0px 0px !important;
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .likes_count {
+    cursor: pointer
+  }
+
+  .likes_count:hover {
+    color: var(--theme-color)
+  }
 </style>
 {% endblock %}
 {% block jshead %}{% endblock %}
 
 {% block content %}
-<div class="main-content-container container-fluid" style="height: 100vh;">
-  <div class="main-content container feeds">
+<div class="main-content-container container-fluid">
+  <div class="main-content container feeds pb-5">
     <div class="row">
       <div class="col-sm-3 left-side-nav fixed-sidebar" style="width: 260px;">
         <div class="box-component user-information p-0">
-          <div class="user-info-background" style="background: url('https://s3.ap-south-1.amazonaws.com/static3.tagtaste.com/images/p/160/hi/DtMryWkuZy5AApHMAUXIR7bwVfpf27az.jpg')">
+          <div class="user-info-background" style="background: url('{{ user.cover_image }}')">
           </div>
           <a href="">
-            <img class="user-profile-image radius-5" src="https://s3.ap-south-1.amazonaws.com/static3.tagtaste.com/images/p/160/YlLSHH0nVMp8djXOpRDj.jpg">
+            <img class="user-profile-image radius-5" src="{{ user.profile_image }}">
           </a>
         </div>
         <div class="box-component user-information">
           <div class="profile-info-view">
-            <h5 class="user-name">Nikhil Arora</h5>
-            <h6 class="user-handle">@niks</h6>
-            <p>Your tagline!</p>
-            <small><i class="fas fa-map-marker-alt"></i> New Delhi, India</small>
+            <h5 class="user-name">{{ user.name }}</h5>
+            <h6 class="user-handle">@{{ user.username }}</h6>
+            <p>{{ user.tagline }}</p>
+            <small><i class="fas fa-map-marker-alt"></i> {{ user.location }}</small>
             <hr class="full-width-hr" />
             <div class="user-followers">
               <div class="following">
@@ -224,16 +270,21 @@
         <div class="box-component create-feed light-border pb-0">
           <div class="row">
             <div class="col-sm-12">
-              <form>
-                <div class="form-group mb-0">
-                  <textarea class="form-control no-border no-expansion" rows="3" placeholder="Post an update..."></textarea>
-                </div>
+              <div class="form-group mb-0">
+                <textarea class="form-control no-border no-expansion post_update_input" rows="3" placeholder="Post an update..."></textarea>
+              </div>
+              <form class="post_form disabled-customised" action="{{ url('/') }}feed/add" method="POST">
+                  <input type="text" name="post" class="post_form_field" />
+                  <input type="hidden" name="user_id" value="{{ user.id }}" />
               </form>
             </div>
             <div class="col-sm-12 light-border">
               <div class="row">
                 <div class="col-sm-4">
                   <button class="add-image-button light-border-right"><i class="fas fa-camera"></i> &nbsp; Add Image</button>
+                  <form class="disabled-customised">
+                    <input type="file" name="post_image" id="post_image" />
+                  </form>
                 </div>
                 <div class="col-sm-8 d-flex justify-content-end pr-0">
                   <button class="post-button">Post</button>
@@ -242,49 +293,75 @@
             </div>
           </div>
         </div>
+        {% for post in posts %}
         <div class="box-component load-feed light-border mt-3 pb-0 pt-1">
-          <div class="row">
-            <div class="col-sm-12 feed-info d-flex align-items-center pt-1">
-              <div>
-                <img class="feed-user-info" src="https://s3.ap-south-1.amazonaws.com/static3.tagtaste.com/images/p/160/YlLSHH0nVMp8djXOpRDj.jpg" />
-              </div>
-              <div>
-                &nbsp;&nbsp;&nbsp;
-              </div>
-              <div style="line-height: 1em">
-                <a href="#">Satyam Setia</a> added a <a href="#">Post</a>
-                <br />
-                <small class="gray-text">Volunteer, Sakshat</small>
-              </div>
-              <div class="ml-auto gray-text">
-                  8:44 AM
-              </div>
-            </div>
-            <div class="col-sm-12 light-text line-height-mid mt-4">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-            </div>
-            <div class="col-sm-12 light-text d-flex interaction-count-container mt-3 py-2">
-              <div class="gray-text">
-                <small>0 Comments</small>
-              </div>
-              <div class="gray-text ml-auto">
-                <small>
-                  <i class="far fa-heart"></i> 3
-                </small>
-              </div>
-            </div>
-            <div class="col-sm-12 light-text comment-container mt-3 mb-2 py-1">
-              <div class="row">
-                <div class="col-sm-1 my-auto">
-                  <img src="https://s3.ap-south-1.amazonaws.com/static3.tagtaste.com/images/p/160/YlLSHH0nVMp8djXOpRDj.jpg" class="comment-image">
+            <div class="row feed-component">
+              <div class="col-sm-12 feed-info d-flex align-items-center pt-1">
+                <div>
+                  <img class="feed-user-info" src="{{ post.user.profile_image }}" />
                 </div>
-                <div class="col-sm-11 pl-1 my-auto">
-                  <textarea class="form-control no-expansion comment-input" rows="1" placeholder="Add a comment..."></textarea>
+                <div>
+                  &nbsp;&nbsp;&nbsp;
+                </div>
+                <div style="line-height: 1em">
+                  <a href="{{ post.user.id }}">{{ post.user.name }}</a> added a <a href="#">{{ post.type | capitalize }}</a>
+                  <br />
+                  <small class="gray-text">{{ post.user.designation }}</small>
+                </div>
+                <div class="ml-auto gray-text">
+                    {{ post.creation_time }}
                 </div>
               </div>
+              <div class="col-sm-12 light-text line-height-mid mt-4">
+                {{ post.content }}
+              </div>
+              <div class="col-sm-12 light-text d-flex interaction-count-container mt-3 py-2">
+                <div class="gray-text">
+                  <small>{{ post.comment_count }} Comments</small>
+                </div>
+                <div class="gray-text ml-auto">
+                  <small class="likes_count">
+                    <i class="far fa-heart"></i> <span class="likes_count_num">{{ post.likes_count }}</span>
+                  </small>
+                </div>
+              </div>
+              <div class="col-sm-12 light-text comment-container mt-3 mb-2 py-1">
+                {% for comment in post.comments %}
+                  <div class="row">
+                    <div class="col-sm-1 my-auto">
+                      <img src="{{ comment.user.profile_image }}" class="comment-image">
+                    </div>
+                    <div class="col-sm-11 pl-1 my-auto">
+                      <div class="comments-info">
+                        <p class="commentor-name">
+                          <a href="{{ url('/') }}user/{{ comment.user.id }}">{{ comment.user.name }}</a>
+                          <span class="commentor-time">{{ comment.creation_date }}</span>
+                        </p>
+                        <p class="commentor-comment">
+                          {{ comment.comment }}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+
+                <div class="row">
+                  <div class="col-sm-1 my-auto">
+                    <img src="{{ post.user.profile_image }}" class="comment-image">
+                  </div>
+                  <div class="col-sm-11 pl-1 my-auto">
+                    <textarea class="form-control no-expansion comment_input" rows="1" placeholder="Add a comment..."></textarea>
+                  </div>
+                  <form class="comment_form disabled-customised" action="{{ url('/') }}comments/postComments/add" method="POST">
+                    <input type="text" name="comment" class="comment_form_field" />
+                    <input type="hidden" name="post_id" value="{{ post.id }}" />
+                    <input type="hidden" name="user_id" value="{{ post.user.id }}" />
+                  </form>
+                </div>
+              </div>
             </div>
-          </div>
         </div>
+        {% endfor %}
       </div>
       <div class="col-sm-2">
         <div class="box-component">
@@ -298,5 +375,39 @@
 {% endblock %}
 
 {% block jsfooter %}
+  <script>
+    $(function() {
+      $('.comment_input').keydown(function(){
+        let comment = $(this).val().trim();
+
+        $(this).closest('.row').find('.comment_form_field').val(comment)
+      })
+      $('.comment_input').keypress(function(e) {
+            // Enter pressed?
+            if(e.which == 10 || e.which == 13) {
+              e.preventDefault();
+              $(this).closest('.row').find('.comment_form').submit()
+            }
+      })
+
+      $('.post_update_input').keydown(function(){
+        let post = $(this).val().trim();
+        $(this).closest('.box-component').find('.post_form_field').val(post)
+      })
+      $('.post-button').on('click', function(e) {
+        $(this).closest('.box-component').find('.post_form').submit()
+      })
+
+      $('.likes_count').on('click', function(e) {
+        let count = $(this).find('.likes_count_num').text();
+        count++;
+        $(this).find('.likes_count_num').text(count);
+      })
+
+      $('.add-image-button').on('click', function(e) {
+        $('#post_image').click();
+      })
+    })
+  </script>
 
 {% endblock %}

@@ -78,6 +78,14 @@ a:hover {
   padding: 15px
 }
 
+.active-customised {
+  display: inline-block!important;
+}
+
+.disabled-customised {
+  display: none!important;
+}
+
 
 
 .text-decoration-none {

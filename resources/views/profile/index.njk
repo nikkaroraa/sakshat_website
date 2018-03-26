@@ -54,15 +54,6 @@
     padding: 5px 10px;
   }
 
-  .active-customised {
-    display: inline-block!important;
-  }
-
-  .disabled-customised {
-    display: none!important;
-  }
-
-
 </style>
 {% endblock %}
 
@@ -169,7 +160,7 @@
                     </div>
                   </div>
 
-                  <div class="col-sm-12 pt-3">
+                  <div class="col-sm-12 my-2 pt-3">
                     <div class="row">
                       <div class="col-sm-2">
                         <h6 class="light-text small-head bold-weight">
@@ -177,13 +168,55 @@
                         </h6>
                       </div>
                       <div class="col-sm-10">
-                        <p class="light-text small-head editableContent" id="name_input">
+                        <p class="light-text small-head editableContent my-0" id="name_input">
                           {{ user.name }}
                         </p>
                       </div>
                     </div>
                   </div>
-                  <div class="col-sm-12">
+                   <div class="col-sm-12 my-2">
+                    <div class="row">
+                      <div class="col-sm-2">
+                        <h6 class="light-text small-head bold-weight">
+                          Designation
+                        </h6>
+                      </div>
+                      <div class="col-sm-10">
+                        <p class="light-text small-head editableContent my-0" id="designation_input">
+                          {{ user.designation }}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-12 my-2">
+                    <div class="row">
+                      <div class="col-sm-2">
+                        <h6 class="light-text small-head bold-weight">
+                          Tagline
+                        </h6>
+                      </div>
+                      <div class="col-sm-10">
+                        <p class="light-text small-head editableContent my-0" id="tagline_input">
+                          {{ user.tagline }}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-12 my-2">
+                    <div class="row">
+                      <div class="col-sm-2">
+                        <h6 class="light-text small-head bold-weight">
+                          Location
+                        </h6>
+                      </div>
+                      <div class="col-sm-10">
+                        <p class="light-text small-head editableContent my-0" id="location_input">
+                          {{ user.location }}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-12 my-2">
                     <div class="row">
                       <div class="col-sm-2">
                         <h6 class="light-text small-head bold-weight">
@@ -191,13 +224,13 @@
                         </h6>
                       </div>
                       <div class="col-sm-10">
-                        <p class="light-text small-head editableContent" id="about_input">
+                        <p class="light-text small-head editableContent my-0" id="about_input">
                           {{ user.about }}
                         </p>
                       </div>
                     </div>
                   </div>
-                  <div class="col-sm-12">
+                  <div class="col-sm-12 my-2">
                     <div class="row">
                       <div class="col-sm-2">
                         <h6 class="light-text small-head bold-weight">
@@ -205,13 +238,13 @@
                         </h6>
                       </div>
                       <div class="col-sm-10">
-                        <p class="light-text small-head editableContent" id="skills_input">
+                        <p class="light-text small-head editableContent my-0" id="skills_input">
                           {{ user.skills }}
                         </p>
                       </div>
                     </div>
                   </div>
-                  <div class="col-sm-12">
+                  <div class="col-sm-12 my-2">
                     <div class="row">
                       <div class="col-sm-2">
                         <h6 class="light-text small-head bold-weight">
@@ -219,7 +252,7 @@
                         </h6>
                       </div>
                       <div class="col-sm-10">
-                        <p class="light-text small-head editableContent" id="languages_input">
+                        <p class="light-text small-head editableContent my-0" id="languages_input">
                           {{ user.languages }}
                         </p>
                       </div>
@@ -229,6 +262,9 @@
                   <div class="disabled-customised">
                     <form id="profile_about_form" action="" method="POST">
                       <input type="hidden" name="name" id="name_form_field">
+                      <input type="hidden" name="designation" id="designation_form_field">
+                      <input type="hidden" name="tagline" id="tagline_form_field">
+                      <input type="hidden" name="location" id="location_form_field">
                       <input type="hidden" name="about" id="about_form_field">
                       <input type="hidden" name="skills" id="skills_form_field">
                       <input type="hidden" name="languages" id="languages_form_field">
@@ -379,6 +415,9 @@
         let about_form = $('#profile_about_form');
 
         let nameFieldVal = $('#name_form_field').val();
+        let designationFieldVal = $('#designation_form_field').val();
+        let taglineFieldVal = $('#tagline_form_field').val();
+        let locationFieldVal = $('#location_form_field').val();
         let aboutFieldVal = $('#about_form_field').val();
         let skillsFieldVal = $('#skills_form_field').val();
         let languagesFieldVal = $('#languages_form_field').val();
@@ -392,6 +431,9 @@
           $.post("{{ url('/') }}profile/about",
           {
             name: nameFieldVal,
+            designation: designationFieldVal,
+            tagline: taglineFieldVal,
+            location: locationFieldVal,
             about: aboutFieldVal,
             skills: skillsFieldVal,
             languages: languagesFieldVal
@@ -412,19 +454,29 @@
         saveButton.toggleClass('active-customised');
         saveButton.toggleClass('disabled-customised');
       })
-       /*  */
+
+      /*  */
       $('.editableContent').bind("DOMSubtreeModified",function(){
         let name = $('#name_input').text().trim();
+        let designation = $('#designation_input').text().trim();
+        let tagline = $('#tagline_input').text().trim();
+        let location = $('#location_input').text().trim();
         let about = $('#about_input').text().trim();
         let skills = $('#skills_input').text().trim();
         let languages = $('#languages_input').text().trim();
 
         let nameField = $('#name_form_field');
+        let designationField = $('#designation_form_field');
+        let taglineField = $('#tagline_form_field');
+        let locationField = $('#location_form_field');
         let aboutField = $('#about_form_field');
         let skillsField = $('#skills_form_field');
         let languagesField = $('#languages_form_field');
 
         nameField.val(name);
+        designationField.val(designation);
+        taglineField.val(tagline);
+        locationField.val(location);
         aboutField.val(about);
         skillsField.val(skills);
         languagesField.val(languages);

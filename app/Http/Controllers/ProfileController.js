@@ -6,7 +6,6 @@ const OrganisationOwner = use('App/Model/OrganisationOwner')
 const ProjectOwner = use('App/Model/ProjectOwner')
 const Helpers = use('Helpers')
 const fs = use('fs')
-const http = use('http')
 const Env = use('Env')
 
 class ProfileController {
@@ -32,7 +31,11 @@ class ProfileController {
 
 
     let interests = user.interests
-    let allInterests = interests.split(",")
+    let allInterests
+    if(interests) {
+      allInterests = interests.split(",")
+    }
+
 
     yield response.sendView('profile.index', {
       user: user,
@@ -47,6 +50,9 @@ class ProfileController {
     const user = yield User.find(request.currentUser.id)
 
     let name = request.input('name')
+    let designation = request.input('designation')
+    let tagline = request.input('tagline')
+    let location = request.input('location')
     let about = request.input('about')
     let skills = request.input('skills')
     let languages = request.input('languages')
@@ -54,7 +60,7 @@ class ProfileController {
     const affectedRows = yield Database
       .table('users')
       .where('id', user.id)
-      .update({ name: name, about: about, skills: skills, languages: languages })
+      .update({ name: name, designation: designation, tagline: tagline, location: location, about: about, skills: skills, languages: languages })
 
     response.redirect('back')
     return
