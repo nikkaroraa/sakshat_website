@@ -16,7 +16,7 @@ class CommentController {
 
       const trx = yield Database.beginTransaction()
 
-      const image = yield PostComment.create({
+      const postComment = yield PostComment.create({
         post_id: post_id,
         user_id: user_id,
         comment: comment

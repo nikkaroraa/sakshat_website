@@ -14,7 +14,7 @@ class FeedController {
 
     let user = yield User.find(request.currentUser.id)
 
-    let posts = yield Post.query().with('user').fetch()
+    let posts = yield Post.query().with('user').orderBy('created_at', 'desc').fetch()
     posts = posts.toJSON()
 
     for (let i = 0; i < posts.length; i++) {
@@ -40,6 +40,30 @@ class FeedController {
       user: user,
       posts: posts
     })
+    return
+  }
+
+  * addPost (request, response) {
+    const user = yield User.find(request.currentUser.id)
+
+    // const data = request.all()
+    let postContent = request.input('post')
+    let user_id = request.input('user_id')
+
+    const trx = yield Database.beginTransaction()
+
+    const post = yield Post.create({
+      content: postContent,
+      type: 'Post',
+      user_id: user_id
+    })
+
+    trx.commit()
+
+    yield request
+        .with({success: 'Update Posted!'})
+        .flash()
+    response.redirect('back')
     return
   }
 }

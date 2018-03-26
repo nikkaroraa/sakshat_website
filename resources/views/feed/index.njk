@@ -64,11 +64,11 @@
     border: 0;
   }
 
-  textarea.comment-input.no-expansion {
+  textarea.comment_input.no-expansion {
     resize: none;
   }
 
-  textarea.comment-input.no-expansion:focus {
+  textarea.comment_input.no-expansion:focus {
     outline: 0;
     box-shadow: none;
     border: 1px solid #ced4da;
@@ -127,7 +127,7 @@
     object-fit: cover;
   }
 
-  .comment-input {
+  .comment_input {
     font-size: 0.8em;
   }
 
@@ -170,13 +170,21 @@
     margin: 5px 0px 0px 0px !important;
     color: rgba(0, 0, 0, 0.8);
   }
+
+  .likes_count {
+    cursor: pointer
+  }
+
+  .likes_count:hover {
+    color: var(--theme-color)
+  }
 </style>
 {% endblock %}
 {% block jshead %}{% endblock %}
 
 {% block content %}
-<div class="main-content-container container-fluid" style="height: 100vh;">
-  <div class="main-content container feeds">
+<div class="main-content-container container-fluid">
+  <div class="main-content container feeds pb-5">
     <div class="row">
       <div class="col-sm-3 left-side-nav fixed-sidebar" style="width: 260px;">
         <div class="box-component user-information p-0">
@@ -262,16 +270,21 @@
         <div class="box-component create-feed light-border pb-0">
           <div class="row">
             <div class="col-sm-12">
-              <form>
-                <div class="form-group mb-0">
-                  <textarea class="form-control no-border no-expansion" rows="3" placeholder="Post an update..."></textarea>
-                </div>
+              <div class="form-group mb-0">
+                <textarea class="form-control no-border no-expansion post_update_input" rows="3" placeholder="Post an update..."></textarea>
+              </div>
+              <form class="post_form disabled-customised" action="{{ url('/') }}feed/add" method="POST">
+                  <input type="text" name="post" class="post_form_field" />
+                  <input type="hidden" name="user_id" value="{{ user.id }}" />
               </form>
             </div>
             <div class="col-sm-12 light-border">
               <div class="row">
                 <div class="col-sm-4">
                   <button class="add-image-button light-border-right"><i class="fas fa-camera"></i> &nbsp; Add Image</button>
+                  <form class="disabled-customised">
+                    <input type="file" name="post_image" id="post_image" />
+                  </form>
                 </div>
                 <div class="col-sm-8 d-flex justify-content-end pr-0">
                   <button class="post-button">Post</button>
@@ -280,8 +293,8 @@
             </div>
           </div>
         </div>
+        {% for post in posts %}
         <div class="box-component load-feed light-border mt-3 pb-0 pt-1">
-          {% for post in posts %}
             <div class="row feed-component">
               <div class="col-sm-12 feed-info d-flex align-items-center pt-1">
                 <div>
@@ -307,8 +320,8 @@
                   <small>{{ post.comment_count }} Comments</small>
                 </div>
                 <div class="gray-text ml-auto">
-                  <small>
-                    <i class="far fa-heart"></i> {{ post.likes_count }}
+                  <small class="likes_count">
+                    <i class="far fa-heart"></i> <span class="likes_count_num">{{ post.likes_count }}</span>
                   </small>
                 </div>
               </div>
@@ -337,18 +350,18 @@
                     <img src="{{ post.user.profile_image }}" class="comment-image">
                   </div>
                   <div class="col-sm-11 pl-1 my-auto">
-                    <textarea class="form-control no-expansion comment-input" rows="1" placeholder="Add a comment..." id="comment_input"></textarea>
+                    <textarea class="form-control no-expansion comment_input" rows="1" placeholder="Add a comment..."></textarea>
                   </div>
-                  <form id="comment_form" class="disabled-customised" action="{{ url('/') }}comments/postComments/add" method="POST">
-                    <input type="text" name="comment" id="comment_form_field" />
+                  <form class="comment_form disabled-customised" action="{{ url('/') }}comments/postComments/add" method="POST">
+                    <input type="text" name="comment" class="comment_form_field" />
                     <input type="hidden" name="post_id" value="{{ post.id }}" />
                     <input type="hidden" name="user_id" value="{{ post.user.id }}" />
                   </form>
                 </div>
               </div>
             </div>
-          {% endfor %}
         </div>
+        {% endfor %}
       </div>
       <div class="col-sm-2">
         <div class="box-component">
@@ -364,17 +377,35 @@
 {% block jsfooter %}
   <script>
     $(function() {
-      $('#comment_input').keyup(function(){
+      $('.comment_input').keydown(function(){
         let comment = $(this).val().trim();
 
-        $('#comment_form_field').val(comment)
+        $(this).closest('.row').find('.comment_form_field').val(comment)
       })
-
-      $('#comment_input').keypress(function(e) {
+      $('.comment_input').keypress(function(e) {
             // Enter pressed?
             if(e.which == 10 || e.which == 13) {
-                $('#comment_form').submit();
+              e.preventDefault();
+              $(this).closest('.row').find('.comment_form').submit()
             }
+      })
+
+      $('.post_update_input').keydown(function(){
+        let post = $(this).val().trim();
+        $(this).closest('.box-component').find('.post_form_field').val(post)
+      })
+      $('.post-button').on('click', function(e) {
+        $(this).closest('.box-component').find('.post_form').submit()
+      })
+
+      $('.likes_count').on('click', function(e) {
+        let count = $(this).find('.likes_count_num').text();
+        count++;
+        $(this).find('.likes_count_num').text(count);
+      })
+
+      $('.add-image-button').on('click', function(e) {
+        $('#post_image').click();
       })
     })
   </script>

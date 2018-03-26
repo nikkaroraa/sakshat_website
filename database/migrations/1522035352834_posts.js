@@ -11,7 +11,7 @@ class PostsTableSchema extends Schema {
       table.text('content').nullable()
       table.text('image').nullable()
       table.enu('type', ['Post', 'Photo']).nullable()
-      table.integer('likes_count').defaultTo(0)
+      table.integer('likes_count').defaultTo(10)
       table.timestamps()
     })
   }

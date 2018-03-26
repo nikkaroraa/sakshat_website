@@ -48,6 +48,9 @@ Route.group('secured', function () {
 
   Route.resource('feed', 'FeedController')
     .only(['index', 'store'])
+    .addCollection('add', 'POST', (collection) => {
+      collection.bindAction('FeedController.addPost')
+    })
 
   Route.resource('comments', 'CommentController')
     .only([])
