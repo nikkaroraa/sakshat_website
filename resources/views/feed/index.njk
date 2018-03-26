@@ -142,18 +142,18 @@
     <div class="row">
       <div class="col-sm-3 left-side-nav fixed-sidebar" style="width: 260px;">
         <div class="box-component user-information p-0">
-          <div class="user-info-background" style="background: url('https://s3.ap-south-1.amazonaws.com/static3.tagtaste.com/images/p/160/hi/DtMryWkuZy5AApHMAUXIR7bwVfpf27az.jpg')">
+          <div class="user-info-background" style="background: url('{{ user.cover_image }}')">
           </div>
           <a href="">
-            <img class="user-profile-image radius-5" src="https://s3.ap-south-1.amazonaws.com/static3.tagtaste.com/images/p/160/YlLSHH0nVMp8djXOpRDj.jpg">
+            <img class="user-profile-image radius-5" src="{{ user.profile_image }}">
           </a>
         </div>
         <div class="box-component user-information">
           <div class="profile-info-view">
-            <h5 class="user-name">Nikhil Arora</h5>
-            <h6 class="user-handle">@niks</h6>
-            <p>Your tagline!</p>
-            <small><i class="fas fa-map-marker-alt"></i> New Delhi, India</small>
+            <h5 class="user-name">{{ user.name }}</h5>
+            <h6 class="user-handle">@{{ user.username }}</h6>
+            <p>{{ user.tagline }}</p>
+            <small><i class="fas fa-map-marker-alt"></i> {{ user.location }}</small>
             <hr class="full-width-hr" />
             <div class="user-followers">
               <div class="following">
@@ -243,47 +243,49 @@
           </div>
         </div>
         <div class="box-component load-feed light-border mt-3 pb-0 pt-1">
-          <div class="row">
-            <div class="col-sm-12 feed-info d-flex align-items-center pt-1">
-              <div>
-                <img class="feed-user-info" src="https://s3.ap-south-1.amazonaws.com/static3.tagtaste.com/images/p/160/YlLSHH0nVMp8djXOpRDj.jpg" />
-              </div>
-              <div>
-                &nbsp;&nbsp;&nbsp;
-              </div>
-              <div style="line-height: 1em">
-                <a href="#">Satyam Setia</a> added a <a href="#">Post</a>
-                <br />
-                <small class="gray-text">Volunteer, Sakshat</small>
-              </div>
-              <div class="ml-auto gray-text">
-                  8:44 AM
-              </div>
-            </div>
-            <div class="col-sm-12 light-text line-height-mid mt-4">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-            </div>
-            <div class="col-sm-12 light-text d-flex interaction-count-container mt-3 py-2">
-              <div class="gray-text">
-                <small>0 Comments</small>
-              </div>
-              <div class="gray-text ml-auto">
-                <small>
-                  <i class="far fa-heart"></i> 3
-                </small>
-              </div>
-            </div>
-            <div class="col-sm-12 light-text comment-container mt-3 mb-2 py-1">
-              <div class="row">
-                <div class="col-sm-1 my-auto">
-                  <img src="https://s3.ap-south-1.amazonaws.com/static3.tagtaste.com/images/p/160/YlLSHH0nVMp8djXOpRDj.jpg" class="comment-image">
+          {% for post in posts %}
+            <div class="row feed-component">
+              <div class="col-sm-12 feed-info d-flex align-items-center pt-1">
+                <div>
+                  <img class="feed-user-info" src="{{ post.user.profile_image }}" />
                 </div>
-                <div class="col-sm-11 pl-1 my-auto">
-                  <textarea class="form-control no-expansion comment-input" rows="1" placeholder="Add a comment..."></textarea>
+                <div>
+                  &nbsp;&nbsp;&nbsp;
+                </div>
+                <div style="line-height: 1em">
+                  <a href="{{ post.user.id }}">{{ post.user.name }}</a> added a <a href="#">{{ post.type | capitalize }}</a>
+                  <br />
+                  <small class="gray-text">{{ post.user.designation }}</small>
+                </div>
+                <div class="ml-auto gray-text">
+                    {{ post.creation_time }}
                 </div>
               </div>
+              <div class="col-sm-12 light-text line-height-mid mt-4">
+                {{ post.content }}
+              </div>
+              <div class="col-sm-12 light-text d-flex interaction-count-container mt-3 py-2">
+                <div class="gray-text">
+                  <small>0 Comments</small>
+                </div>
+                <div class="gray-text ml-auto">
+                  <small>
+                    <i class="far fa-heart"></i> 3
+                  </small>
+                </div>
+              </div>
+              <div class="col-sm-12 light-text comment-container mt-3 mb-2 py-1">
+                <div class="row">
+                  <div class="col-sm-1 my-auto">
+                    <img src="https://s3.ap-south-1.amazonaws.com/static3.tagtaste.com/images/p/160/YlLSHH0nVMp8djXOpRDj.jpg" class="comment-image">
+                  </div>
+                  <div class="col-sm-11 pl-1 my-auto">
+                    <textarea class="form-control no-expansion comment-input" rows="1" placeholder="Add a comment..."></textarea>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
+          {% endfor %}
         </div>
       </div>
       <div class="col-sm-2">
