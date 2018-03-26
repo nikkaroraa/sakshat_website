@@ -31,7 +31,11 @@ class ProfileController {
 
 
     let interests = user.interests
-    let allInterests = interests.split(",")
+    let allInterests
+    if(interests) {
+      allInterests = interests.split(",")
+    }
+
 
     yield response.sendView('profile.index', {
       user: user,

@@ -131,7 +131,45 @@
     font-size: 0.8em;
   }
 
+  .comments-info {
+    display: inline-block;
+    position: relative;
+    padding: 7px 10px;
+    margin: 0px 0px 10px 0px;
+    border-radius: 10px;
+    background-color: #F0F0F0;
+    width: auto;
+    max-width: 400px;
+  }
 
+  .commentor-name {
+    display: inline-block;
+    color: #0A0B09;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: normal;
+    margin: 4px 0px 5px 0px;
+    position: relative;
+    width: 100%;
+  }
+
+  .commentor-time {
+    display: inline-block;
+    left: inherit;
+    font-size: 12px;
+    font-weight: 100;
+    margin: 0px 0px 0px 10px !important;
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+  .commentor-comment {
+    font-size: 14px !important;
+    line-height: normal;
+    word-wrap: break-word;
+    padding-right: 0px;
+    margin: 5px 0px 0px 0px !important;
+    color: rgba(0, 0, 0, 0.8);
+  }
 </style>
 {% endblock %}
 {% block jshead %}{% endblock %}
@@ -266,22 +304,46 @@
               </div>
               <div class="col-sm-12 light-text d-flex interaction-count-container mt-3 py-2">
                 <div class="gray-text">
-                  <small>0 Comments</small>
+                  <small>{{ post.comment_count }} Comments</small>
                 </div>
                 <div class="gray-text ml-auto">
                   <small>
-                    <i class="far fa-heart"></i> 3
+                    <i class="far fa-heart"></i> {{ post.likes_count }}
                   </small>
                 </div>
               </div>
               <div class="col-sm-12 light-text comment-container mt-3 mb-2 py-1">
+                {% for comment in post.comments %}
+                  <div class="row">
+                    <div class="col-sm-1 my-auto">
+                      <img src="{{ comment.user.profile_image }}" class="comment-image">
+                    </div>
+                    <div class="col-sm-11 pl-1 my-auto">
+                      <div class="comments-info">
+                        <p class="commentor-name">
+                          <a href="{{ url('/') }}user/{{ comment.user.id }}">{{ comment.user.name }}</a>
+                          <span class="commentor-time">{{ comment.creation_date }}</span>
+                        </p>
+                        <p class="commentor-comment">
+                          {{ comment.comment }}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+
                 <div class="row">
                   <div class="col-sm-1 my-auto">
-                    <img src="https://s3.ap-south-1.amazonaws.com/static3.tagtaste.com/images/p/160/YlLSHH0nVMp8djXOpRDj.jpg" class="comment-image">
+                    <img src="{{ post.user.profile_image }}" class="comment-image">
                   </div>
                   <div class="col-sm-11 pl-1 my-auto">
-                    <textarea class="form-control no-expansion comment-input" rows="1" placeholder="Add a comment..."></textarea>
+                    <textarea class="form-control no-expansion comment-input" rows="1" placeholder="Add a comment..." id="comment_input"></textarea>
                   </div>
+                  <form id="comment_form" class="disabled-customised" action="{{ url('/') }}comments/postComments/add" method="POST">
+                    <input type="text" name="comment" id="comment_form_field" />
+                    <input type="hidden" name="post_id" value="{{ post.id }}" />
+                    <input type="hidden" name="user_id" value="{{ post.user.id }}" />
+                  </form>
                 </div>
               </div>
             </div>
@@ -300,5 +362,21 @@
 {% endblock %}
 
 {% block jsfooter %}
+  <script>
+    $(function() {
+      $('#comment_input').keyup(function(){
+        let comment = $(this).val().trim();
+
+        $('#comment_form_field').val(comment)
+      })
+
+      $('#comment_input').keypress(function(e) {
+            // Enter pressed?
+            if(e.which == 10 || e.which == 13) {
+                $('#comment_form').submit();
+            }
+      })
+    })
+  </script>
 
 {% endblock %}

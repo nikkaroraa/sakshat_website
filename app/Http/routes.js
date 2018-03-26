@@ -48,4 +48,11 @@ Route.group('secured', function () {
 
   Route.resource('feed', 'FeedController')
     .only(['index', 'store'])
+
+  Route.resource('comments', 'CommentController')
+    .only([])
+    .addCollection('postComments/add', 'POST', (collection) => {
+      collection.bindAction('CommentController.addPostComments')
+    })
+
 }).middleware('web')
