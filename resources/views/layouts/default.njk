@@ -22,6 +22,113 @@
 
     <!--  FontAwesome JS  -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+
+    <style>
+      .user-options {
+        width: 260px;
+        position: absolute;
+        z-index: 1000;
+        top: 75px;
+        right: 16px;
+        display: none;
+        padding: 0px;
+        background-color: #FFFFFF;
+        box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
+      }
+
+      .arrow-up {
+        margin-top: -20px;
+        margin-left: 84%;
+        width: 0;
+        height: 0;
+        border-left: 12px solid transparent;
+        border-right: 12px solid transparent;
+        border-bottom: 11px solid #F0F0F0;
+      }
+
+      .user-options .user-information {
+        position: relative;
+        padding: 18px 15px;
+        width: 100%;
+        background-color: #F0F0F0;
+        border-bottom: 1px solid #DBDBDB;
+      }
+
+      .user-options .other-information {
+        padding: 15px 0px;
+        border-bottom: 1px solid #DBDBDB;
+      }
+
+      .user-options .other-information.logout-information {
+        padding: 0
+      }
+
+      .user-options .logout-information .logout-button {
+        color: rgba(0, 0, 0, 0.87);
+        font-size: 14px;
+        font-weight: 600;
+        width: 100%;
+        padding: 15px;
+        outline: none;
+        transition: background-color 0.5s;
+      }
+
+      .user-options .other-information label {
+        color: #8C8C8C;
+        font-size: 12px;
+        font-weight: 400;
+        text-transform: uppercase;
+        display: block;
+        padding: 5px 10px;
+      }
+
+      .user-options .other-information a {
+        color: #2F81D0 !important;
+        font-size: 14px;
+        font-weight: 400;
+      }
+      .user-options .other-information .nav-company-list {
+        overflow-y: auto;
+        max-height: 150px;
+        margin: -15px 0px 15px 0px;
+        padding: 5px 0px;
+      }
+
+     .user-information.navbar-user img {
+        height: 40px;
+        width: 40px;
+        -o-object-fit: cover;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+
+      .user-options .user-information.navbar-user .information {
+        position: absolute;
+        top: 20px;
+        margin-left: 55px;
+      }
+
+      .user-options .user-information.navbar-user {
+        border-radius: 5px 5px 0 0;
+      }
+
+      .user-options .user-information.navbar-user .information .name {
+        color: rgba(0, 0, 0, 0.87);
+        font-size: 15px;
+        font-weight: 600;
+        margin: 0px 0px -2px 0px;
+      }
+
+      .user-options .user-information.navbar-user .information .handle {
+        color: rgba(0, 0, 0, 0.7);
+        font-size: 12px;
+        display: block;
+      }
+
+      .nav-item {
+        cursor: pointer;
+      }
+    </style>
     {% block csshead %}{% endblock %}
     {% block jshead %}{% endblock %}
   </head>
@@ -52,6 +159,13 @@
             toastr["error"]("{{ message }}")
           }
       {% endfor %}
+    </script>
+
+    <script type="text/javascript">
+      $('#navbar-profile').on('click', function(e) {
+        $('#navUserOptions').toggleClass('disabled-customised')
+        $('#navUserOptions').toggleClass('active-customised')
+      })
     </script>
 
 

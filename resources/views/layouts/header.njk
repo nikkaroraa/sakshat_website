@@ -31,12 +31,44 @@
       <li class="nav-item nav-icons">
         <i class="fas fa-bell"></i>
       </li>
-      <li class="nav-item nav-icons nav-profile">
+      <li class="nav-item nav-icons nav-profile" id="navbar-profile">
         {% if user.profile_image %}
           <img src="{{ user.profile_image }}" />
         {% else %}
           <img src="{{ url('/') }}img/defaults/default-profile.png" />
         {% endif %}
+        <div class="user-options container disabled-customised" id="navUserOptions">
+          <div class="arrow-up"></div>
+          <div class="user-information navbar-user">
+              <a href="{{ url('/') }}profile">
+                  {% if user.profile_image %}
+                    <img src="{{ user.profile_image }}" id="profile-navbar-profile-picture" />
+                  {% else %}
+                    <img src="{{ url('/') }}img/defaults/default-profile.png" id="profile-navbar-profile-picture" />
+                  {% endif %}
+                  <div class="information">
+                      <p class="name">{{ user.name }}</p>
+                      <span class="handle">@{{ user.username }}</span>
+                  </div>
+              </a>
+          </div>
+          <div class="other-information logout-information">
+              <input type="button" value="Invite Professional Contacts" data-toggle="modal" data-target="#send-invite-modal" class="btn btn-default logout-button nav-logout-btn" style="color: var(--theme-color);">
+          </div>
+          <div class="other-information logout-information">
+              <a href="/settings" class="btn btn-default logout-button settings nav-logout-btn">Settings</a>
+          </div>
+
+          <div class="other-information logout-information">
+              <input type="button" value="Change Password" data-toggle="modal" data-target="#reset-password-modal" class="btn btn-default logout-button nav-logout-btn">
+          </div>
+
+          <div class="other-information logout-information">
+              <form action="{{ url('/') }}logout" method="get" class="main-form">
+                  <input type="submit" value="Logout" class="btn btn-default logout-button nav-logout-btn">
+              </form>
+          </div>
+        </div>
       </li>
     </ul>
   </div>
