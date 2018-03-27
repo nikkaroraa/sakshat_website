@@ -162,10 +162,20 @@
     </script>
 
     <script type="text/javascript">
-      $('#navbar-profile').on('click', function(e) {
+      $('#navbar-profile').on('mouseenter', function(e) {
         $('#navUserOptions').toggleClass('disabled-customised')
         $('#navUserOptions').toggleClass('active-customised')
       })
+
+      $('#navbar-profile').on('mouseleave', function(e) {
+        $('#navUserOptions').toggleClass('disabled-customised')
+        $('#navUserOptions').toggleClass('active-customised')
+      })
+
+      {# $(window).click(function() {
+        $('#navUserOptions').toggleClass('disabled-customised')
+        $('#navUserOptions').toggleClass('active-customised')
+      }); #}
     </script>
 
 
