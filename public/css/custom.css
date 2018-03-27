@@ -7,6 +7,7 @@
 
 html, body {
   font-family: 'Lato', sans-serif;
+  overflow-x: hidden
 }
 
 nav.navbar {
@@ -14,6 +15,10 @@ nav.navbar {
   -moz-box-shadow: 0 0 8px #999;
   box-shadow: 0 0 8px #999;
   background-color: #fff;
+}
+
+.box-shadow {
+  box-shadow: 0 4px 4px 0 rgba(0,0,0,0.14);
 }
 
 nav.navbar .navbar-brand {
@@ -124,6 +129,9 @@ ul.navbar-nav .nav-item.nav-icons {
 
 ul.navbar-nav .nav-item.nav-icons.nav-profile img {
   height: 40px;
+  width: 40px;
+  -o-object-fit: cover;
+  object-fit: cover;
   border-radius: 50%;
 }
 /* -- Navigation Bar styling ends -- */
@@ -218,6 +226,55 @@ ul.navbar-nav .nav-item.nav-icons.nav-profile img {
   border: none;
   cursor: pointer;
 }
+
+.btn.btn-custom-designed {
+  color: var(--theme-color);
+  background: transparent;
+  border: 3px solid var(--theme-color);
+  border-radius: 5px;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
+  padding: 0.3em 2em;
+}
+
+.btn.btn-custom-designed:hover,
+.btn.btn-custom-designed:focus,
+.btn.btn-custom-designed.btn-small:hover,
+.btn.btn-custom-designed.btn-small:focus {
+  color: #fff;
+  background: var(--theme-color);
+  border: 3px solid transparent;
+}
+
+.btn.btn-custom-designed a,
+.btn.btn-custom-designed.btn-small a {
+  color: var(--theme-color);
+}
+
+.btn.btn-custom-designed:hover a,
+.btn.btn-custom-designed:focus a,
+.btn.btn-custom-designed.btn-small:hover a,
+.btn.btn-custom-designed.btn-small:focus a {
+  color: #fff;
+}
+
+.btn.btn-custom-designed.btn-small {
+  color: var(--theme-color);
+  background: transparent;
+  border: 3px solid var(--theme-color);
+  border-radius: 5px;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
+  padding: 0.1em 1.5em;
+  font-size: 0.9em;
+  text-transform: uppercase
+}
+
+
 /* ---- Cover Image styling ends ---- */
 
 

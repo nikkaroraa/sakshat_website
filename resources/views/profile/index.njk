@@ -155,8 +155,8 @@
                       <h6>General</h6>
                     </div>
                     <div>
-                      <button class="button button-customised active-customised" id="edit-about">Edit</button>
-                      <button class="button button-customised disabled-customised" id="save-about">Save</button>
+                      <button class="btn btn-custom-designed btn-small active-customised" id="edit-about"><i class="fas fa-pencil-alt"></i> &nbsp;Edit</button>
+                      <button class="btn btn-custom-designed btn-small disabled-customised" id="save-about"><i class="fas fa-save"></i> &nbsp;Save</button>
                     </div>
                   </div>
 
@@ -278,8 +278,15 @@
             <div class="box-component">
               <div class="container">
                 <div class="row">
-                  <div class="col-sm-12">
-                    <h6>Projects</h6>
+                  <div class="col-sm-12 d-flex justify-content-between">
+                    <div>
+                      <h6>Projects</h6>
+                    </div>
+                    <div>
+                      <button class="btn btn-custom-designed btn-small">
+                        <a href="#"><i class="fas fa-plus"></i> &nbsp;Add Project</a>
+                      </button>
+                    </div>
                   </div>
                   <div class="pt-3">
                   {% for project in projects %}
@@ -308,13 +315,20 @@
             <div class="box-component">
               <div class="container">
                 <div class="row">
-                  <div class="col-sm-12">
-                    <h6>Organisations</h6>
+                  <div class="col-sm-12 d-flex justify-content-between">
+                    <div>
+                      <h6>Organisations</h6>
+                    </div>
+                    <div>
+                      <button class="btn btn-custom-designed btn-small">
+                        <a href="#"><i class="fas fa-plus"></i> &nbsp;Add Organisation</a>
+                      </button>
+                    </div>
                   </div>
-                  <div class="pt-3">
+                  <div class="pt-3" style="width: 100%">
                   {% for organisation in organisations %}
                     <div class="col-sm-12">
-                      <div class="row d-flex align-items-center">
+                      <div class="row d-flex">
                         <div class="col-sm-2 organisation-image">
                           {% if organisation.image %}
                           <img src="{{ organisation.image }}" class="organisation-logo" alt="{{ organisation.name }}"/>
@@ -340,8 +354,15 @@
             <div class="box-component">
               <div class="container">
                 <div class="row">
-                  <div class="col-sm-12">
-                    <h6>Interests</h6>
+                  <div class="col-sm-12 d-flex justify-content-between">
+                    <div>
+                      <h6>Interests</h6>
+                    </div>
+                    <div>
+                      <button class="btn btn-custom-designed btn-small">
+                        <a href="#"><i class="fas fa-plus"></i> &nbsp;Add Interests</a>
+                      </button>
+                    </div>
                   </div>
                   <div class="col-sm-12 pt-3">
                     <div class="row d-flex align-items-center justify-content-flex-start">
