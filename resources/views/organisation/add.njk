@@ -30,6 +30,8 @@
     <h3 class="fs-subtitle">Preliminary Information</h3>
 
     <div class="hs_firstname field hs-form-field">
+      <!-- USER ID -->
+      <input type="hidden" name="user_id" value="{{ user.id }}" />
 
       <label for="organisation_name">What's your Organisation's Name? *</label>
 
@@ -129,7 +131,7 @@
       id="webform-component-acquisition--amount-1">
 
       <label for="12_a_certificate">5. 12(A) Certificate</label>
-      <input id="12_a_certificate" name="12_a_certificate" type="file" value="" placeholder="" >
+      <input id="12_a_certificate" name="a_12_certificate" type="file" value="" placeholder="" >
 
     </div>
 
@@ -137,7 +139,7 @@
       id="webform-component-acquisition--amount-1">
 
       <label for="80_g_certificate">6. 80(G) Certificate</label>
-      <input id="80_g_certificate" name="80_g_certificate" type="file" value="" placeholder="" >
+      <input id="80_g_certificate" name="g_80_certificate" type="file" value="" placeholder="" >
 
     </div>
     <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_1 field hs-form-field"
