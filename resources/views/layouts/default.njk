@@ -162,14 +162,17 @@
     </script>
 
     <script type="text/javascript">
-      $('#navbar-profile').on('mouseenter', function(e) {
-        $('#navUserOptions').toggleClass('disabled-customised')
-        $('#navUserOptions').toggleClass('active-customised')
-      })
 
-      $('#navbar-profile').on('mouseleave', function(e) {
-        $('#navUserOptions').toggleClass('disabled-customised')
-        $('#navUserOptions').toggleClass('active-customised')
+      $(document).on('click', function(e) {
+        if (e.target.id === 'navbar-profile-image') {
+          $('#navUserOptions').toggleClass('disabled-customised')
+          $('#navUserOptions').toggleClass('active-customised')
+        } else {
+          if(!$(e.target).closest('#navbar-profile').find('#navUserOptions').hasClass('disabled-customised')) {
+            $('#navUserOptions').addClass('disabled-customised')
+            $('#navUserOptions').removeClass('active-customised')
+          }
+        }
       })
     </script>
 

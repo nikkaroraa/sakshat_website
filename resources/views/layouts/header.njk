@@ -33,9 +33,9 @@
       </li>
       <li class="nav-item nav-icons nav-profile" id="navbar-profile">
         {% if user.profile_image %}
-          <img src="{{ user.profile_image }}" />
+          <img src="{{ user.profile_image }}" id="navbar-profile-image"/>
         {% else %}
-          <img src="{{ url('/') }}img/defaults/default-profile.png" />
+          <img src="{{ url('/') }}img/defaults/default-profile.png" id="navbar-profile-image"/>
         {% endif %}
         <div class="user-options container disabled-customised" id="navUserOptions">
           <div class="arrow-up"></div>
