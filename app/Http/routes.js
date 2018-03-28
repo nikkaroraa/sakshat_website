@@ -57,12 +57,22 @@ Route.group('secured', function () {
     .addCollection('add', 'POST', (collection) => {
       collection.bindAction('FeedController.addPost')
     })
-    //project detail
-    Route.resource('project','ProjectController')
-      .only(['index','store'])
-      .addCollection(':id', 'GET', (collection) => {
-        collection.bindAction('ProjectController.viewProject')
-      });
+
+  Route.resource('project','ProjectController')
+    .only(['index','store'])
+    .addCollection(':id', 'GET', (collection) => {
+      collection.bindAction('ProjectController.viewProject')
+    })
+
+  Route.resource('organisation', 'OrganisationController')
+    .only(['index', 'store'])
+    .addCollection('add', 'GET', (collection) => {
+      collection.bindAction('OrganisationController.addOrganisation')
+    })
+    .addCollection('addPost', 'POST', (collection) => {
+      collection.bindAction('OrganisationController.addPostOrganisation')
+    })
+
   Route.resource('comments', 'CommentController')
     .only([])
     .addCollection('postComments/add', 'POST', (collection) => {

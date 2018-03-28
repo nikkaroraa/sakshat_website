@@ -3,10 +3,12 @@
   --theme-color: #D81B60;
   --dark-theme-color: #880E4F;
   --grayish: #626c6d;
+  --content-bg: #FAFAFA;
 }
 
 html, body {
   font-family: 'Lato', sans-serif;
+  min-height: 100vh;
   overflow-x: hidden
 }
 
@@ -115,6 +117,14 @@ a:hover {
 .form-control:focus {
   border-color: inherit;
   box-shadow: none;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
 }
 
 /* -- Navigation Bar styling starts -- */
@@ -323,7 +333,7 @@ ul.navbar-nav .nav-item.nav-icons.nav-profile img {
 
 /* ---- Main Content styling starts ---- */
 .main-content-container {
-  background-color: #FAFAFA;
+  background-color: var(--content-bg);
   min-height: 80vh;
 }
 
@@ -371,7 +381,7 @@ ul.navbar-nav .nav-item.nav-icons.nav-profile img {
 
 /* -- Interests section styling starts -- */
 .sectional-tabs {
-  background-color: #FAFAFA;
+  background-color: var(--content-bg);
   padding: 0.5em;
   margin: 0.3em 1em;
   border-radius: 12px;
@@ -470,3 +480,6 @@ ul.navbar-nav .nav-item.nav-icons.nav-profile img {
   overflow-x: hidden
 }
 /* ---- Fixed sidebar styling ends ---- */
+
+
+

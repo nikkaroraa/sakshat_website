@@ -250,7 +250,7 @@ ul.navbar-nav .nav-item.nav-icons.nav-profile img {
 
 /* ---- Main Content styling starts ---- */
 .main-content-container {
-  background-color: #FAFAFA;
+  background-color: var(--content-bg);
   min-height: 80vh;
 }
 
@@ -298,7 +298,7 @@ ul.navbar-nav .nav-item.nav-icons.nav-profile img {
 
 /* -- Interests section styling starts -- */
 .sectional-tabs {
-  background-color: #FAFAFA;
+  background-color: var(--content-bg);
   padding: 0.5em;
   margin: 0.3em 1em;
   border-radius: 12px;

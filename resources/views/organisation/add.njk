@@ -1,0 +1,187 @@
+{% extends 'layouts/default' %}
+
+{% block csshead %}
+<link href="{{ url('/') }}css/organisation/add.css" rel="stylesheet">
+
+<style>
+</style>
+{% endblock %}
+
+{% block jshead %}{% endblock %}
+
+{% block content %}
+<div class="info">
+  <h1>Add Your Organisation</h1>
+  <span>
+    Remember, the more information you add, the more is the probability that your organisation will be visible!
+  </span>
+</div>
+
+
+<form class="steps" accept-charset="UTF-8" enctype="multipart/form-data" novalidate="" method="POST" action="{{ url('/') }}organisation/addPost">
+  <ul id="progressbar" class="d-flex justify-content-center align-items-center">
+    <li class="active">Basic Information</li>
+    <li>Other Information</li>
+  </ul>
+
+  <!-- BASIC INFORMATION FIELD SET -->
+  <fieldset>
+    <h2 class="fs-title">Basic Information</h2>
+    <h3 class="fs-subtitle">Preliminary Information</h3>
+
+    <div class="hs_firstname field hs-form-field">
+
+      <label for="organisation_name">What's your Organisation's Name? *</label>
+
+      <input id="organisation_name" name="organisation_name" required="required" type="text" value=""
+        placeholder="" data-rule-required="true" data-msg-required="Please include your organisation's name">
+      <span class="error1" style="display: none;">
+        <i class="error-log fa fa-exclamation-triangle"></i>
+      </span>
+    </div>
+
+    <div class="hs_email field hs-form-field">
+
+      <label for="organisation_description">Describe your Organisation *</label>
+
+      <input id="organisation_description" name="organisation_description" required="required" type="text" value="" placeholder=""
+        data-rule-required="true" data-msg-required="Describe the organisation">
+      <span class="error1" style="display: none;">
+        <i class="error-log fa fa-exclamation-triangle"></i>
+      </span>
+    </div>
+
+    <div class="hs_firstname field hs-form-field">
+
+      <label for="organisation_email">What is the Organisation's E-mail address? *</label>
+
+      <input id="organisation_email" name="organisation_email" required="required" type="email" value=""
+        placeholder="" data-rule-required="true" data-msg-required="This field is strictly mandatory">
+      <span class="error1" style="display: none;">
+        <i class="error-log fa fa-exclamation-triangle"></i>
+      </span>
+    </div>
+
+
+    <div class="hs_firstname field hs-form-field">
+
+      <label for="organisation_contact">What is the Organisation's contact number? *</label>
+
+      <input id="organisation_contact" name="organisation_contact" required="required" type="number" value=""
+        placeholder="" data-rule-required="true" data-msg-required="This field is strictly mandatory">
+      <span class="error1" style="display: none;">
+        <i class="error-log fa fa-exclamation-triangle"></i>
+      </span>
+    </div>
+
+    <div class="hs_firstname field hs-form-field">
+
+      <label for="organisation_location">Where is the Organisation located? *</label>
+
+      <input id="organisation_location" name="organisation_location" required="required" type="text" value=""
+        placeholder="" data-rule-required="true" data-msg-required="This field is strictly mandatory">
+      <span class="error1" style="display: none;">
+        <i class="error-log fa fa-exclamation-triangle"></i>
+      </span>
+    </div>
+
+    <input type="button" data-page="1" name="next" class="next action-button" value="Next" />
+  </fieldset>
+
+  <!-- OTHER INFORMATION FIELD SET -->
+  <fieldset>
+    <h2 class="fs-title">Other Information</h2>
+    <h3 class="fs-subtitle">Add as more as you can!</h3>
+
+
+
+    <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_1 field hs-form-field"
+      id="webform-component-acquisition--amount-1">
+
+      <label for="society_registration_certificate">1. Society/Trust Registration Certificate</label>
+      <input id="society_registration_certificate" name="society_registration_certificate" type="file" value="" placeholder="" >
+
+    </div>
+
+    <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_1 field hs-form-field"
+      id="webform-component-acquisition--amount-1">
+
+      <label for="memorandum_association">2. Memorandum of Association/Trust Deed</label>
+      <input id="memorandum_association" name="memorandum_association" type="file" value="" placeholder="" >
+    </div>
+
+    <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_1 field hs-form-field"
+      id="webform-component-acquisition--amount-1">
+
+      <label for="certificate_incorporation">3. Certificate of Incorporation from the regional director</label>
+      <input id="certificate_incorporation" name="certificate_incorporation" type="file" value="" placeholder="" >
+
+    </div>
+
+    <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_1 field hs-form-field"
+      id="webform-component-acquisition--amount-1">
+
+      <label for="fcra_certificate">4. FCRA certificate/prior Permission letter</label>
+      <input id="fcra_certificate" name="fcra_certificate" type="file" value="" placeholder="" >
+    </div>
+
+    <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_1 field hs-form-field"
+      id="webform-component-acquisition--amount-1">
+
+      <label for="12_a_certificate">5. 12(A) Certificate</label>
+      <input id="12_a_certificate" name="12_a_certificate" type="file" value="" placeholder="" >
+
+    </div>
+
+    <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_1 field hs-form-field"
+      id="webform-component-acquisition--amount-1">
+
+      <label for="80_g_certificate">6. 80(G) Certificate</label>
+      <input id="80_g_certificate" name="80_g_certificate" type="file" value="" placeholder="" >
+
+    </div>
+    <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_1 field hs-form-field"
+      id="webform-component-acquisition--amount-1">
+
+      <label for="latest_report">7. Latest Annual Report</label>
+      <input id="latest_report" name="latest_report" type="file" value="" placeholder="" >
+
+    </div>
+    <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_1 field hs-form-field"
+      id="webform-component-acquisition--amount-1">
+
+      <label for="auditor_report">8. Copy of last year's Auditor's Report</label>
+      <input id="auditor_report" name="auditor_report" type="file" value="" placeholder="" >
+
+    </div>
+    <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_1 field hs-form-field"
+      id="webform-component-acquisition--amount-1">
+
+      <label for="pan_number">9. PAN number [Income tax]</label>
+      <input id="pan_number" name="pan_number" type="file" value="" placeholder="" >
+
+    </div>
+    <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_1 field hs-form-field"
+      id="webform-component-acquisition--amount-1">
+
+      <label for="tan_number">10. TAN No. Letter (Income tax deducted at source account number)</label>
+      <input id="tan_number" name="tan_number" type="file" value="" placeholder="" >
+
+    </div>
+
+    <input type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
+    <input id="submit" class="hs-button primary large action-button next" type="submit" value="Submit">
+  </fieldset>
+
+</form>
+
+  <fieldset>
+    <h2 class="fs-title">It's on the way!</h2>
+    <h3 class="fs-subtitle">Please go check your organisation's email for a verification mail!</h3>
+  </fieldset>
+
+{% endblock %}
+
+{% block jsfooter %}
+<script src="{{ url('/') }}js/organisation/add.js"></script>
+{% endblock %}
