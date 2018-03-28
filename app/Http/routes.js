@@ -35,8 +35,8 @@ Route.get('logout', 'AuthController.logout').as('logout')
 Route.get('facebookLogin', 'AuthController.redirect')
 Route.get('facebookAuthenticated', 'AuthController.handleCallback')
 Route.get('test-url', 'AuthController.testUrl')
-
-
+//mail test
+Route.get('mail-test', 'MailController.textMsg')
 
 // Secured Routes under Auth Middleware //
 Route.group('secured', function () {

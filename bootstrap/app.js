@@ -30,7 +30,8 @@ const providers = [
   'adonis-middleware/providers/AppMiddlewareProvider',
   'adonis-auth/providers/AuthManagerProvider',
   'adonis-websocket/providers/WsProvider',
-  'adonis-ally/providers/AllyProvider'
+  'adonis-ally/providers/AllyProvider',
+  'adonis-mail-provider/providers/MailProvider'
 ]
 
 /*
@@ -77,7 +78,8 @@ const aliases = {
   Route: 'Adonis/Src/Route',
   Schema: 'Adonis/Src/Schema',
   View: 'Adonis/Src/View',
-  Ws: 'Adonis/Addons/Ws'
+  Ws: 'Adonis/Addons/Ws',
+  Mail: 'Adonis/Addons/Mail'
 }
 
 /*
