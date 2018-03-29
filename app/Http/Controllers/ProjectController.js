@@ -157,30 +157,37 @@ class ProfileController {
     return
   }
 
-  * viewProject(request,response) {
+  * viewProject (request,response) {
+    let user = yield User.find(request.currentUser.id)
+    user = user.toJSON()
 
     const id = request.param('id')
-    let data = yield ProjectOwner.query().where('project_id', id).with('user','project').fetch()
-    let volunteers = yield Volunteer.query().where('project_id', id).with('user','project').fetch()
-    let donators=yield Donator.query().where('project_id',id).with('user','project').fetch()
-    data = data.toJSON()
-    volunteers=volunteers.toJSON();
-    donators=donators.toJSON();
 
+    let projectDetails = yield ProjectOwner.query().where('project_id', id).with('user','project').fetch()
+    let volunteers = yield Volunteer.query().where('project_id', id).with('user').fetch()
+    let donators = yield Donator.query().where('project_id',id).with('user').fetch()
 
-    var info = {
-      author: data[0].user.username,
-      project_name: data[0].project.name,
-      tag_line: data[0].project.tag_line,
-      tag: data[0].project.tag,
-      project_description: data[0].project.description,
+    projectDetails = projectDetails.toJSON()
+    volunteers = volunteers.toJSON();
+    donators = donators.toJSON();
+
+    // var info = {
+    //   author: data[0].user.username,
+    //   project_name: data[0].project.name,
+    //   tag_line: data[0].project.tag_line,
+    //   tag: data[0].project.tag,
+    //   project_description: data[0].project.description,
+    //   volunteers: volunteers,
+    //   donators: donators
+    // };
+
+    // response.ok(projectDetails)
+
+    yield response.sendView('project.view', {
+      user: user,
+      projectDetails: projectDetails,
       volunteers: volunteers,
       donators: donators
-    };
-    //response.ok(info);
-    //let author= yield User.find()
-    yield response.sendView('project.index',{
-      info: info
     })
     return
   }

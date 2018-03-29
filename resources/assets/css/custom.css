@@ -31,6 +31,10 @@ nav a {
   color:#4A4A4A;
 }
 
+.btn-long {
+  padding: 0.2em 1.6em;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Poppins', sans-serif;
 }
