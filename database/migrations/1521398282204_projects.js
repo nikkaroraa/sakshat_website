@@ -9,10 +9,11 @@ class ProjectsTableSchema extends Schema {
       table.increments()
       table.string('name').notNullable().unique()
       table.text('description').notNullable()
-      table.text('tag_line')
-      table.text('tag')
+      table.text('purpose').nullable()
+      table.text('tagline').nullable()
       table.float('target_budget').defaultTo(0)
       table.float('dsi_rating').defaultTo(10)
+      table.string('image').nullable()
       table.timestamps()
     })
   }

@@ -66,9 +66,7 @@ Route.group('secured', function () {
     .addCollection('addPost', 'POST', (collection) => {
       collection.bindAction('OrganisationController.addPostOrganisation')
     })
-    .addCollection(':id', 'GET', (collection) => {
-      collection.bindAction('ProjectController.viewProject')
-    })
+
 
   Route.resource('project', 'ProjectController')
     .only(['index', 'store'])
@@ -77,6 +75,9 @@ Route.group('secured', function () {
     })
     .addCollection('addPost', 'POST', (collection) => {
       collection.bindAction('ProjectController.addPostProject')
+    })
+    .addCollection(':id', 'GET', (collection) => {
+      collection.bindAction('ProjectController.viewProject')
     })
 
 

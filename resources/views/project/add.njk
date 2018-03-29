@@ -18,7 +18,7 @@
 </div>
 
 
-<form class="steps" accept-charset="UTF-8" enctype="multipart/form-data" novalidate="" method="POST" action="{{ url('/') }}organisation/addPost">
+<form class="steps" accept-charset="UTF-8" enctype="multipart/form-data" novalidate="" method="POST" action="{{ url('/') }}project/addPost">
   <ul id="progressbar" class="d-flex justify-content-center align-items-center">
     <li class="active">Basic Information</li>
     <li>Requirements</li>
@@ -34,7 +34,7 @@
       <input type="hidden" name="user_id" value="{{ user.id }}" />
 
       <label for="organisation_name">Select your Organisation? *</label>
-      <select id="organisation_name" name="organisation_name" class="form-control" required="required" data-rule-required="true" data-msg-required="Please select your organisation's name">
+      <select id="organisation_name" name="organisation_id" class="form-control" required="required" data-rule-required="true" data-msg-required="Please select your organisation's name">
         {% for organisation in organisations %}
           <option value="{{ organisation.id }}">{{ organisation.name }}</option>
         {% endfor %}
@@ -108,7 +108,7 @@
       id="webform-component-acquisition--amount-1">
 
         <label class="form-check-label">
-          <input type="checkbox" class="form-check-input" value="" id="need_volunteers" name="need_volunteers" style="margin-top: 6px;">Are you looking for volunteers?
+          <input type="checkbox" class="form-check-input" id="need_volunteers" name="need_volunteers" style="margin-top: 6px;">Are you looking for volunteers?
         </label>
     </div>
 
@@ -116,7 +116,7 @@
       id="webform-component-acquisition--amount-1">
 
       <label for="volunteers_number">What is the estimated number of volunteers you need?</label>
-      <input id="volunteers_number" name="volunteers_number" type="text" value="" placeholder="" >
+      <input id="volunteers_number" name="volunteers_number" type="text" placeholder="" >
     </div>
 
     <hr style="margin-top: 2rem;"/>
@@ -125,7 +125,7 @@
       id="webform-component-acquisition--amount-1">
 
       <label class="form-check-label">
-        <input type="checkbox" class="form-check-input" value="" id="need_fund" name="need_fund" style="margin-top: 6px;">Looking to raise funds?
+        <input type="checkbox" class="form-check-input" id="need_fund" name="need_fund" style="margin-top: 6px;">Looking to raise funds?
       </label>
 
     </div>
@@ -134,7 +134,7 @@
       id="webform-component-acquisition--amount-1">
 
       <label for="fund_amount">What is the estimated amount of fund you need?</label>
-      <input id="fund_amount" name="fund_amount" type="number" value="" placeholder="" >
+      <input id="fund_amount" name="fund_amount" type="number" placeholder="" >
     </div>
 
     <hr style="margin-top: 2rem;"/>
@@ -142,7 +142,7 @@
     <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_1 field hs-form-field"
       id="webform-component-acquisition--amount-1">
       <label class="form-check-label">
-        <input type="checkbox" class="form-check-input" value="" id="timebound_bool" name="timebound_bool" style="margin-top: 6px;">Is your project time bound?
+        <input type="checkbox" class="form-check-input" id="timebound_bool" name="timebound_bool" style="margin-top: 6px;">Is your project time bound?
       </label>
     </div>
 
@@ -150,7 +150,7 @@
       id="webform-component-acquisition--amount-1">
 
       <label for="project_deadline">What is your project deadline?</label>
-      <input id="project_deadline" name="project_deadline" type="text" value="" placeholder="" class="datepicker">
+      <input id="project_deadline" name="project_deadline" type="text" placeholder="" class="datepicker">
 
     </div>
 
