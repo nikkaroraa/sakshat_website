@@ -74,6 +74,7 @@ class OrganisationController {
     const organisation_doc = new OrganisationDoc()
 
 
+    let cs_determinant = 0
 
     let doc1 = null
     let doc2 = null
@@ -149,6 +150,7 @@ class OrganisationController {
       doc1Ext = doc1.extension()
 
       organisation_doc.society_registration_certificate = doc1Path
+      cs_determinant++
     }
 
     if (request.file('memorandum_association') !== undefined && request.file('memorandum_association') !== null && request.file('memorandum_association') !== '' && request.file('memorandum_association').clientSize() !== 0) {
@@ -173,6 +175,7 @@ class OrganisationController {
       doc2Ext = doc2.extension()
 
       organisation_doc.memorandum_association = doc2Path
+      cs_determinant++
     }
 
     if (request.file('certificate_incorporation') !== undefined && request.file('certificate_incorporation') !== null && request.file('certificate_incorporation') !== '' && request.file('certificate_incorporation').clientSize() !== 0) {
@@ -197,6 +200,7 @@ class OrganisationController {
       doc3Ext = doc3.extension()
 
       organisation_doc.certificate_incorporation = doc3Path
+      cs_determinant++
     }
 
     if (request.file('fcra_certificate') !== undefined && request.file('fcra_certificate') !== null && request.file('fcra_certificate') !== '' && request.file('fcra_certificate').clientSize() !== 0) {
@@ -221,6 +225,7 @@ class OrganisationController {
       doc4Ext = doc4.extension()
 
       organisation_doc.fcra_certificate = doc4Path
+      cs_determinant++
     }
 
     if (request.file('a_12_certificate') !== undefined && request.file('a_12_certificate') !== null && request.file('a_12_certificate') !== '' && request.file('a_12_certificate').clientSize() !== 0) {
@@ -245,6 +250,7 @@ class OrganisationController {
       doc5Ext = doc5.extension()
 
       organisation_doc.a_12_certificate = doc5Path
+      cs_determinant++
     }
 
     if (request.file('g_80_certificate') !== undefined && request.file('g_80_certificate') !== null && request.file('g_80_certificate') !== '' && request.file('g_80_certificate').clientSize() !== 0) {
@@ -269,6 +275,7 @@ class OrganisationController {
       doc6Ext = doc6.extension()
 
       organisation_doc.g_80_certificate = doc6Path
+      cs_determinant++
     }
 
     if (request.file('latest_report') !== undefined && request.file('latest_report') !== null && request.file('latest_report') !== '' && request.file('latest_report').clientSize() !== 0) {
@@ -293,6 +300,7 @@ class OrganisationController {
       doc7Ext = doc7.extension()
 
       organisation_doc.latest_report = doc7Path
+      cs_determinant++
     }
 
     if (request.file('auditor_report') !== undefined && request.file('auditor_report') !== null && request.file('auditor_report') !== '' && request.file('auditor_report').clientSize() !== 0) {
@@ -317,6 +325,7 @@ class OrganisationController {
       doc8Ext = doc8.extension()
 
       organisation_doc.auditor_report = doc8Path
+      cs_determinant++
     }
 
     if (request.file('pan_number') !== undefined && request.file('pan_number') !== null && request.file('pan_number') !== '' && request.file('pan_number').clientSize() !== 0) {
@@ -341,6 +350,7 @@ class OrganisationController {
       doc9Ext = doc9.extension()
 
       organisation_doc.pan_number = doc9Path
+      cs_determinant++
     }
 
     if (request.file('tan_number') !== undefined && request.file('tan_number') !== null && request.file('tan_number') !== '' && request.file('tan_number').clientSize() !== 0) {
@@ -365,12 +375,21 @@ class OrganisationController {
       doc10Ext = doc10.extension()
 
       organisation_doc.tan_number = doc10Path
+      cs_determinant++
     }
 
     if(doc1 || doc2 || doc3 || doc4 || doc5 || doc6 || doc7 || doc8 || doc9 || doc10) {
       organisation_doc.organisation_id = organisation_id
       yield organisation_doc.save()
     }
+
+    // Normalise Credibility Score
+    let cs = cs_determinant * 10
+    const affectedRows = yield Database
+      .table('organisations')
+      .where('id', organisation_id)
+      .update({ credibility_score: cs })
+
 
     yield request
         .with({success: 'Organisation added successfully!'})
