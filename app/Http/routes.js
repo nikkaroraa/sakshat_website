@@ -58,12 +58,6 @@ Route.group('secured', function () {
       collection.bindAction('FeedController.addPost')
     })
 
-  Route.resource('project','ProjectController')
-    .only(['index','store'])
-    .addCollection(':id', 'GET', (collection) => {
-      collection.bindAction('ProjectController.viewProject')
-    })
-
   Route.resource('organisation', 'OrganisationController')
     .only(['index', 'store'])
     .addCollection('add', 'GET', (collection) => {
@@ -72,6 +66,19 @@ Route.group('secured', function () {
     .addCollection('addPost', 'POST', (collection) => {
       collection.bindAction('OrganisationController.addPostOrganisation')
     })
+    .addCollection(':id', 'GET', (collection) => {
+      collection.bindAction('ProjectController.viewProject')
+    })
+
+  Route.resource('project', 'ProjectController')
+    .only(['index', 'store'])
+    .addCollection('add', 'GET', (collection) => {
+      collection.bindAction('ProjectController.addProject')
+    })
+    .addCollection('addPost', 'POST', (collection) => {
+      collection.bindAction('ProjectController.addPostProject')
+    })
+
 
   Route.resource('comments', 'CommentController')
     .only([])

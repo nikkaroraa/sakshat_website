@@ -1,0 +1,177 @@
+{% extends 'layouts/default' %}
+
+{% block csshead %}
+<link href="{{ url('/') }}css/project/add.css" rel="stylesheet">
+
+<style>
+</style>
+{% endblock %}
+
+{% block jshead %}{% endblock %}
+
+{% block content %}
+<div class="info">
+  <h1>Add Project</h1>
+  <span>
+    Remember, the more information you add, the more is the probability that your organisation will be visible!
+  </span>
+</div>
+
+
+<form class="steps" accept-charset="UTF-8" enctype="multipart/form-data" novalidate="" method="POST" action="{{ url('/') }}organisation/addPost">
+  <ul id="progressbar" class="d-flex justify-content-center align-items-center">
+    <li class="active">Basic Information</li>
+    <li>Requirements</li>
+  </ul>
+
+  <!-- BASIC INFORMATION FIELD SET -->
+  <fieldset>
+    <h2 class="fs-title">Basic Information</h2>
+    <h3 class="fs-subtitle">Preliminary Information</h3>
+
+    <div class="hs_firstname field hs-form-field">
+      <!-- USER ID -->
+      <input type="hidden" name="user_id" value="{{ user.id }}" />
+
+      <label for="organisation_name">Select your Organisation? *</label>
+      <select id="organisation_name" name="organisation_name" class="form-control" required="required" data-rule-required="true" data-msg-required="Please select your organisation's name">
+        {% for organisation in organisations %}
+          <option value="{{ organisation.id }}">{{ organisation.name }}</option>
+        {% endfor %}
+      </select>
+      <span class="error1" style="display: none;">
+        <i class="error-log fa fa-exclamation-triangle"></i>
+      </span>
+
+    </div>
+
+    <div class="hs_email field hs-form-field">
+
+      <label for="project_name">What's your Project's name? *</label>
+
+      <input id="project_name" name="project_name" required="required" type="text" value="" placeholder=""
+        data-rule-required="true" data-msg-required="Please include your project's name">
+      <span class="error1" style="display: none;">
+        <i class="error-log fa fa-exclamation-triangle"></i>
+      </span>
+    </div>
+
+    <div class="hs_email field hs-form-field">
+
+      <label for="project_description">Describe your Project *</label>
+
+      <input id="project_description" name="project_description" required="required" type="text" value="" placeholder=""
+        data-rule-required="true" data-msg-required="Describe the project">
+      <span class="error1" style="display: none;">
+        <i class="error-log fa fa-exclamation-triangle"></i>
+      </span>
+    </div>
+
+    <div class="hs_firstname field hs-form-field">
+
+      <label for="project_purpose">How does it cater to women and child empowerment? *</label>
+
+      <input id="project_purpose" name="project_purpose" type="text" value=""
+        placeholder="">
+    </div>
+
+
+    <div class="hs_firstname field hs-form-field">
+
+      <label for="project_tagline">Tagline for your Project *</label>
+
+      <input id="project_tagline" name="project_tagline" type="text" value=""
+        placeholder="">
+    </div>
+
+    <div class="hs_firstname field hs-form-field">
+
+      <label for="project_image">Upload your Project's image *</label>
+
+      <input id="project_image" name="project_image" type="file" value="">
+      <span class="error1" style="display: none;">
+        <i class="error-log fa fa-exclamation-triangle"></i>
+      </span>
+    </div>
+
+    <input type="button" data-page="1" name="next" class="next action-button" value="Next" />
+  </fieldset>
+
+  <!-- REQUIREMENTS FIELD SET -->
+  <fieldset>
+    <h2 class="fs-title">Requirements</h2>
+    <h3 class="fs-subtitle">Add as more as you can!</h3>
+
+
+
+    <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_1 field hs-form-field"
+      id="webform-component-acquisition--amount-1">
+
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input" value="" id="need_volunteers" name="need_volunteers" style="margin-top: 6px;">Are you looking for volunteers?
+        </label>
+    </div>
+
+    <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_1 field hs-form-field"
+      id="webform-component-acquisition--amount-1">
+
+      <label for="volunteers_number">What is the estimated number of volunteers you need?</label>
+      <input id="volunteers_number" name="volunteers_number" type="text" value="" placeholder="" >
+    </div>
+
+    <hr style="margin-top: 2rem;"/>
+
+    <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_1 field hs-form-field"
+      id="webform-component-acquisition--amount-1">
+
+      <label class="form-check-label">
+        <input type="checkbox" class="form-check-input" value="" id="need_fund" name="need_fund" style="margin-top: 6px;">Looking to raise funds?
+      </label>
+
+    </div>
+
+    <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_1 field hs-form-field"
+      id="webform-component-acquisition--amount-1">
+
+      <label for="fund_amount">What is the estimated amount of fund you need?</label>
+      <input id="fund_amount" name="fund_amount" type="number" value="" placeholder="" >
+    </div>
+
+    <hr style="margin-top: 2rem;"/>
+
+    <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_1 field hs-form-field"
+      id="webform-component-acquisition--amount-1">
+      <label class="form-check-label">
+        <input type="checkbox" class="form-check-input" value="" id="timebound_bool" name="timebound_bool" style="margin-top: 6px;">Is your project time bound?
+      </label>
+    </div>
+
+    <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_1 field hs-form-field"
+      id="webform-component-acquisition--amount-1">
+
+      <label for="project_deadline">What is your project deadline?</label>
+      <input id="project_deadline" name="project_deadline" type="text" value="" placeholder="" class="datepicker">
+
+    </div>
+
+    <input type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
+    <input id="submit" class="hs-button primary large action-button next" type="submit" value="Submit">
+  </fieldset>
+
+</form>
+
+  <fieldset>
+    <h2 class="fs-title">It's on the way!</h2>
+    <h3 class="fs-subtitle">Please go check your organisation's email for a verification mail!</h3>
+  </fieldset>
+
+{% endblock %}
+
+{% block jsfooter %}
+<script type="text/javascript">
+  $('.datepicker').datepicker({
+    format: 'mm/dd/yyyy'
+  });
+</script>
+<script src="{{ url('/') }}js/project/add.js"></script>
+{% endblock %}

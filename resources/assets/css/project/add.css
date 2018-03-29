@@ -37,7 +37,8 @@
 }
 
 .steps input,
-.steps textarea {
+.steps textarea,
+.steps select {
   outline: none;
   display: block;
   width: 100%;

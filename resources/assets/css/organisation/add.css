@@ -48,11 +48,11 @@
   -moz-border-radius: 3px;
   border-radius: 3px;
   color: #837E7E;
-  -webkti-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   font-size: 14px;
-  font-wieght: 400;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-transition: all 0.3s linear 0s;
@@ -63,7 +63,8 @@
 }
 
 .steps input:focus,
-.steps textarea:focus {
+.steps textarea:focus,
+.steps select:focus {
   color: #333333;
   border: 1px solid var(--theme-color);
 }
