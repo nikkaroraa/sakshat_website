@@ -399,6 +399,21 @@ class OrganisationController {
     response.redirect('back')
     return
   }
+
+  * getOrganisations (request, response) {
+    let user = yield User.find(request.currentUser.id)
+
+    user = user.toJSON()
+
+    let organisations = yield Organisation.query().orderBy('created_at', 'desc').fetch()
+    // response.ok(organisations)
+
+    yield response.sendView('organisation.index', {
+      user: user,
+      organisations: organisations
+    })
+    return
+  }
 }
 
 module.exports = OrganisationController

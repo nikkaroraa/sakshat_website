@@ -54,6 +54,7 @@ Route.group('secured', function () {
       collection.bindAction('FeedController.addPost')
     })
 
+  Route.get('organisations', 'OrganisationController.getOrganisations')
   Route.resource('organisation', 'OrganisationController')
     .only(['index', 'store'])
     .addCollection('add', 'GET', (collection) => {
@@ -64,7 +65,6 @@ Route.group('secured', function () {
     })
 
   Route.get('projects', 'ProjectController.getProjects')
-
   Route.resource('project', 'ProjectController')
     .only(['index', 'store'])
     .addCollection('add', 'GET', (collection) => {
