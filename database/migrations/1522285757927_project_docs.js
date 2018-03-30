@@ -18,7 +18,9 @@ class ProjectDocsTableSchema extends Schema {
       table.boolean('need_fund').defaultTo(false)
       table.integer('fund_amount').defaultTo(0)
       table.boolean('timebound_bool').defaultTo(false)
+      table.date('fundraising_deadline').nullable()
       table.date('project_deadline').nullable()
+      table.text('updates_frequency').nullable()
       table.timestamps()
     })
   }

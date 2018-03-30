@@ -21,11 +21,11 @@
 <form class="steps" accept-charset="UTF-8" enctype="multipart/form-data" novalidate="" method="POST" action="{{ url('/') }}project/addPost">
   <ul id="progressbar" class="d-flex justify-content-center align-items-center">
     <li class="active">Basic Information</li>
-    <li>Requirements</li>
+    <li>Project Specifics</li>
     <li>Payment information</li>
   </ul>
 
-  <!-- BASIC INFORMATION FIELD SET -->
+  <!-- BASIC INFO FIELD SET -->
   <fieldset>
     <h2 class="fs-title">Basic Information</h2>
     <h3 class="fs-subtitle">Preliminary Information</h3>
@@ -34,7 +34,7 @@
       <!-- USER ID -->
       <input type="hidden" name="user_id" value="{{ user.id }}" />
 
-      <label for="organisation_name">Are you part of Organisation? *</label>
+      <label for="organisation_name">Are you part of Organisation? <span class="mandatory-form-field">*</span></label>
       <select id="organisation_name" name="organisation_id" class="form-control" required="required" data-rule-required="true" data-msg-required="Please select your organisation's name">
         {% for organisation in organisations %}
           <option value="{{ organisation.id }}">{{ organisation.name }}</option>
@@ -48,9 +48,9 @@
 
     <div class="hs_email field hs-form-field">
 
-      <label for="project_name">Project's name? *</label>
+      <label for="project_name">Project's name? <span class="mandatory-form-field">*</span></label>
 
-      <input id="project_name" name="project_name" required="required" type="text" value="" placeholder="simple and short"
+      <input id="project_name" name="project_name" required="required" type="text" value="" placeholder="Simple and Short"
         data-rule-required="true" data-msg-required="Please include your project's name">
       <span class="error1" style="display: none;">
         <i class="error-log fa fa-exclamation-triangle"></i>
@@ -59,9 +59,9 @@
 
     <div class="hs_email field hs-form-field">
 
-      <label for="project_description">Describe your Project *</label>
+      <label for="project_description">Describe your Project <span class="mandatory-form-field">*</span></label>
 
-      <input id="project_description" name="project_description" required="required" type="text" value="" placeholder=" In not more than 200 words"
+      <input id="project_description" name="project_description" required="required" type="text" value="" placeholder="In not more than 200 words"
         data-rule-required="true" data-msg-required="Describe the project">
       <span class="error1" style="display: none;">
         <i class="error-log fa fa-exclamation-triangle"></i>
@@ -70,41 +70,43 @@
 
     <div class="hs_firstname field hs-form-field">
 
-      <label for="project_purpose">How does it cater to women empowerment? *</label>
+      <label for="project_purpose">How does it cater to women empowerment? <span class="mandatory-form-field">*</span></label>
 
       <input id="project_purpose" name="project_purpose" type="text" value=""
-        placeholder="Also mention if the project is women owned">
+        placeholder="Also mention if the project is women owned" required="required" data-rule-required="true" data-msg-required="This field is mandatory!">
+        <span class="error1" style="display: none;">
+          <i class="error-log fa fa-exclamation-triangle"></i>
+        </span>
     </div>
 
 
     <div class="hs_firstname field hs-form-field">
 
-      <label for="project_tagline">Tagline for your Project *</label>
+      <label for="project_tagline">Tagline for your Project <span class="mandatory-form-field">*</span></label>
 
       <input id="project_tagline" name="project_tagline" type="text" value=""
-        placeholder="short and sweet">
+        placeholder="Short and Sweet" required="required" data-rule-required="true" data-msg-required="This field is mandatory!">
+        <span class="error1" style="display: none;">
+          <i class="error-log fa fa-exclamation-triangle"></i>
+        </span>
     </div>
 
     <div class="hs_firstname field hs-form-field">
 
-      <label for="project_image">Upload your Project's image *</label>
+      <label for="project_image">Upload your Project's image</label>
 
       <input id="project_image" name="project_image" type="file" value="">
-      <span class="error1" style="display: none;">
-        <i class="error-log fa fa-exclamation-triangle"></i>
-      </span>
     </div>
 
     <input type="button" data-page="1" name="next" class="next action-button" value="Next" />
   </fieldset>
 
-  <!-- REQUIREMENTS FIELD SET -->
+
+
+  <!-- PROJECT SPECIFICS FIELD SET -->
   <fieldset>
     <h2 class="fs-title">Project Specifics</h2>
     <h3 class="fs-subtitle">Add as more as you can!</h3>
-
-    
-
 
     <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_1 field hs-form-field"
       id="webform-component-acquisition--amount-1">
@@ -151,10 +153,12 @@
     <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_1 field hs-form-field"
       id="webform-component-acquisition--amount-1">
 
-      <label for="project_deadline">What is your fundraising deadline?</label>
-      <input id="project_deadline" name="project_deadline" type="text" placeholder="" class="datepicker">
+      <label for="fundraising_deadline">What is your fundraising deadline?</label>
+      <input id="fundraising_deadline" name="fundraising_deadline" type="text" placeholder="" class="datepicker">
 
     </div>
+
+    <hr style="margin-top: 2rem;"/>
 
     <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_1 field hs-form-field"
       id="webform-component-acquisition--amount-1">
@@ -166,26 +170,28 @@
 
     <div class="hs_email field hs-form-field">
 
-      <label for="project_name">How frequently can you give updates about the project to donators? </label>
+      <label for="updates_frequency">How frequently can you give updates about the project to donators? <span class="mandatory-form-field">*</span></label>
 
-      <input id="project_name" name="project_name" required="required" type="text" value="" placeholder="">
+      <input id="updates_frequency" name="updates_frequency" required="required" type="text" value="" placeholder="" data-rule-required="true" data-msg-required="This field is mandatory!">
     </div>
-    
 
+        <!-- End Calc of Total Number of Donors Fields -->
     <input type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
-    <input id="submit" class="hs-button primary large action-button next" type="submit" value="Submit">
+    <input type="button" data-page="2" name="next" class="next action-button" value="Next" />
   </fieldset>
 
-  <!-- Payment information -->
+
+
+  <!-- PAYMENT INFORMATION FIELD SET -->
   <fieldset>
     <h2 class="fs-title">Payment Information</h2>
     <h3 class="fs-subtitle">Details regarding payments</h3>
 
     <div class="hs_email field hs-form-field">
 
-      <label for="project_name">PAN Number : *</label>
+      <label for="pan_number">PAN Number <span class="mandatory-form-field">*</span></label>
 
-      <input id="project_name" name="project_name" required="required" type="text" value="" placeholder=""
+      <input id="pan_number" name="pan_number" required="required" type="text" value="" placeholder=""
         data-rule-required="true" data-msg-required="PAN card information is required">
       <span class="error1" style="display: none;">
         <i class="error-log fa fa-exclamation-triangle"></i>
@@ -194,10 +200,10 @@
 
     <div class="hs_email field hs-form-field">
 
-      <label for="project_name">Mobile number : *</label>
+      <label for="mobile_number">Mobile Number <span class="mandatory-form-field">*</span></label>
 
-      <input id="project_name" name="project_name" required="required" type="text" value="" placeholder="Input mobile number associated with PAN card"
-        data-rule-required="true" data-msg-required="Input mobile number assciated with the PAN number">
+      <input id="mobile_number" name="mobile_number" required="required" type="text" value="" placeholder="Input mobile number associated with PAN card"
+        data-rule-required="true" data-msg-required="Input mobile number associated with the PAN number">
       <span class="error1" style="display: none;">
         <i class="error-log fa fa-exclamation-triangle"></i>
       </span>
@@ -205,49 +211,46 @@
 
     <div class="hs_email field hs-form-field">
 
-      <label for="project_name">Input Adhaar ID number : *</label>
+      <label for="aadhaar_id_number">Aadhaar ID Number <span class="mandatory-form-field">*</span></label>
 
-      <input id="project_name" name="project_name" required="required" type="text" value="" placeholder="">
-      
+      <input id="aadhaar_id_number" name="aadhaar_id_number" required="required" type="text" value="" placeholder=""
+      data-rule-required="true" data-msg-required="This field is mandatory!">
+      <span class="error1" style="display: none;">
+        <i class="error-log fa fa-exclamation-triangle"></i>
+      </span>
     </div>
 
     <div class="hs_email field hs-form-field">
 
-      <label for="project_name">Input UPI ID : *</label>
+      <label for="upi_id">UPI ID <span class="mandatory-form-field">*</span></label>
 
-      <input id="project_name" name="project_name" required="required" type="text" value="" placeholder="">
-      
+      <input id="upi_id" name="upi_id" required="required" type="text" value="" placeholder=""
+      data-rule-required="true" data-msg-required="This field is mandatory!">
+      <span class="error1" style="display: none;">
+        <i class="error-log fa fa-exclamation-triangle"></i>
+      </span>
     </div>
 
-    <span> OR <br></span>
-
-    <div class="hs_email field hs-form-field">
-
-      <label for="project_name">Input account number : *</label>
-
-      <input id="project_name" name="project_name" required="required" type="text" value="" placeholder="">
-      
+    <div class="d-flex justify-content-center">
+      OR
     </div>
 
     <div class="hs_email field hs-form-field">
 
-      <label for="project_name">IFSC Code : *</label>
+      <label for="account_number">Account number </label>
+      <input id="account_number" name="account_number" type="text" value="" placeholder="">
 
-      <input id="project_name" name="project_name" required="required" type="text" value="" placeholder="">
-      
     </div>
-  
 
-    <input type="button" data-page="1" name="next" class="next action-button" value="Next" />
+    <div class="hs_email field hs-form-field">
+
+      <label for="ifsc_code">IFSC Code <span class="mandatory-form-field">*</span></label>
+      <input id="ifsc_code" name="ifsc_code" type="text" value="" placeholder="">
+
+    </div>
+    <input id="submit" class="hs-button primary large action-button next" type="submit" value="Submit">
   </fieldset>
-
 </form>
-
-  <fieldset>
-    <h2 class="fs-title">It's on the way!</h2>
-    <h3 class="fs-subtitle">Please go check your organisation's email for a verification mail!</h3>
-  </fieldset>
-
 {% endblock %}
 
 {% block jsfooter %}

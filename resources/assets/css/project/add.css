@@ -143,6 +143,10 @@
   float: right;
 }
 
+.steps .action-button:focus {
+  color: #fff!important;
+}
+
 .steps .previous {
   float: left;
 }
