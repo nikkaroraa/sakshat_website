@@ -35,16 +35,23 @@ class ProfileController {
     user = user.toJSON()
 
     let allOrganisationsData = yield OrganisationOwner.query().where('user_id', user.id).with('organisation').orderBy('created_at', 'desc').fetch()
-    allOrganisationsData = allOrganisationsData.toJSON()
+
     let organisations = []
-    for (let i = 0; i < allOrganisationsData.length; i++) {
-      organisations.push(allOrganisationsData[i].organisation)
+    if(allOrganisationsData) {
+      allOrganisationsData = allOrganisationsData.toJSON()
+
+      for (let i = 0; i < allOrganisationsData.length; i++) {
+        organisations.push(allOrganisationsData[i].organisation)
+      }
     }
 
     let independentOrganisation = yield Organisation.findBy('name', 'Independent')
-    independentOrganisation = independentOrganisation.toJSON()
 
-    organisations.splice(0, 0, independentOrganisation)
+    if(independentOrganisation) {
+      independentOrganisation = independentOrganisation.toJSON()
+      organisations.splice(0, 0, independentOrganisation)
+    }
+
     // response.ok(organisations)
 
     yield response.sendView('project.add', {
