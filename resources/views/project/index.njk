@@ -1,14 +1,9 @@
-{% extends 'layouts/default' %}
-
-{% block csshead %}
+{% extends 'layouts/default' %} {% block csshead %}
 <style>
 
+
 </style>
-{% endblock %}
-
-{% block jshead %}{% endblock %}
-
-{% block content %}
+{% endblock %} {% block jshead %}{% endblock %} {% block content %}
 <div class="main-content-container container-fluid">
   <div class="main-content container">
     <div class="row">
@@ -18,7 +13,7 @@
             <span style="border-right: 1px solid rgba(0, 0, 0, 0.1); font-size:1.5em;" class="pr-2">Projects</span>
           </h5>
           <h6 class="mb-0 pl-2 light-text" style="font-size:0.9em;">Use keywords and filters to narrow your search results.</h6>
-          <div class="ml-auto pl-2" style="border-left: 1px solid rgba(0, 0, 0, 0.1); font-size: 0.9em" >
+          <div class="ml-auto pl-2" style="border-left: 1px solid rgba(0, 0, 0, 0.1); font-size: 0.9em">
             QuickLinks
             <br>
             <a href="{{ url('/') }}project/add">Add Project</a>
@@ -31,127 +26,125 @@
         <div class="box-component user-information">
           <div class="profile-info-view">
             <h6 style="font-size:1em">Keywords</h6>
-            <div class="light-text mb-2 pb-2" style="border-bottom: 1px solid rgba(0, 0, 0, 0.1);"><input type="text"                         placeholder="Enter your query" class="form-control"></div>
-            <h6 style="font-size:1em;"><b>Departments</b></h6>
+            <div class="light-text mb-2 pb-2" style="">
+              <input type="text" placeholder="Enter your query" class="form-control">
+            </div>
+            <h6 style="font-size:1em;border-top: 1px solid rgba(0, 0, 0, 0.1);padding-top: 12px;">
+              <b>Departments</b>
+            </h6>
             <div style="font-size:0.9em">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="dept1" >
-              <label class="form-check-label" for="defaultCheck1" style="margin-left:0.5em;">
-              Women Empowerment
-              </label>
-              </div>
-              <div class="form-check" > <!-- add space b/w checkbox and text -->
-              <input class="form-check-input" type="checkbox" value="" id="dept2">
-              <label class="form-check-label" for="defaultCheck2" style="margin-left:0.5em;">
-              Education
-              </label>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="dept1">
+                <label class="form-check-label" for="defaultCheck1" style="margin-left:0.5em;">
+                  Women Empowerment
+                </label>
               </div>
               <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="dept3">
-              <label class="form-check-label" for="defaultCheck2" style="margin-left:0.5em;">
-              Agriculture
-              </label>
+                <!-- add space b/w checkbox and text -->
+                <input class="form-check-input" type="checkbox" value="" id="dept2">
+                <label class="form-check-label" for="defaultCheck2" style="margin-left:0.5em;">
+                  Education
+                </label>
               </div>
               <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="dept4">
-              <label class="form-check-label" for="defaultCheck2" style="margin-left:0.5em;">
-              Health
-              </label>
+                <input class="form-check-input" type="checkbox" value="" id="dept3">
+                <label class="form-check-label" for="defaultCheck2" style="margin-left:0.5em;">
+                  Agriculture
+                </label>
               </div>
               <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="dept5">
-              <label class="form-check-label" for="defaultCheck2" style="margin-left:0.5em;">
-              Child rights
-              </label>
+                <input class="form-check-input" type="checkbox" value="" id="dept4">
+                <label class="form-check-label" for="defaultCheck2" style="margin-left:0.5em;">
+                  Health
+                </label>
               </div>
               <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="dept6">
-              <label class="form-check-label" for="defaultCheck2" style="margin-left:0.5em;">
-              Transgenders Rights
-              </label>
+                <input class="form-check-input" type="checkbox" value="" id="dept5">
+                <label class="form-check-label" for="defaultCheck2" style="margin-left:0.5em;">
+                  Child rights
+                </label>
               </div>
               <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="dept7">
-              <label class="form-check-label" for="defaultCheck2" style="margin-left:0.5em;">
-              Media and Journalism
-              </label>
+                <input class="form-check-input" type="checkbox" value="" id="dept6">
+                <label class="form-check-label" for="defaultCheck2" style="margin-left:0.5em;">
+                  Transgenders Rights
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="dept7">
+                <label class="form-check-label" for="defaultCheck2" style="margin-left:0.5em;">
+                  Media and Journalism
+                </label>
               </div>
             </div>
 
-          </div>
-          <div class="profile-info-edit">
           </div>
         </div>
       </div>
       <div class="col-sm-9 general-info">
-        <div class="tab-content" id="myTabContent">
-          <div class="tab-pane fade show active" id="about" role="tabpanel" aria-labelledby="about-tab">
-            <div class="box-component">
-              <div class="container">
-                <div class="row d-flex align-items-center">
+        <div class="box-component">
+          <div class="container">
+            <div class="row d-flex align-items-center">
 
-                  <div class="col-sm-2">
-                      <div class="image-holder">
-                          <a href="/companies/271">
-                              <img style="width:100%" src="https://s3.ap-south-1.amazonaws.com/static3.tagtaste.com/images/c/271/l/47OCCIO5vsjrU7soEAxR.jpg" class="company-image" onerror="this.onerror=null; this.src='https://www.tagtaste.com/images/default_company_avatar.jpg';">
-                          </a>
-                      </div>
-                  </div>
-                  <div class="col-sm-7">
-                      <div class="company-desc-holder">
-                          <a href="/companies/271">
-                              <name>IFCA - Indian Federation of Culinary Associations</name>
-                          </a>
-                        <br>
-                          <small><img src="http://icon-park.com/imagefiles/location_map_pin_yellow3.png" height="20" width="20"> Chennai, Tamil Nadu, India</small>
-                          <br>
-                        <small><span><b>TAGLINE</b></span></small>
-                          <br>
-                              <div class="about-label" data-form="about-form">
-
-                                      <span class="boxed">Education</span>
-
-                                      <span class="boxed">Health</span>
-
-                                      <span class="boxed">Child Rights</span>
-
-                                      <span class="boxed">Media and Journalism</span>
-
-                              </div>
-
-                      </div>
-                  </div>
-                  <div class="col-sm-2 text-center">
-                      <div>
-                        <button class="click-button">Subscribe</button>
-                      </div>
-                  </div>
+              <div class="col-sm-2">
+                <div class="image-holder">
+                  <a href="/companies/271">
+                    <img style="width:100%" src="https://s3.ap-south-1.amazonaws.com/static3.tagtaste.com/images/c/271/l/47OCCIO5vsjrU7soEAxR.jpg"
+                      class="company-image" onerror="this.onerror=null; this.src='https://www.tagtaste.com/images/default_company_avatar.jpg';">
+                  </a>
                 </div>
+              </div>
+              <div class="col-sm-7">
+                <div class="company-desc-holder">
+                  <a href="/companies/271">
+                    <name>IFCA - Indian Federation of Culinary Associations</name>
+                  </a>
+                  <br>
+                  <small>
+                    <img src="http://icon-park.com/imagefiles/location_map_pin_yellow3.png" height="20" width="20"> Chennai, Tamil Nadu, India</small>
+                  <br>
+                  <small>
+                    <span>
+                      <b>TAGLINE</b>
+                    </span>
+                  </small>
+                  <br>
+                  <div class="about-label" data-form="about-form">
 
+                    <span class="boxed">Education</span>
+
+                    <span class="boxed">Health</span>
+
+                    <span class="boxed">Child Rights</span>
+
+                    <span class="boxed">Media and Journalism</span>
+
+                  </div>
+
+                </div>
+              </div>
+              <div class="col-sm-2 text-center">
+                <div>
+                  <button class="btn btn-custom-designed">Subscribe</button>
+                </div>
               </div>
             </div>
+
           </div>
         </div>
       </div>
     </div>
-    </div>
-   </div>
   </div>
 </div>
-
-<div class="main-content-container container-fluid">
-  <div class="main-content container">
-
-  </div>
+</div>
 </div>
 
-{% endblock %}
-
-{% block jsfooter %}
-  <script>
-    $(function() {
+{% endblock %} {% block jsfooter %}
+<script>
+  $(function () {
 
 
-    });
-  </script>
+  });
+
+</script>
 {% endblock %}
