@@ -371,4 +371,10 @@
   })
 
 </script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArejQW8_BobExltDrQYKCR6Lxlay-qqBk&libraries=places"></script>
+<script>
+  var input = document.getElementById('organisation_location');
+
+  autocomplete = new google.maps.places.Autocomplete(input);
+</script>
 {% endblock %}
