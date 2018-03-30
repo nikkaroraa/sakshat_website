@@ -7,6 +7,7 @@ class OrganisationsTableSchema extends Schema {
   up () {
     this.create('organisations', (table) => {
       table.increments()
+      table.text('ngodarpan_id').notNullable().unique()
       table.string('name').notNullable().unique()
       table.string('email').notNullable().unique()
       table.string('contact').notNullable()

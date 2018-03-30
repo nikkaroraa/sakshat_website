@@ -114,7 +114,7 @@
     height: 20px;
     border: 3px solid var(--theme-color);
     position: absolute;
-    left: 6em;
+    {# left: 0em; #}
     top: 0;
     opacity: .6;
     -webkit-transition: all .12s, border-color .08s;
@@ -124,7 +124,7 @@
   input[type="checkbox"]:checked + label:before {
     width: 10px;
     top: -5px;
-    left: 6.1em;
+    {# left: 6.1em; #}
     border-radius: 0;
     opacity: 1;
     border-top-color: transparent;
@@ -228,21 +228,21 @@
           <form id="registerForm" action="{{ url('/') }}register" method="post" class="card-body">
             <input type="hidden" name="client_secret" id="register_client_secret" value="">
             <div class="form-group">
-              <label for="email">Email address</label>
-              <input type="email" class="form-control" id="register_email" aria-describedby="emailHelp" placeholder="Enter email" name="email">
+              <label for="email">Email address <span class="mandatory-form-field">*</span></label>
+              <input type="email" class="form-control" id="register_email" aria-describedby="emailHelp" placeholder="Enter email" name="email" required>
               <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <div class="form-group">
-              <label for="username">Username</label>
-              <input type="text" class="form-control" id="register_username" placeholder="Enter username" name="username">
+              <label for="username">Username <span class="mandatory-form-field">*</span></label>
+              <input type="text" class="form-control" id="register_username" placeholder="Enter username" name="username" required>
             </div>
             <div class="form-group">
-              <label for="password">Password</label>
-              <input type="password" class="form-control" id="register_password" placeholder="Password" name="password">
+              <label for="password">Password <span class="mandatory-form-field">*</span></label>
+              <input type="password" class="form-control" id="register_password" placeholder="Password" name="password" required>
             </div>
             <div class="py-2">
               <input type="checkbox" id="setup-organisation" name="setup_organisation">
-              <label for="setup-organisation">Setup an Organisation?</label>
+              <label for="setup-organisation">Are you a registered Organisation?</label>
             </div>
             <div class="card my-3 disabled-customised organisation-details">
               <div class="card-body">
@@ -250,29 +250,33 @@
                   <h4>Organisation's Details</h4>
                 </div>
                 <div class="form-group">
-                  <label for="organisation_name">Name</label>
-                  <input type="text" class="form-control" id="organisation_name" placeholder="Organisation's Name" name="organisation_name">
+                  <label for="organisation_ngodarpan_id">NGO Darpan ID <span class="mandatory-form-field">*</span></label>
+                  <input type="text" class="form-control register_organisation" id="organisation_ngodarpan_id" placeholder="Enter NGO Darpan ID" name="organisation_ngodarpan_id">
                 </div>
                 <div class="form-group">
-                  <label for="organisation_description">Description</label>
-                  <textarea class="form-control" id="organisation_description" placeholder="Describe the Organisation..." name="organisation_description" rows="1"></textarea>
+                  <label for="organisation_name">Name <span class="mandatory-form-field">*</span></label>
+                  <input type="text" class="form-control register_organisation" id="organisation_name" placeholder="Organisation's Name" name="organisation_name">
                 </div>
                 <div class="form-group">
-                  <label for="organisation_email">E-Mail</label>
-                  <input type="email" class="form-control" id="organisation_email" placeholder="Organisation's E-mail" name="organisation_email">
+                  <label for="organisation_description">Description <span class="mandatory-form-field">*</span></label>
+                  <textarea class="form-control register_organisation" id="organisation_description" placeholder="Describe the Organisation..." name="organisation_description" rows="1"></textarea>
                 </div>
                 <div class="form-group">
-                  <label for="organisation_contact">Contact Number</label>
-                  <input type="text" class="form-control" id="organisation_contact" placeholder="Organisation's Contact" name="organisation_contact">
+                  <label for="organisation_email">E-Mail <span class="mandatory-form-field">*</span></label>
+                  <input type="email" class="form-control register_organisation" id="organisation_email" placeholder="Organisation's E-mail" name="organisation_email">
                 </div>
                 <div class="form-group">
-                  <label for="organisation_location">Location</label>
-                  <input type="text" class="form-control" id="organisation_location" placeholder="Organisation's State" name="organisation_location">
+                  <label for="organisation_contact">Contact Number <span class="mandatory-form-field">*</span></label>
+                  <input type="text" class="form-control register_organisation" id="organisation_contact" placeholder="Organisation's Contact" name="organisation_contact">
+                </div>
+                <div class="form-group">
+                  <label for="organisation_location">Location <span class="mandatory-form-field">*</span></label>
+                  <input type="text" class="form-control register_organisation" id="organisation_location" placeholder="Organisation's State" name="organisation_location">
                 </div>
               </div>
             </div>
             <div class="py-2">
-              <button type="button" class="btn btn-custom-designed btn-register" id="btn-register-form">SIGN UP</button>
+              <button type="submit" class="btn btn-custom-designed btn-register" id="btn-register-form">SIGN UP</button>
             </div>
             <hr />
             <div>
@@ -294,15 +298,15 @@
           <form id="loginForm" action="{{ url('/') }}login" method="post" class="card-body">
             <input type="hidden" name="client_secret" id="login_client_secret" value="">
             <div class="form-group">
-              <label for="email">Email address</label>
-              <input type="email" class="form-control" id="login_email" placeholder="Enter email" name="email">
+              <label for="email">Email address <span class="mandatory-form-field">*</span></label>
+              <input type="email" class="form-control" id="login_email" placeholder="Enter email" name="email" required>
             </div>
             <div class="form-group">
-              <label for="password">Password</label>
-              <input type="password" class="form-control" id="login_password" placeholder="Password" name="password">
+              <label for="password">Password <span class="mandatory-form-field">*</span></label>
+              <input type="password" class="form-control" id="login_password" placeholder="Password" name="password" required>
             </div>
             <div class="py-2">
-              <button type="button" class="btn btn-custom-designed btn-login" id="btn-login-form">LOGIN</button>
+              <button type="submit" class="btn btn-custom-designed btn-login" id="btn-login-form">LOGIN</button>
             </div>
             <hr />
             <div>
@@ -323,13 +327,6 @@
 <script type="text/javascript">
   $(document).ready(function() {
 
-    $('#btn-login-form').on('click', function(e) {
-      $('#loginForm').submit();
-    });
-    $('#btn-register-form').on('click', function(e) {
-      $('#registerForm').submit();
-    });
-
     $('#setup-organisation').change(function() {
       // this will contain a reference to the checkbox
       let element = $('.organisation-details')
@@ -343,12 +340,25 @@
       }
     })
 
-    $(function() {
-      $("#scroll_top_arrow").on('click', function() {
-          var position = $("#home-form-parent").offset().top;
-          $("HTML, BODY").animate({ scrollTop: position }, 1000);
-        })
-      });
+
+    $("#scroll_top_arrow").on('click', function() {
+      var position = $("#home-form-parent").offset().top;
+      $("HTML, BODY").animate({ scrollTop: position }, 1000);
+    })
+
+    $('#setup-organisation').change(function() {
+        let concerned_element = $('.register_organisation')
+        if(this.checked) {
+          if(!concerned_element.attr('required')) {
+            concerned_element.attr('required', 'true')
+          }
+        } else {
+          if(concerned_element.attr('required')) {
+            concerned_element.removeAttr('required')
+          }
+        }
+    });
+
   })
 
 

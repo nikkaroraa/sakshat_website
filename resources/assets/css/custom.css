@@ -22,7 +22,6 @@ nav.navbar {
 .box-shadow {
   box-shadow: 0 4px 4px 0 rgba(0,0,0,0.14);
 }
-
 nav.navbar .navbar-brand {
   font-family: 'Montserrat', sans-serif;
 }
@@ -45,6 +44,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .gray-text {
   color: rgba(0,0,0,.6)
+}
+
+.mandatory-form-field {
+  color : var(--theme-color)
 }
 
 .small-head {
