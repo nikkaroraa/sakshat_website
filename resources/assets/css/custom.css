@@ -102,16 +102,19 @@ a:hover {
 }
 
 .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
-  color: var(--dark-theme-color)
+  color: #fff
 }
 
 .navbar-light .navbar-nav .nav-link {
-  color: var(--theme-color)
+  color: #fff;
+  text-transform: uppercase
 }
 
 .text-decoration-none {
   text-decoration: none
 }
+
+.navbar
 
 .theme-color {
   color: var(--theme-color)
