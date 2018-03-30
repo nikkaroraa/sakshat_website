@@ -172,7 +172,7 @@ class ProfileController {
     yield project_payment_account.save()
 
     yield request
-        .with({success: 'Project added successfully!'})
+        .with({success: 'Project has been sent for offline verification! Come back after 48 hours...'})
         .flash()
 
     response.redirect('back')
