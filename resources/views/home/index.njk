@@ -324,7 +324,29 @@ marginalisation and social injustice.
     </div>
   </div>
 </div>
-
+<div class="home-form" id="home-form-parent">
+    <div class="pt-3">
+      <div class="p-5">
+        <div class="my-5 card p-5 box-shadow">
+          <h2>Do you wish to seek direct help from an Organisation ?</h2>
+          <br />
+          <form id="loginForm" action="{{ url('/') }}organisations" method="post" class="card-body">
+            <input type="hidden" name="client_secret" id="login_client_secret" value="">
+            <div class="form-group">
+              <label for="email"> Enter your email address <span class="mandatory-form-field">*</span></label>
+              <input type="email" class="form-control" id="login_email" placeholder="Enter email" name="email" required>
+            </div>
+            
+            <div class="py-2">
+              <button type="submit" class="btn btn-custom-designed btn-login" id="btn-login-form">Submit</button>
+            </div>
+            <hr />
+            
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}
 
 {% block jsfooter %}
