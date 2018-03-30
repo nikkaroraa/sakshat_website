@@ -1,7 +1,7 @@
 {% extends 'layouts/default' %}
 {% block csshead %}
 <style>
-  .project-image {
+  .organisation-image {
     -o-object-fit: scale-down;
     object-fit: scale-down;
     background: #ffffff;
@@ -22,6 +22,13 @@
     margin: 2px 8px 6px 0px;
   }
 
+  .extra-small {
+    display: block;
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 12px;
+    line-height: normal;
+  }
+
 </style>
 {% endblock %} {% block jshead %}{% endblock %} {% block content %}
 <div class="main-content-container container-fluid">
@@ -30,13 +37,13 @@
       <div class="col-sm-12">
         <div class="box-component d-flex align-items-center">
           <h5 class="mb-0">
-            <span style="border-right: 1px solid rgba(0, 0, 0, 0.1); font-size:1.5em;" class="pr-2">Projects</span>
+            <span style="border-right: 1px solid rgba(0, 0, 0, 0.1); font-size:1.5em;" class="pr-2">Organisations</span>
           </h5>
           <h6 class="mb-0 pl-2 light-text" style="font-size:0.9em;">Use keywords and filters to narrow your search results.</h6>
           <div class="ml-auto pl-2" style="border-left: 1px solid rgba(0, 0, 0, 0.1); font-size: 0.9em">
             QuickLinks
             <br>
-            <a href="{{ url('/') }}project/add">Add Project</a>
+            <a href="{{ url('/') }}organisation/add">Add Organisation</a>
           </div>
         </div>
       </div>
@@ -102,39 +109,50 @@
         </div>
       </div>
       <div class="col-sm-9 general-info">
-        {% for project in projects %}
+        {% for organisation in organisations %}
           <div class="box-component my-2">
             <div class="container">
               <div class="row d-flex align-items-center">
                 <div class="col-sm-2">
                   <div class="image-holder">
-                    <a href="{{ url('/') }}project/{{ project.id }}">
-                      <img style="width:100%" src="{{ project.image }}"
-                        class="project-image">
+                    <a href="{{ url('/') }}organisation/{{ organisation.id }}">
+                      <img style="width:100%" src="{{ organisation.image }}"
+                        class="organisation-image">
                     </a>
                   </div>
                 </div>
                 <div class="col-sm-10">
-                  <div class="project-holder">
-                    <a href="{{ url('/') }}project/{{ project.id }}">
-                      <p>{{ project.name }}</p>
+                  <div class="organisation-holder">
+                    <a href="{{ url('/') }}organisation/{{ organisation.id }}">
+                      <a href="{{ organisation.website }}">{{ organisation.name }}</a>
                     </a>
+                    <p class="extra-small">
+                      <i class="fas fa-map-marker-alt"></i>&nbsp;{{ organisation.location }}
+                    </p>
                     <small>
                       <div>
-                        <b>TAGLINE: </b>
-                        <span class="project-subtext">{{ project.tagline }}</span>
+                        <b>Website: </b>
+                        <span class="organisation-subtext">
+                          <a href="{{ organisation.website }}">{{ organisation.website }}</a>
+                        </span>
                       </div>
                     </small>
                     <small>
                       <div>
-                        <b>TARGET BUDGET: </b>
-                        <span>{{ project.target_budget }} &#8377;</span>
+                        <b>NGODarpan ID: </b>
+                        <span>{{ organisation.ngodarpan_id }}</span>
                       </div>
                     </small>
                     <small>
                       <div>
-                        <b>DSI: </b>
-                        <span>{{ project.dsi_rating }}</span>
+                        <b>E-Mail: </b>
+                        <span>{{ organisation.email }}</span>
+                      </div>
+                    </small>
+                    <small>
+                      <div>
+                        <b>Credibility Score: </b>
+                        <span>{{ organisation.credibility_score }}</span>
                       </div>
                     </small>
                     <div class="tag-container">
@@ -150,17 +168,6 @@
                     </div>
 
                   </div>
-                </div>
-              </div>
-              <div class="mt-3 d-flex justify-content-start" style="margin-left: 7.5em">
-                <div>
-                  <button class="btn btn-custom-designed btn-small mr-2" style="font-size: 0.8em;"><i class="fas fa-envelope-open"></i> &nbsp; Subscribe</button>
-                </div>
-                <div>
-                  <button class="btn btn-custom-designed btn-small mx-2" style="font-size: 0.8em;"><i class="fas fa-rupee-sign"></i> &nbsp; Volunteer</button>
-                </div>
-                <div>
-                  <button class="btn btn-custom-designed btn-small" style="font-size: 0.8em;"><i class="fas fa-users"></i> &nbsp; Donate</button>
                 </div>
               </div>
             </div>
