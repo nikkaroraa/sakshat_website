@@ -6,6 +6,7 @@ const Project = use('App/Model/Project')
 const ProjectOwner = use('App/Model/ProjectOwner')
 const OrganisationProject = use('App/Model/OrganisationProject')
 const ProjectDoc = use('App/Model/ProjectDoc')
+const ProjectPaymentAccount = use('App/Model/ProjectPaymentAccount')
 
 const Organisation = use('App/Model/Organisation')
 const Volunteer = use('App/Model/Volunteer')
@@ -152,9 +153,23 @@ class ProfileController {
     project_doc.need_fund = request.input('need_fund') ? true : false
     project_doc.fund_amount = request.input('fund_amount') ? request.input('fund_amount') : 0
     project_doc.timebound_bool = request.input('timebound_bool') ? true : false
+    project_doc.fundraising_deadline = request.input('fundraising_deadline')
     project_doc.project_deadline = request.input('project_deadline')
+    project_doc.updates_frequency = request.input('updates_frequency')
 
     yield project_doc.save()
+
+    const project_payment_account = new ProjectPaymentAccount()
+    project_payment_account.project_id = project_id
+    project_payment_account.pan_number = request.input('pan_number')
+    project_payment_account.mobile_number = request.input('mobile_number')
+    project_payment_account.aadhaar_id_number = request.input('aadhaar_id_number')
+    project_payment_account.upi_id = request.input('upi_id')
+    project_payment_account.account_number = request.input('account_number')
+    project_payment_account.ifsc_code = request.input('ifsc_code')
+
+
+    yield project_payment_account.save()
 
     yield request
         .with({success: 'Project added successfully!'})
