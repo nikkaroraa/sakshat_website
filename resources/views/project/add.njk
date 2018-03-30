@@ -22,6 +22,7 @@
   <ul id="progressbar" class="d-flex justify-content-center align-items-center">
     <li class="active">Basic Information</li>
     <li>Requirements</li>
+    <li>Payment information</li>
   </ul>
 
   <!-- BASIC INFORMATION FIELD SET -->
@@ -33,7 +34,7 @@
       <!-- USER ID -->
       <input type="hidden" name="user_id" value="{{ user.id }}" />
 
-      <label for="organisation_name">Select your Organisation? *</label>
+      <label for="organisation_name">Are you part of Organisation? *</label>
       <select id="organisation_name" name="organisation_id" class="form-control" required="required" data-rule-required="true" data-msg-required="Please select your organisation's name">
         {% for organisation in organisations %}
           <option value="{{ organisation.id }}">{{ organisation.name }}</option>
@@ -47,9 +48,9 @@
 
     <div class="hs_email field hs-form-field">
 
-      <label for="project_name">What's your Project's name? *</label>
+      <label for="project_name">Project's name? *</label>
 
-      <input id="project_name" name="project_name" required="required" type="text" value="" placeholder=""
+      <input id="project_name" name="project_name" required="required" type="text" value="" placeholder="simple and short"
         data-rule-required="true" data-msg-required="Please include your project's name">
       <span class="error1" style="display: none;">
         <i class="error-log fa fa-exclamation-triangle"></i>
@@ -60,7 +61,7 @@
 
       <label for="project_description">Describe your Project *</label>
 
-      <input id="project_description" name="project_description" required="required" type="text" value="" placeholder=""
+      <input id="project_description" name="project_description" required="required" type="text" value="" placeholder=" In not more than 200 words"
         data-rule-required="true" data-msg-required="Describe the project">
       <span class="error1" style="display: none;">
         <i class="error-log fa fa-exclamation-triangle"></i>
@@ -69,10 +70,10 @@
 
     <div class="hs_firstname field hs-form-field">
 
-      <label for="project_purpose">How does it cater to women and child empowerment? *</label>
+      <label for="project_purpose">How does it cater to women empowerment? *</label>
 
       <input id="project_purpose" name="project_purpose" type="text" value=""
-        placeholder="">
+        placeholder="Also mention if the project is women owned">
     </div>
 
 
@@ -81,7 +82,7 @@
       <label for="project_tagline">Tagline for your Project *</label>
 
       <input id="project_tagline" name="project_tagline" type="text" value=""
-        placeholder="">
+        placeholder="short and sweet">
     </div>
 
     <div class="hs_firstname field hs-form-field">
@@ -99,9 +100,10 @@
 
   <!-- REQUIREMENTS FIELD SET -->
   <fieldset>
-    <h2 class="fs-title">Requirements</h2>
+    <h2 class="fs-title">Project Specifics</h2>
     <h3 class="fs-subtitle">Add as more as you can!</h3>
 
+    
 
 
     <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_1 field hs-form-field"
@@ -149,13 +151,94 @@
     <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_1 field hs-form-field"
       id="webform-component-acquisition--amount-1">
 
+      <label for="project_deadline">What is your fundraising deadline?</label>
+      <input id="project_deadline" name="project_deadline" type="text" placeholder="" class="datepicker">
+
+    </div>
+
+    <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_1 field hs-form-field"
+      id="webform-component-acquisition--amount-1">
+
       <label for="project_deadline">What is your project deadline?</label>
       <input id="project_deadline" name="project_deadline" type="text" placeholder="" class="datepicker">
 
     </div>
 
+    <div class="hs_email field hs-form-field">
+
+      <label for="project_name">How frequently can you give updates about the project to donators? </label>
+
+      <input id="project_name" name="project_name" required="required" type="text" value="" placeholder="">
+    </div>
+    
+
     <input type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
     <input id="submit" class="hs-button primary large action-button next" type="submit" value="Submit">
+  </fieldset>
+
+  <!-- Payment information -->
+  <fieldset>
+    <h2 class="fs-title">Payment Information</h2>
+    <h3 class="fs-subtitle">Details regarding payments</h3>
+
+    <div class="hs_email field hs-form-field">
+
+      <label for="project_name">PAN Number : *</label>
+
+      <input id="project_name" name="project_name" required="required" type="text" value="" placeholder=""
+        data-rule-required="true" data-msg-required="PAN card information is required">
+      <span class="error1" style="display: none;">
+        <i class="error-log fa fa-exclamation-triangle"></i>
+      </span>
+    </div>
+
+    <div class="hs_email field hs-form-field">
+
+      <label for="project_name">Mobile number : *</label>
+
+      <input id="project_name" name="project_name" required="required" type="text" value="" placeholder="Input mobile number associated with PAN card"
+        data-rule-required="true" data-msg-required="Input mobile number assciated with the PAN number">
+      <span class="error1" style="display: none;">
+        <i class="error-log fa fa-exclamation-triangle"></i>
+      </span>
+    </div>
+
+    <div class="hs_email field hs-form-field">
+
+      <label for="project_name">Input Adhaar ID number : *</label>
+
+      <input id="project_name" name="project_name" required="required" type="text" value="" placeholder="">
+      
+    </div>
+
+    <div class="hs_email field hs-form-field">
+
+      <label for="project_name">Input UPI ID : *</label>
+
+      <input id="project_name" name="project_name" required="required" type="text" value="" placeholder="">
+      
+    </div>
+
+    <span> OR <br></span>
+
+    <div class="hs_email field hs-form-field">
+
+      <label for="project_name">Input account number : *</label>
+
+      <input id="project_name" name="project_name" required="required" type="text" value="" placeholder="">
+      
+    </div>
+
+    <div class="hs_email field hs-form-field">
+
+      <label for="project_name">IFSC Code : *</label>
+
+      <input id="project_name" name="project_name" required="required" type="text" value="" placeholder="">
+      
+    </div>
+  
+
+    <input type="button" data-page="1" name="next" class="next action-button" value="Next" />
   </fieldset>
 
 </form>
