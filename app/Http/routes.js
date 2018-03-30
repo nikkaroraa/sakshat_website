@@ -21,18 +21,22 @@ Route.get('/', 'HomeController.index').as('home')
 
 Route.get('login', 'HomeController.index')
 
-
 Route.post('login', 'AuthController.login')
 Route.get('/abc', 'PostsController.index')
 Route.post('register', 'RegisterController.register').as('register')
 
 Route.get('logout', 'AuthController.logout').as('logout')
-//facebook login
+
+Route.get('organisations', 'OrganisationController.getOrganisations')
+
+//  facebook login
+
 Route.get('facebookLogin', 'AuthController.redirect')
 Route.get('facebookAuthenticated', 'AuthController.handleCallback')
 Route.get('test-url', 'AuthController.testUrl')
-//mail test
-Route.get('mail-test', 'MailController.textMsg')
+
+//  mail test
+Route.get('/mail', 'MailController.textMsg')
 
 // Secured Routes under Auth Middleware //
 Route.group('secured', function () {
@@ -54,7 +58,6 @@ Route.group('secured', function () {
       collection.bindAction('FeedController.addPost')
     })
 
-  Route.get('organisations', 'OrganisationController.getOrganisations')
   Route.resource('organisation', 'OrganisationController')
     .only(['index', 'store'])
     .addCollection('add', 'GET', (collection) => {
@@ -63,6 +66,7 @@ Route.group('secured', function () {
     .addCollection('addPost', 'POST', (collection) => {
       collection.bindAction('OrganisationController.addPostOrganisation')
     })
+
 
   Route.get('projects', 'ProjectController.getProjects')
   Route.resource('project', 'ProjectController')

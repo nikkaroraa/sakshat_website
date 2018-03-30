@@ -401,10 +401,13 @@ class OrganisationController {
   }
 
   * getOrganisations (request, response) {
-    let user = yield User.find(request.currentUser.id)
-
-    user = user.toJSON()
-
+  
+    let user
+    if(request.currentUser) {
+      user = yield User.find(request.currentUser.id)
+      user = user.toJSON()
+    }
+    
     let organisations = yield Organisation.query().orderBy('created_at', 'desc').fetch()
     // response.ok(organisations)
 
