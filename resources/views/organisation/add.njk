@@ -33,7 +33,7 @@
       <!-- USER ID -->
       <input type="hidden" name="user_id" value="{{ user.id }}" />
 
-      <label for="organisation_name">What's your Organisation's Name? *</label>
+      <label for="organisation_name">What's your Organisation's Name? <span class="mandatory-form-field">*</span></label>
 
       <input id="organisation_name" name="organisation_name" required="required" type="text" value=""
         placeholder="" data-rule-required="true" data-msg-required="Please include your organisation's name">
@@ -42,12 +42,22 @@
       </span>
     </div>
 
+    <div class="hs_firstname field hs-form-field">
+      <label for="organisation_ngodarpan_id">What's your Organisation's NGODarpan ID? <span class="mandatory-form-field">*</span></label>
+
+      <input id="organisation_ngodarpan_id" name="organisation_ngodarpan_id" required="required" type="text" value=""
+        placeholder="" data-rule-required="true" data-msg-required="This field is strictly mandatory">
+      <span class="error1" style="display: none;">
+        <i class="error-log fa fa-exclamation-triangle"></i>
+      </span>
+    </div>
+
     <div class="hs_email field hs-form-field">
 
-      <label for="organisation_description">Describe your Organisation *</label>
+      <label for="organisation_description">Describe your Organisation <span class="mandatory-form-field">*</span></label>
 
       <input id="organisation_description" name="organisation_description" required="required" type="text" value="" placeholder=""
-        data-rule-required="true" data-msg-required="Describe the organisation">
+        data-rule-required="true" data-msg-required="This field is strictly mandatory">
       <span class="error1" style="display: none;">
         <i class="error-log fa fa-exclamation-triangle"></i>
       </span>
@@ -55,7 +65,7 @@
 
     <div class="hs_firstname field hs-form-field">
 
-      <label for="organisation_email">What is the Organisation's E-mail address? *</label>
+      <label for="organisation_email">What is the Organisation's E-mail address? <span class="mandatory-form-field">*</span></label>
 
       <input id="organisation_email" name="organisation_email" required="required" type="email" value=""
         placeholder="" data-rule-required="true" data-msg-required="This field is strictly mandatory">
@@ -67,7 +77,7 @@
 
     <div class="hs_firstname field hs-form-field">
 
-      <label for="organisation_contact">What is the Organisation's contact number? *</label>
+      <label for="organisation_contact">What is the Organisation's contact number? <span class="mandatory-form-field">*</span></label>
 
       <input id="organisation_contact" name="organisation_contact" required="required" type="number" value=""
         placeholder="" data-rule-required="true" data-msg-required="This field is strictly mandatory">
@@ -76,12 +86,11 @@
       </span>
     </div>
 
-    <div class="hs_firstname field hs-form-field">
+    <div class="">
 
-      <label for="organisation_location">Where is the Organisation located? *</label>
+      <label for="organisation_location">Where is the Organisation located? <span class="mandatory-form-field">*</span></label>
 
-      <input id="organisation_location" name="organisation_location" required="required" type="text" value=""
-        placeholder="" data-rule-required="true" data-msg-required="This field is strictly mandatory">
+      <input id="organisation_location" name="organisation_location" required="required" type="text" value="" placeholder="" data-rule-required="true" data-msg-required="This field is strictly mandatory">
       <span class="error1" style="display: none;">
         <i class="error-log fa fa-exclamation-triangle"></i>
       </span>
@@ -94,8 +103,6 @@
   <fieldset>
     <h2 class="fs-title">Other Information</h2>
     <h3 class="fs-subtitle">Add as more as you can!</h3>
-
-
 
     <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_1 field hs-form-field"
       id="webform-component-acquisition--amount-1">

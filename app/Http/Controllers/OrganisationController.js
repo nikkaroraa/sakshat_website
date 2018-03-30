@@ -51,6 +51,7 @@ class OrganisationController {
     let user_id = request.input('user_id')
 
     const organisation = new Organisation()
+    organisation.ngodarpan_id = request.input('organisation_ngodarpan_id')
     organisation.name = request.input('organisation_name')
     organisation.description = request.input('organisation_description')
     organisation.email = request.input('organisation_email')
