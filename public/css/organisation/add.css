@@ -137,6 +137,10 @@
   display: block;
 }
 
+.steps .action-button:focus {
+  color: #fff!important;
+}
+
 .steps .next,
 .steps .submit {
   float: right;
