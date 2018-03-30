@@ -198,7 +198,7 @@ class ProfileController {
     user = user.toJSON()
 
     let projects = yield Project.query().orderBy('created_at', 'desc').fetch()
-    response.ok(projects)
+    // response.ok(projects)
 
     yield response.sendView('project.index', {
       user: user,

@@ -11,29 +11,22 @@
 {% block content %}
 <div class="main-content-container container-fluid">
   <div class="main-content container">
-   <div class="row">
-    <div class="col-sm-12 ">
-      <div class="box-component d-flex align-items-center">
-        <h4 class="mb-0">
-          <span style="border-right: 1px solid rgba(0, 0, 0, 0.1); font-size:1.5em;" class="pr-2">Organisations</span>
-        </h4>
-        <h6 class="mb-0 pl-2 light-text" style="font-size:0.9em;">Use keywords and filters to narrow your search results.</h6>
-        <div class="ml-auto pl-2" style="border-left: 1px solid rgba(0, 0, 0, 0.1); font-size: 0.9em" >
-          QuickLinks
-          <br>
-          <a href="#">Add Organisation</a>
-
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="box-component d-flex align-items-center">
+          <h5 class="mb-0">
+            <span style="border-right: 1px solid rgba(0, 0, 0, 0.1); font-size:1.5em;" class="pr-2">Projects</span>
+          </h5>
+          <h6 class="mb-0 pl-2 light-text" style="font-size:0.9em;">Use keywords and filters to narrow your search results.</h6>
+          <div class="ml-auto pl-2" style="border-left: 1px solid rgba(0, 0, 0, 0.1); font-size: 0.9em" >
+            QuickLinks
+            <br>
+            <a href="{{ url('/') }}project/add">Add Project</a>
+          </div>
         </div>
       </div>
-
     </div>
-   </div>
-  </div>
-</div>
-
-<div class="main-content-container container-fluid">
-  <div class="main-content container">
-    <div class="row">
+    <div class="row mt-5">
       <div class="col-sm-3 left-side-nav">
         <div class="box-component user-information">
           <div class="profile-info-view">
@@ -90,8 +83,6 @@
           </div>
         </div>
       </div>
-
-
       <div class="col-sm-9 general-info">
         <div class="tab-content" id="myTabContent">
           <div class="tab-pane fade show active" id="about" role="tabpanel" aria-labelledby="about-tab">
@@ -132,7 +123,7 @@
                   </div>
                   <div class="col-sm-2 text-center">
                       <div>
-                         <button class="click-button">Subscribe</button>
+                        <button class="click-button">Subscribe</button>
                       </div>
                   </div>
                 </div>
@@ -143,9 +134,16 @@
         </div>
       </div>
     </div>
+    </div>
+   </div>
   </div>
 </div>
 
+<div class="main-content-container container-fluid">
+  <div class="main-content container">
+
+  </div>
+</div>
 
 {% endblock %}
 
