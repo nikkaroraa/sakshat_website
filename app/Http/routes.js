@@ -63,6 +63,9 @@ Route.group('secured', function () {
     .addCollection('addPost', 'POST', (collection) => {
       collection.bindAction('OrganisationController.addPostOrganisation')
     })
+    .addCollection(':id', 'GET', (collection) => {
+      collection.bindAction('OrganisationController.viewOrganisation')
+    })
 
   Route.get('projects', 'ProjectController.getProjects')
   Route.resource('project', 'ProjectController')

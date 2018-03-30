@@ -400,6 +400,26 @@ class OrganisationController {
     return
   }
 
+  * viewOrganisation (request,response) {
+    let user = yield User.find(request.currentUser.id)
+    user = user.toJSON()
+
+    const id = request.param('id')
+
+    let organisationDetails = yield OrganisationOwner.query().where('organisation_id', id).with('user','organisation').fetch()
+    let organisationDocs = yield OrganisationDoc.query().where('organisation_id', id).fetch()
+
+    organisationDetails = organisationDetails.toJSON()
+    organisationDocs = organisationDocs.toJSON()
+
+    yield response.sendView('organisation.view', {
+      user: user,
+      organisationDetails: organisationDetails,
+      organisationDocs: organisationDocs
+    })
+    return
+  }
+
   * getOrganisations (request, response) {
     let user = yield User.find(request.currentUser.id)
 

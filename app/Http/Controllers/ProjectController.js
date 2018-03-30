@@ -186,10 +186,12 @@ class ProfileController {
     const id = request.param('id')
 
     let projectDetails = yield ProjectOwner.query().where('project_id', id).with('user','project').fetch()
+    let projectDocs = yield ProjectDoc.query().where('project_id', id).fetch()
     let volunteers = yield Volunteer.query().where('project_id', id).with('user').fetch()
     let donators = yield Donator.query().where('project_id',id).with('user').fetch()
 
     projectDetails = projectDetails.toJSON()
+    projectDocs = projectDocs.toJSON()
     volunteers = volunteers.toJSON();
     donators = donators.toJSON();
 
@@ -203,11 +205,12 @@ class ProfileController {
     //   donators: donators
     // };
 
-    // response.ok(projectDetails)
+    // response.ok(projectDocs)
 
     yield response.sendView('project.view', {
       user: user,
       projectDetails: projectDetails,
+      projectDocs: projectDocs,
       volunteers: volunteers,
       donators: donators
     })

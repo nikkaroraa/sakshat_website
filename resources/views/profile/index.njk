@@ -128,7 +128,7 @@
           <div class="profile-info-view">
             <h5 class="user-name">{{ user.name }}</h5>
             <h6 class="user-handle">@{{ user.username }}</h6>
-            <div class="pb-3">
+            <div class="pb-3 pl-3">
               <a href="{{ url('/') }}feed">
                 <button type="button" class="btn btn-outline-danger action-btn btn-long"><i class="fas fa-envelope-open"></i> &nbsp; Suggestion Box</button>
               </a>
@@ -341,7 +341,7 @@
                           {% endif %}
                         </div>
                         <div class="col-sm-10">
-                          <h6><a href="{{ url('/') }}organisations/{{organisation.id}}">{{ organisation.name }}</a></h6>
+                          <h6><a href="{{ url('/') }}organisation/{{organisation.id}}">{{ organisation.name }}</a></h6>
                           <p class="light-text small-head">
                            {{ organisation.description }}
                           </p>
