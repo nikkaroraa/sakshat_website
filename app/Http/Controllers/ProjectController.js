@@ -191,6 +191,21 @@ class ProfileController {
     })
     return
   }
+
+  * getProjects (request, response) {
+    let user = yield User.find(request.currentUser.id)
+
+    user = user.toJSON()
+
+    let projects = yield Project.query().orderBy('created_at', 'desc').fetch()
+    response.ok(projects)
+
+    yield response.sendView('project.index', {
+      user: user,
+      projects: projects
+    })
+    return
+  }
 }
 
 module.exports = ProfileController

@@ -21,11 +21,7 @@ Route.get('/', 'HomeController.index').as('home')
 
 Route.get('login', 'HomeController.index')
 
-Route.get('feed', 'FeedController.index').as('feed') // if you are using routes
 
-Route.on('/projects').render('project-ashwin.project-feed') // if you are using simple views
-Route.on('/comments').render('project-ashwin.comments')
-Route.on('/posts').render('project-ashwin.posts')
 Route.post('login', 'AuthController.login')
 Route.get('/abc', 'PostsController.index')
 Route.post('register', 'RegisterController.register').as('register')
@@ -67,6 +63,7 @@ Route.group('secured', function () {
       collection.bindAction('OrganisationController.addPostOrganisation')
     })
 
+  Route.get('projects', 'ProjectController.getProjects')
 
   Route.resource('project', 'ProjectController')
     .only(['index', 'store'])
