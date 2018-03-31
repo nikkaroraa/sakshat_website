@@ -205,7 +205,7 @@ class ProfileController {
     //   donators: donators
     // };
 
-    // response.ok(projectDocs)
+    // response.ok(projectDetails)
 
     yield response.sendView('project.view', {
       user: user,
@@ -228,6 +228,20 @@ class ProfileController {
     yield response.sendView('project.index', {
       user: user,
       projects: projects
+    })
+    return
+  }
+
+  * getDonationPage (request, response) {
+    let user = yield User.find(request.currentUser.id)
+
+    user = user.toJSON()
+
+    let project_id = request.param('id')
+
+    yield response.sendView('project.donation', {
+      user: user,
+      project_id: project_id
     })
     return
   }

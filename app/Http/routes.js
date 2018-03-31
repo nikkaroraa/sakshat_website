@@ -79,6 +79,11 @@ Route.group('secured', function () {
     .addCollection(':id', 'GET', (collection) => {
       collection.bindAction('ProjectController.viewProject')
     })
+    .addCollection(':id/:userId/donate', 'GET', (collection) => {
+      collection.bindAction('ProjectController.getDonationPage')
+    })
+
+
 
 
   Route.resource('comments', 'CommentController')

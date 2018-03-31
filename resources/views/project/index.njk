@@ -1,4 +1,5 @@
 {% extends 'layouts/default' %}
+
 {% block csshead %}
 <style>
   .project-image {
@@ -23,7 +24,12 @@
   }
 
 </style>
-{% endblock %} {% block jshead %}{% endblock %} {% block content %}
+{% endblock %}
+
+{% block jshead %}
+{% endblock %}
+
+{% block content %}
 <div class="main-content-container container-fluid">
   <div class="main-content container">
     <div class="row">
@@ -173,7 +179,9 @@
 </div>
 </div>
 
-{% endblock %} {% block jsfooter %}
+{% endblock %}
+
+{% block jsfooter %}
 <script>
   $(function () {
 
