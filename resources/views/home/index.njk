@@ -210,7 +210,7 @@
 {% block content %}
 <div class='container-fluid p-0'>
   <div class='row'>
-    <div class='col-12 text-center background-home' style="background: url('/img/defaults/default-cover.jpg')">
+    <div class='col-12 text-center background-home' style="background: url('/img/defaults/default-cover.png')">
       <div class="wrapper-container mx-auto" style="max-width: 80vw;">
         <div class="card" style="opacity: 0.7">
           <div class="card-body box-shadow p-5">
@@ -303,7 +303,7 @@
               </button>
               <div>
               <button class="loginBtn loginBtn--google">
-                <a href="{{ url('/facebookLogin') }}">Sign Up with google</a>
+                <a href="{{ url('/facebookLogin') }}">Sign Up with Google</a>
               </button>
             </div>
             </div>
@@ -342,7 +342,7 @@
               Login with Google
               </button>
             </div>
-          
+
           </form>
         </div>
       </div>
@@ -352,23 +352,23 @@
 <div class="home-form" id="home-form-parent">
     <div class="pt-3">
       <div class="p-5">
-          
+
           <h2>Do you wish to seek help directly from an organisation ?</h2>
           <br />
-          <form id="loginForm" action="{{ url('/') }}organisations" method="post" class="card-body">
-            <input type="hidden" name="client_secret" id="login_client_secret" value="">
+          <form action="{{ url('/') }}organisations" method="post" class="card-body">
+            <input type="hidden" name="client_secret" value="">
             <div class="form-group">
               <label for="email"> Enter your email address <span class="mandatory-form-field">*</span></label>
-              <input type="email" class="form-control" id="login_email" placeholder="Enter email" name="email" required>
+              <input type="email" class="form-control" placeholder="Enter email" name="email" required>
             </div>
-            
+
             <div class="py-2">
-              <button type="submit" class="btn btn-custom-designed btn-login" id="btn-login-form">Submit</button>
+              <button type="submit" class="btn btn-custom-designed btn-login">Submit</button>
             </div>
             <hr />
-            
+
           </form>
-        
+
       </div>
     </div>
   </div>
