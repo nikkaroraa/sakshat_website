@@ -38,6 +38,7 @@ MWC1 : C2C Crowd-Sourcing platform for projects on Women's Empowerment
 
 
 ## Steps required to run the project on your system:
+
 ### 1. Clone the repository in your system
 #### Please Note: You need to have "git" installed on your system in order to proceed.
 If you have already installed it, then open your terminal (or commandline) and navigate to a location where you keep all your projects.
@@ -60,6 +61,7 @@ cd sakshat_website
 npm install
 ```
 
+#### Note: Import SQL file to set-up the database
 ### 3. Run the project
 
 Run the following command in your terminal:
