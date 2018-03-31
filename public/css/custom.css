@@ -26,6 +26,10 @@ nav.navbar .navbar-brand {
   font-family: 'Montserrat', sans-serif;
 }
 
+.capitalised {
+  text-transform: uppercase;
+}
+
 nav a {
   color:#4A4A4A;
 }

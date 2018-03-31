@@ -1,0 +1,388 @@
+{% extends 'layouts/default' %}
+{% block csshead %}
+<style>
+  .page-subhead {
+    text-transform: uppercase
+  }
+
+  .main-box {
+    padding-top: 40px;
+  }
+
+  .donate {
+    /*padding: 50px */
+    background-color: #fff;
+    width: 500px;
+    color: #000;
+  }
+
+  .donate p {
+    line-height: 24px;
+    font-size: 14px;
+    font-weight: 300;
+  }
+
+  .donate h3 {
+    font-size: 14px;
+    font-weight: 300;
+    margin-bottom: 30px;
+  }
+
+  .denomination {
+    float: left;
+    width: 33%;
+    text-align: center;
+    padding: 13px 0;
+    cursor: pointer;
+    background-color: #fff;
+    margin: 0 1px 1px 0;
+  }
+
+  .denomination label {
+    font-weight: 600;
+  }
+
+  .denomination input {
+    left: -10001px;
+    position: absolute;
+  }
+
+  .denomination-other {
+    width: 99.8%;
+  }
+
+  .denomination-other input {
+    color: #000;
+    font-size: 14px;
+    font-weight: 600;
+    width: inherit;
+    text-align: center;
+    background-color: #C51162;
+    border: none;
+    padding: 13px 0;
+  }
+
+  .denomination-other input:hover {
+    background-color: #D81B60;
+  }
+
+  .donate-amount .selected, .donate-amount .denomination:hover {
+    background-color: #D81B60;
+    border: 0;
+    color: #fff;
+  }
+
+  .donate-black h2 {
+    color: #000;
+    font-size: 32px;
+    margin-bottom: 30px;
+  }
+
+  .donate-black h2 span {
+    display: block;
+    float: left;
+    font-size: 16px;
+    padding-top: 7px;
+    margin-right: 20px;
+    text-align: center;
+    width: 30px;
+    height: 25px;
+    background-color: #D81B60;
+    border-radius: 50%;
+  }
+
+  .donate-type label,
+  .donate-payment label {
+    font-size: 14px;
+    font-weight: 300;
+    margin-right: 30px;
+  }
+
+  .donate-blue {
+    background-color: #FF80AB;
+    padding: 25px;
+  }
+
+  .donate-black {
+    padding: 25px;
+  }
+
+  .donate-submit button {
+    width: 100%;
+    background-color: #D81B60;
+    border: none;
+    color: #FFF;
+    font-size: 20px;
+    line-height: 20px;
+    padding: 14px 0;
+    margin: 30px 0;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  .donate-submit small {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 13px;
+  }
+
+  ::-webkit-input-placeholder {
+    color: #FFF;
+    font-size: 14px;
+    font-weight: 300;
+  }
+
+  :-moz-placeholder {
+    color: #FFF;
+    font-weight: 300;
+  }
+
+  ::-moz-placeholder {
+    color: #FFF;
+    font-weight: 300;
+  }
+
+  :-ms-input-placeholder {
+    font-weight: 300;
+    color: #FFF;
+  }
+
+  *:focus {
+    outline: none;
+  }
+
+  /* --- DONATION MODAL STYLING --- */
+
+
+</style>
+{% endblock %}
+{% block jshead %}{% endblock %}
+{% block content %}
+<div class="box-component">
+  <div class="container">
+    <div class="row py-3">
+      <div class="col-sm-12 text-center">
+        <h3 class="page-subhead mb-0"> Who is a volunteer?</h3>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="box-component main-box" style="min-height: 100vh">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <p>Women Empowerment and Child development in its true sense is possible only with the commitment and perseverance of an organisation's most valuable resource - VOLUNTEERS!</p>
+
+        <p>You heard it absolutely right! To encourage more donations for the social causes and ensuring that taxes dont turn
+          the smile on your face while you do it, upside down, the government of India under the Section 80G, Chapter 6A
+          of the Income Tax Act gives tax exemption on donations in certain certified NGOs.</p>
+
+        <ul>As a volunteer, you have the responsibility to:
+          <li>
+            Be punctual for your volunteer duty or shift
+          </li>
+          <li>
+            Be reliable and responsible
+          </li>
+          <li>
+            Communicate any issues or concerns which are likely to affect your volunteer duties
+          </li>
+          <li>
+            Do your duties as assigned and directed
+          </li>
+          <li>
+            Be willing to learn and participate in orientation, training programs, and meetings
+          </li>
+          <li>
+            Understand the role of the paid staff, maintain a smooth working relationship with them
+            and stay within the bounds of the volunteer role
+          </li>
+          <li>
+            Keep sensitive organizational information confidential
+          </li>
+          <li>
+            Comply with the policies and procedures of the organization
+          </li>
+        </ul>
+
+
+        <div class="col-sm-12 text-center pt-4">
+          <div class="col-sm-12">
+            <button type="button" data-toggle="modal" data-target=".bd-example-modal-lg" class="btn btn-custom-designed capitalised">Become a Volunteer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" style="margin-top: 6em;">
+    <div class="modal-content">
+      <div class="box-component-2 align-content-md-center">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 px-1">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <div class="col-sm-12">
+
+              <h6 class="volunteer">Become a Volunteer!</h6>
+
+              <br/><br/>
+              <div class="row">
+                <div class="col">
+                  <h6 class="light-text small-head bold-weight">
+                    First Name<span style="color:#D81B60;">*</span>
+                  </h6>
+                  <input type="text" class="form-control">
+                </div>
+                <div class="col">
+                  <h6 class="light-text small-head bold-weight">
+                    Last Name<span style="color:#D81B60;">*</span>
+                  </h6>
+                  <input type="text" class="form-control">
+                </div>
+
+              </div>
+              <br/>
+              <div class="row">
+                <div class="col">
+                  <h6 class="light-text small-head bold-weight">
+                    Address<span style="color:#D81B60;">*</span>
+                  </h6>
+                  <input type="text" class="form-control">
+                </div>
+                <div class="col">
+                  <h6 class="light-text small-head bold-weight">
+                    Contact Number<span style="color:#D81B60;">*</span>
+                  </h6>
+                  <input type="text" class="form-control">
+                </div>
+
+              </div><br/>
+              <div class="row">
+                <div class="col">
+                  <h6 class="light-text small-head bold-weight">
+                    E-mail Id<span style="color:#D81B60;">*</span>
+                  </h6>
+                  <input type="text" class="form-control">
+                </div>
+                <div class="col">
+                  <h6 class="light-text small-head bold-weight">
+                    Hours/Days of availability<span style="color:#D81B60;">*</span>
+                  </h6>
+                  <input type="text" class="form-control">
+                </div>
+
+              </div>
+              </br>
+
+              <h6 class="light-text small-head bold-weight">
+                Preferred Area<span style="color:#D81B60;">*</span> <br>
+              </h6>
+              <div class="row">
+                <div class="form-check form-check-inline">
+
+                  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                  <label class="form-check-label" for="inlineCheckbox1">
+
+                  <h6 class="light-text small-head bold-weight">Fundraising</h6></label>
+                                                  </div>
+                                                  <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                                    <label class="form-check-label" for="inlineCheckbox2">
+                  <h6 class="light-text small-head bold-weight">Marketing</h6></label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+                  <label class="form-check-label" for="inlineCheckbox3">
+                  <h6 class="light-text small-head bold-weight">Design</h6></label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+                  <label class="form-check-label" for="inlineCheckbox3">
+                  <h6 class="light-text small-head bold-weight">Community Outreach</h6></label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+                  <label class="form-check-label" for="inlineCheckbox3">
+                  <h6 class="light-text small-head bold-weight">Other Events</h6></label>
+                </div>
+              </div>
+              </br>
+              <div class="form-group">
+                <label for="name">
+                <h6  class="light-text small-head bold-weight">Enter skills or qualifications acquired through previous volunteer work or other activities</h6></label>
+                <textarea class="form-control" rows="3"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="name">
+                <h6 class="light-text small-head bold-weight">Summarize any previous volunteer experience</h6></label>
+                <textarea class="form-control" rows="3"></textarea>
+              </div>
+
+              <div class="row">
+                <div class="col">
+                  <h6 class="light-text small-head bold-weight">
+                    Emergency Contact Name<span style="color:#D81B60;">*</span>
+                  </h6>
+                  <input type="text" class="form-control">
+                </div>
+                <div class="col">
+                  <h6 class="light-text small-head bold-weight">
+                    Emergency Contact Number<span style="color:#D81B60;">*</span>
+                  </h6>
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+              </br>
+              <h6 class="light-text small-head bold-weight">
+                I assure that all the above information is true and any false statements or ambiguities may lead to my immediate dismissal from volunteering.
+              </h6>
+
+              <!-- rowend -->
+              <div class="row justify-content-center">
+                <div class="col-sm-12">
+                  <p style="line-height: 70px; text-align: center;">
+                    <button type="button" class="btn btn-custom-designed">SUBMIT</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+{% block jsfooter %}
+<script>
+  $(function () {
+
+    $('.denomination').on('click', function(e) {
+      let amount = $(this).find('input').attr('data-value')
+
+      $('.denomination').removeClass('selected')
+      $('.denomination').find('input').removeAttr('name')
+      console.log($('.denomination').find('input'))
+      $(this).addClass('selected')
+
+      $(this).find('input').attr('name', 'amount')
+      $('.donate-submit').find('button').html(`Donate &#8377; ${amount}`)
+    })
+
+    $('.denomination-other').find('input').on('focus', function(e) {
+      $('.donate-submit').find('button').html(`Donate`)
+      $('.denomination').find('input').removeAttr('name')
+
+      $(this).attr('name', 'amount')
+    })
+
+  });
+</script>
+{% endblock %}

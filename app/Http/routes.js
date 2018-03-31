@@ -22,18 +22,16 @@ Route.get('/', 'HomeController.index').as('home')
 Route.get('login', 'HomeController.index')
 
 Route.post('login', 'AuthController.login')
-Route.get('/abc', 'PostsController.index')
 Route.post('register', 'RegisterController.register').as('register')
 
 Route.get('logout', 'AuthController.logout').as('logout')
 
 Route.get('organisations', 'OrganisationController.getOrganisations')
 
-//  facebook login
+//facebook login
 
 Route.get('facebookLogin', 'AuthController.redirect')
 Route.get('facebookAuthenticated', 'AuthController.handleCallback')
-Route.get('test-url', 'AuthController.testUrl')
 
 //  mail test
 Route.get('/mail', 'MailController.textMsg')
@@ -83,17 +81,27 @@ Route.group('secured', function () {
     .addCollection(':id', 'GET', (collection) => {
       collection.bindAction('ProjectController.viewProject')
     })
-    .addCollection(':id/:userId/donate', 'GET', (collection) => {
+    .addCollection(':id/:userID/donate', 'GET', (collection) => {
       collection.bindAction('ProjectController.getDonationPage')
+    })
+    .addCollection(':id/:userID/volunteer', 'GET', (collection) => {
+      collection.bindAction('ProjectController.getVolunteerPage')
+    })
+    .addCollection(':id/uploadBill', 'POST', (collection) => {
+      collection.bindAction('ProjectController.uploadBill')
     })
 
 
   Route.post('postDonate', 'ProjectController.postDonate')
+  Route.post('postVolunteer', 'ProjectController.postVolunteer')
 
   Route.resource('comments', 'CommentController')
     .only([])
     .addCollection('postComments/add', 'POST', (collection) => {
       collection.bindAction('CommentController.addPostComments')
     })
+
+  Route.resource('collaboration', 'CollaborationController')
+    .only(['index', 'store'])
 
 }).middleware('web')
