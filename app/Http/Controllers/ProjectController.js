@@ -252,8 +252,10 @@ class ProfileController {
 
     user = user.toJSON()
 
+    let transaction_id = new Date().getTime()
+
     const transaction = new Transaction()
-    transaction.transaction_id = new Date().getTime()
+    transaction.transaction_id = transaction_id
     transaction.project_id = request.input('project_id')
     transaction.user_id = request.input('user_id')
     transaction.amount = request.input('amount')
@@ -268,13 +270,49 @@ class ProfileController {
 
     yield donator.save()
 
+
+
+    yield response.sendView('project.receipt', {
+      user: user,
+      transaction_id: transaction_id
+    })
+    return
+  }
+
+  * getDonationPage (request, response) {
+    let user = yield User.find(request.currentUser.id)
+
+    user = user.toJSON()
+
+    let project_id = request.param('id')
+
+    yield response.sendView('project.volunteer', {
+      user: user,
+      project_id: project_id
+    })
+    return
+  }
+
+  * postVolunteer (request, response) {
+    let user = yield User.find(request.currentUser.id)
+
+    user = user.toJSON()
+
+    const volunteer = new Volunteer()
+    volunteer.project_id = request.input('project_id')
+    volunteer.user_id = request.input('user_id')
+
+
+    yield volunteer.save()
+
     yield request
-        .with({success: 'Payment Successfull!'})
-        .flash()
+          .with({success: 'You will be contacted soon!'})
+          .flash()
 
     response.redirect('back')
     return
   }
+
 }
 
 module.exports = ProfileController
