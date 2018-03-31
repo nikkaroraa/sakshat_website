@@ -84,7 +84,7 @@ Route.group('secured', function () {
     })
 
 
-
+  Route.post('postDonate', 'ProjectController.postDonate')
 
   Route.resource('comments', 'CommentController')
     .only([])

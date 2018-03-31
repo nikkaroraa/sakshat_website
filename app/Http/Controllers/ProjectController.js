@@ -12,6 +12,7 @@ const Organisation = use('App/Model/Organisation')
 const Volunteer = use('App/Model/Volunteer')
 const Donator = use('App/Model/Donator')
 const OrganisationOwner = use('App/Model/OrganisationOwner')
+const Transaction = use('App/Model/Transaction')
 const Helpers = use('Helpers')
 const fs = use('fs')
 const Env = use('Env')
@@ -243,6 +244,35 @@ class ProfileController {
       user: user,
       project_id: project_id
     })
+    return
+  }
+
+  * postDonate (request, response) {
+    let user = yield User.find(request.currentUser.id)
+
+    user = user.toJSON()
+
+    const transaction = new Transaction()
+    transaction.transaction_id = new Date().getTime()
+    transaction.project_id = request.input('project_id')
+    transaction.user_id = request.input('user_id')
+    transaction.amount = request.input('amount')
+
+
+    yield transaction.save()
+
+    const donator = new Donator()
+    donator.project_id = request.input('project_id')
+    donator.user_id = request.input('user_id')
+    donator.amount = request.input('amount')
+
+    yield donator.save()
+
+    yield request
+        .with({success: 'Payment Successfull!'})
+        .flash()
+
+    response.redirect('back')
     return
   }
 }
