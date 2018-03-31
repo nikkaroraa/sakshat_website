@@ -161,149 +161,200 @@
   <div class="container">
     <div class="row py-3">
       <div class="col-sm-12 text-center">
-        <h3 class="page-subhead mb-0"> When you give, you always get!</h3>
+        <h3 class="page-subhead mb-0"> Who is a volunteer?</h3>
       </div>
     </div>
   </div>
 </div>
-<div class="box-component main-box">
+<div class="box-component main-box" style="min-height: 100vh">
   <div class="container">
     <div class="row">
       <div class="col-sm-12">
-        <p>This holds absolutely true when you talk about donations. While you give away with a golden heart, you also save
-          goodness to your account. And while you will be paying off a part of your money, you will be happy to know that
-          not only its going to give you satisfaction, but let you out a sigh of relief because Hey! You might get tax exemption!</p>
+        <p>Women Empowerment and Child development in its true sense is possible only with the commitment and perseverance of an organisation's most valuable resource - VOLUNTEERS!</p>
 
         <p>You heard it absolutely right! To encourage more donations for the social causes and ensuring that taxes dont turn
           the smile on your face while you do it, upside down, the government of India under the Section 80G, Chapter 6A
           of the Income Tax Act gives tax exemption on donations in certain certified NGOs.</p>
 
-        <p>
-          <h4>Not every NGO</h4>
-        </p>
+        <ul>As a volunteer, you have the responsibility to:
+          <li>
+            Be punctual for your volunteer duty or shift
+          </li>
+          <li>
+            Be reliable and responsible
+          </li>
+          <li>
+            Communicate any issues or concerns which are likely to affect your volunteer duties
+          </li>
+          <li>
+            Do your duties as assigned and directed
+          </li>
+          <li>
+            Be willing to learn and participate in orientation, training programs, and meetings
+          </li>
+          <li>
+            Understand the role of the paid staff, maintain a smooth working relationship with them
+            and stay within the bounds of the volunteer role
+          </li>
+          <li>
+            Keep sensitive organizational information confidential
+          </li>
+          <li>
+            Comply with the policies and procedures of the organization
+          </li>
+        </ul>
 
-        <p>Donation in just any NGO will not provide you the benefit of the exemption. NGOs and institutions you donate in should
-          be registered with the Income-tax department through 12A, with tax exemption status under section 80G, 80 GGA,
-          35 ac (i & ii), (i & iii) of the Income Tax Act of 1961.</p>
-
-        <p>
-          <h4>Who Can Donate?</h4>
-        </p>
-
-        <p>The person donating to an Indian NGO and claiming for the exemption on tax has to be a resident of India or a Non-Resident
-          Indian holding an Indian Passport with a taxable income in India.</p>
-
-        <p>
-          <h5>DEDUCTION RATES AND HOW YOU QUALIFY</h5>
-        </p>
-
-        <p>While you donate with the registered NGOs, a certain amount is qualified for the tax deduction under Section 80G.
-          The donation will qualify for deduction only up to the limit of 10% of the Gross Total Income – GTI. Within which
-          again there are limits that some donations qualify for the deduction at the rate of 100% and some qualify at the
-          rate of 50%.</p>
-
-        <p>As per the amendments to the Finance Act 2017, cash donations exceeding Rs 2000, unless by means other than cash,
-          will not be eligible for the tax benefit. While donations for rural development are concerned, cash donations beyond
-          Rs 10,000 will not be eligible under section 80CGA.</p>
-
-        <p>
-          <h5>PROOF OF PAYMENTS AND DEDUCTION</h5>
-        </p>
-
-        <p>While after the donation, proof of payment must be submitted to claim the deduction. Were pushing towards a cash-free
-          economy; it is advisable to make donations by a cheque or demand draft than by cash. Do note, that current budget
-          has restricted the tax benefit on cash donations to the limit of Rs 10,000 only.</p>
-
-        <p>Also, it is advisable to take note of the PAN card number of the institution youre donating it. It will be needed
-          while filing the tax returns and will also go for the record purposes.</p>
-
-        <p>
-          <b>Now that you know that making a donation wont rip your pocket away with taxes, its time to do some good.</b>
-        </p>
 
         <div class="col-sm-12 text-center pt-4">
           <div class="col-sm-12">
-            <button type="button" class="btn btn-custom-designed" data-toggle="modal" data-target="#donateModal">Donate</button>
+            <button type="button" data-toggle="modal" data-target=".bd-example-modal-lg" class="btn btn-custom-designed capitalised">Become a Volunteer</button>
           </div>
         </div>
-
       </div>
     </div>
   </div>
 </div>
 <!-- Modal -->
-<div class="modal fade" id="donateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document" style="margin-top: 6em;">
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" style="margin-top: 6em;">
     <div class="modal-content">
-      <div class="donate">
-        <div class="donate-black">
-          <h2>
-            Donate
-          </h2>
-          <p>Your contribution is vital to the success of our initiative.</p>
-          <p>Choose the amount you wish to donate with paypal, as one-time or monthly payment.</p>
-        </div>
-        <form action="{{ url('/') }}postVolunteer" method="POST">
-          <input type="hidden" value="{{ user.id }}" name="user_id"/>
-          <input type="hidden" value="{{ project_id }}" name="project_id"/>
-          <div class="donate-blue">
-            <h3>Donation amount*</h3>
-              <div class="donate-amount-box">
-                <div class="donate-amount">
-                  <div class="denomination selected">
-                    <input autocomplete="off" type="radio" name="amount" id="amount5000" value="5000" data-value="5,000" checked="">
-                    <label for="amount5000">₹5,000</label>
-                  </div>
-                  <div class="denomination">
-                    <input autocomplete="off" type="radio" id="amount10000" value="10000" data-value="10,000" checked="">
-                    <label for="amount10000">₹10,000</label>
-                  </div>
-                  <div class="denomination">
-                    <input autocomplete="off" type="radio" id="amount15000" value="15000" data-value="15,000">
-                    <label for="amount15000">₹15,000</label>
-                  </div>
-                  <div class="denomination">
-                    <input autocomplete="off" type="radio" id="amount25000" value="25000" data-value="25,000">
-                    <label for="amount25000">₹25,000</label>
-                  </div>
-                  <div class="denomination">
-                    <input autocomplete="off" type="radio" id="amount50000" value="50000" data-value="50,000">
-                    <label for="amount50000">₹50,000</label>
-                  </div>
-                  <div class="denomination">
-                    <input autocomplete="off" type="radio" id="amount100000" value="100000" data-value="1,00,000">
-                    <label for="amount100">₹1,00,000</label>
-                  </div>
+      <div class="box-component-2 align-content-md-center">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 px-1">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <div class="col-sm-12">
+
+              <h6 class="volunteer">Become a Volunteer!</h6>
+
+              <br/><br/>
+              <div class="row">
+                <div class="col">
+                  <h6 class="light-text small-head bold-weight">
+                    First Name<span style="color:#D81B60;">*</span>
+                  </h6>
+                  <input type="text" class="form-control">
                 </div>
-                <div class="denomination-other">
-                  <input autocomplete="off" type="text" value="" placeholder="Enter Other Amount">
+                <div class="col">
+                  <h6 class="light-text small-head bold-weight">
+                    Last Name<span style="color:#D81B60;">*</span>
+                  </h6>
+                  <input type="text" class="form-control">
+                </div>
+
+              </div>
+              <br/>
+              <div class="row">
+                <div class="col">
+                  <h6 class="light-text small-head bold-weight">
+                    Address<span style="color:#D81B60;">*</span>
+                  </h6>
+                  <input type="text" class="form-control">
+                </div>
+                <div class="col">
+                  <h6 class="light-text small-head bold-weight">
+                    Contact Number<span style="color:#D81B60;">*</span>
+                  </h6>
+                  <input type="text" class="form-control">
+                </div>
+
+              </div><br/>
+              <div class="row">
+                <div class="col">
+                  <h6 class="light-text small-head bold-weight">
+                    E-mail Id<span style="color:#D81B60;">*</span>
+                  </h6>
+                  <input type="text" class="form-control">
+                </div>
+                <div class="col">
+                  <h6 class="light-text small-head bold-weight">
+                    Hours/Days of availability<span style="color:#D81B60;">*</span>
+                  </h6>
+                  <input type="text" class="form-control">
+                </div>
+
+              </div>
+              </br>
+
+              <h6 class="light-text small-head bold-weight">
+                Preferred Area<span style="color:#D81B60;">*</span> <br>
+              </h6>
+              <div class="row">
+                <div class="form-check form-check-inline">
+
+                  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                  <label class="form-check-label" for="inlineCheckbox1">
+
+                  <h6 class="light-text small-head bold-weight">Fundraising</h6></label>
+                                                  </div>
+                                                  <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                                    <label class="form-check-label" for="inlineCheckbox2">
+                  <h6 class="light-text small-head bold-weight">Marketing</h6></label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+                  <label class="form-check-label" for="inlineCheckbox3">
+                  <h6 class="light-text small-head bold-weight">Design</h6></label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+                  <label class="form-check-label" for="inlineCheckbox3">
+                  <h6 class="light-text small-head bold-weight">Community Outreach</h6></label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+                  <label class="form-check-label" for="inlineCheckbox3">
+                  <h6 class="light-text small-head bold-weight">Other Events</h6></label>
                 </div>
               </div>
-          </div>
-          <div class="donate-black donate-type">
-            <h3>Donation type*</h3>
-            <label>
-              <input type="radio" name="donation_type" value="single" checked="checked" autocomplete="off" class="required"> One-Time
-            </label>
-          </div>
-          <div class="donate-blue donate-payment">
-            <h3>Payment Method</h3>
-            <div>
-              <label>
-                <input type="radio" name="paytm" value="1" checked="checked" autocomplete="off">PayTM
-              </label>
+              </br>
+              <div class="form-group">
+                <label for="name">
+                <h6  class="light-text small-head bold-weight">Enter skills or qualifications acquired through previous volunteer work or other activities</h6></label>
+                <textarea class="form-control" rows="3"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="name">
+                <h6 class="light-text small-head bold-weight">Summarize any previous volunteer experience</h6></label>
+                <textarea class="form-control" rows="3"></textarea>
+              </div>
+
+              <div class="row">
+                <div class="col">
+                  <h6 class="light-text small-head bold-weight">
+                    Emergency Contact Name<span style="color:#D81B60;">*</span>
+                  </h6>
+                  <input type="text" class="form-control">
+                </div>
+                <div class="col">
+                  <h6 class="light-text small-head bold-weight">
+                    Emergency Contact Number<span style="color:#D81B60;">*</span>
+                  </h6>
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+              </br>
+              <h6 class="light-text small-head bold-weight">
+                I assure that all the above information is true and any false statements or ambiguities may lead to my immediate dismissal from volunteering.
+              </h6>
+
+              <!-- rowend -->
+              <div class="row justify-content-center">
+                <div class="col-sm-12">
+                  <p style="line-height: 70px; text-align: center;">
+                    <button type="button" class="btn btn-custom-designed">SUBMIT</button>
+                  </p>
+                </div>
+              </div>
             </div>
-            <div class="donate-submit">
-              <button type="submit" autocomplete="off">Donate ₹5,000</button>
-              <p>
-                <small>Most contributions earn you tax benefits</small>
-              </p>
-            </div>
           </div>
-        </form>
+        </div>
       </div>
-
-
     </div>
   </div>
 </div>
