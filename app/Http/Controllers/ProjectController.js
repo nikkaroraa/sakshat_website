@@ -12,6 +12,7 @@ const Organisation = use('App/Model/Organisation')
 const Volunteer = use('App/Model/Volunteer')
 const Donator = use('App/Model/Donator')
 const OrganisationOwner = use('App/Model/OrganisationOwner')
+const Transaction = use('App/Model/Transaction')
 const Helpers = use('Helpers')
 const fs = use('fs')
 const Env = use('Env')
@@ -172,7 +173,7 @@ class ProfileController {
     yield project_payment_account.save()
 
     yield request
-        .with({success: 'Project added successfully!'})
+        .with({success: 'Project has been sent for offline verification! Come back after 48 hours...'})
         .flash()
 
     response.redirect('back')
@@ -186,10 +187,12 @@ class ProfileController {
     const id = request.param('id')
 
     let projectDetails = yield ProjectOwner.query().where('project_id', id).with('user','project').fetch()
+    let projectDocs = yield ProjectDoc.query().where('project_id', id).fetch()
     let volunteers = yield Volunteer.query().where('project_id', id).with('user').fetch()
     let donators = yield Donator.query().where('project_id',id).with('user').fetch()
 
     projectDetails = projectDetails.toJSON()
+    projectDocs = projectDocs.toJSON()
     volunteers = volunteers.toJSON();
     donators = donators.toJSON();
 
@@ -208,6 +211,7 @@ class ProfileController {
     yield response.sendView('project.view', {
       user: user,
       projectDetails: projectDetails,
+      projectDocs: projectDocs,
       volunteers: volunteers,
       donators: donators
     })
@@ -226,6 +230,49 @@ class ProfileController {
       user: user,
       projects: projects
     })
+    return
+  }
+
+  * getDonationPage (request, response) {
+    let user = yield User.find(request.currentUser.id)
+
+    user = user.toJSON()
+
+    let project_id = request.param('id')
+
+    yield response.sendView('project.donation', {
+      user: user,
+      project_id: project_id
+    })
+    return
+  }
+
+  * postDonate (request, response) {
+    let user = yield User.find(request.currentUser.id)
+
+    user = user.toJSON()
+
+    const transaction = new Transaction()
+    transaction.transaction_id = new Date().getTime()
+    transaction.project_id = request.input('project_id')
+    transaction.user_id = request.input('user_id')
+    transaction.amount = request.input('amount')
+
+
+    yield transaction.save()
+
+    const donator = new Donator()
+    donator.project_id = request.input('project_id')
+    donator.user_id = request.input('user_id')
+    donator.amount = request.input('amount')
+
+    yield donator.save()
+
+    yield request
+        .with({success: 'Payment Successfull!'})
+        .flash()
+
+    response.redirect('back')
     return
   }
 }

@@ -135,7 +135,7 @@ class OrganisationController {
       }
 
       doc1 = request.file('society_registration_certificate', {
-        maxSize: '10mb'
+        maxSize: '1mb'
       })
 
       doc1Name = `${new Date().getTime()}_${doc1.clientName()}`
@@ -160,7 +160,7 @@ class OrganisationController {
       }
 
       doc2 = request.file('memorandum_association', {
-        maxSize: '10mb'
+        maxSize: '1mb'
       })
 
       doc2Name = `${new Date().getTime()}_${doc2.clientName()}`
@@ -185,7 +185,7 @@ class OrganisationController {
       }
 
       doc3 = request.file('certificate_incorporation', {
-        maxSize: '10mb'
+        maxSize: '1mb'
       })
 
       doc3Name = `${new Date().getTime()}_${doc3.clientName()}`
@@ -210,7 +210,7 @@ class OrganisationController {
       }
 
       doc4 = request.file('fcra_certificate', {
-        maxSize: '10mb'
+        maxSize: '1mb'
       })
 
       doc4Name = `${new Date().getTime()}_${doc4.clientName()}`
@@ -235,7 +235,7 @@ class OrganisationController {
       }
 
       doc5 = request.file('a_12_certificate', {
-        maxSize: '10mb'
+        maxSize: '1mb'
       })
 
       doc5Name = `${new Date().getTime()}_${doc5.clientName()}`
@@ -260,7 +260,7 @@ class OrganisationController {
       }
 
       doc6 = request.file('g_80_certificate', {
-        maxSize: '10mb'
+        maxSize: '1mb'
       })
 
       doc6Name = `${new Date().getTime()}_${doc6.clientName()}`
@@ -285,7 +285,7 @@ class OrganisationController {
       }
 
       doc7 = request.file('latest_report', {
-        maxSize: '10mb'
+        maxSize: '1mb'
       })
 
       doc7Name = `${new Date().getTime()}_${doc7.clientName()}`
@@ -310,7 +310,7 @@ class OrganisationController {
       }
 
       doc8 = request.file('auditor_report', {
-        maxSize: '10mb'
+        maxSize: '1mb'
       })
 
       doc8Name = `${new Date().getTime()}_${doc8.clientName()}`
@@ -335,7 +335,7 @@ class OrganisationController {
       }
 
       doc9 = request.file('pan_number', {
-        maxSize: '10mb'
+        maxSize: '1mb'
       })
 
       doc9Name = `${new Date().getTime()}_${doc9.clientName()}`
@@ -360,7 +360,7 @@ class OrganisationController {
       }
 
       doc10 = request.file('tan_number', {
-        maxSize: '10mb'
+        maxSize: '1mb'
       })
 
       doc10Name = `${new Date().getTime()}_${doc10.clientName()}`
@@ -397,6 +397,26 @@ class OrganisationController {
         .flash()
 
     response.redirect('back')
+    return
+  }
+
+  * viewOrganisation (request,response) {
+    let user = yield User.find(request.currentUser.id)
+    user = user.toJSON()
+
+    const id = request.param('id')
+
+    let organisationDetails = yield OrganisationOwner.query().where('organisation_id', id).with('user','organisation').fetch()
+    let organisationDocs = yield OrganisationDoc.query().where('organisation_id', id).fetch()
+
+    organisationDetails = organisationDetails.toJSON()
+    organisationDocs = organisationDocs.toJSON()
+
+    yield response.sendView('organisation.view', {
+      user: user,
+      organisationDetails: organisationDetails,
+      organisationDocs: organisationDocs
+    })
     return
   }
 

@@ -66,6 +66,9 @@ Route.group('secured', function () {
     .addCollection('addPost', 'POST', (collection) => {
       collection.bindAction('OrganisationController.addPostOrganisation')
     })
+    .addCollection(':id', 'GET', (collection) => {
+      collection.bindAction('OrganisationController.viewOrganisation')
+    })
 
 
   Route.get('projects', 'ProjectController.getProjects')
@@ -80,7 +83,12 @@ Route.group('secured', function () {
     .addCollection(':id', 'GET', (collection) => {
       collection.bindAction('ProjectController.viewProject')
     })
+    .addCollection(':id/:userId/donate', 'GET', (collection) => {
+      collection.bindAction('ProjectController.getDonationPage')
+    })
 
+
+  Route.post('postDonate', 'ProjectController.postDonate')
 
   Route.resource('comments', 'CommentController')
     .only([])
