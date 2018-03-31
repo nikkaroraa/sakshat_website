@@ -131,7 +131,7 @@ class AuthController {
       yield request
           .with({success: loginMessage.success})
           .flash()
-      response.route('/profile')
+      response.route('/projects')
       return
     }
 

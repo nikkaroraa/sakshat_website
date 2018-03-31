@@ -22,18 +22,16 @@ Route.get('/', 'HomeController.index').as('home')
 Route.get('login', 'HomeController.index')
 
 Route.post('login', 'AuthController.login')
-Route.get('/abc', 'PostsController.index')
 Route.post('register', 'RegisterController.register').as('register')
 
 Route.get('logout', 'AuthController.logout').as('logout')
 
 Route.get('organisations', 'OrganisationController.getOrganisations')
 
-//  facebook login
+//facebook login
 
 Route.get('facebookLogin', 'AuthController.redirect')
 Route.get('facebookAuthenticated', 'AuthController.handleCallback')
-Route.get('test-url', 'AuthController.testUrl')
 
 //  mail test
 Route.get('/mail', 'MailController.textMsg')
