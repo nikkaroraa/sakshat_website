@@ -161,16 +161,24 @@
               <div class="mt-3 d-flex justify-content-start" style="margin-left: 7.5em">
                 <div>
                   <button class="btn btn-custom-designed btn-small mr-2" style="font-size: 0.8em;">
-                    <a href="{{ url('/') }}project/{{ project.id }}/{{ user.id }}/donate">
+                    <a href="{{ url('/') }}project/{{ project.id }}/{{ user.id }}/subscribe">
                       <i class="fas fa-envelope-open"></i> &nbsp; Subscribe
                     </a>
                   </button>
                 </div>
                 <div>
-                  <button class="btn btn-custom-designed btn-small mx-2" style="font-size: 0.8em;"><i class="fas fa-rupee-sign"></i> &nbsp; Volunteer</button>
+                  <button class="btn btn-custom-designed btn-small mx-2" style="font-size: 0.8em;">
+                    <a href="{{ url('/') }}project/{{ project.id }}/{{ user.id }}/volunteer">
+                      <i class="fas fa-rupee-sign"></i> &nbsp; Volunteer
+                    </a>
+                  </button>
                 </div>
                 <div>
-                  <button class="btn btn-custom-designed btn-small" style="font-size: 0.8em;"><i class="fas fa-users"></i> &nbsp; Donate</button>
+                  <button class="btn btn-custom-designed btn-small" style="font-size: 0.8em;">
+                    <a href="{{ url('/') }}project/{{ project.id }}/{{ user.id }}/donate">
+                      <i class="fas fa-users"></i> &nbsp; Donate
+                    </a>
+                  </button>
                 </div>
               </div>
             </div>
