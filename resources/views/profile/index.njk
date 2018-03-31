@@ -114,6 +114,9 @@
             <li class="nav-item">
               <a class="nav-link" id="interests-tab" data-toggle="tab" href="#interests" role="tab" aria-controls="interests" aria-selected="false">INTERESTS</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" id="interests-tab" data-toggle="tab" href="#ANALYTICS" role="tab" aria-controls="interests" aria-selected="false">ANALYTICS</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -377,6 +380,76 @@
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="ANALYTICS" role="tabpanel" aria-labelledby="interests-tab">
+            <div class="box-component">
+              <div class="container">
+                <div class="row">
+                  <div>
+                      <h6>ANALYTICS</h6>
+                    </div><br>
+                  <div class="col-sm-12">
+                    
+                    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Day', 'Funds donated', 'Subscribers added', 'Volunteers added'],
+          ['Monday',  100,      400,    300],
+          ['Tuesday',  117,      406,   250],
+          ['Wednesday',  66,     101,   350],
+          ['Thursday',  103,      504,  400]
+        ]);
+
+        var options = {
+          title: 'User Engagement',
+          curveType: 'function',
+          legend: { position: 'right' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  
+    <div id="curve_chart" style="width: 600px; height: 300px"></div>
+                </div>
+    <div class="row">
+                <div class="col-sm-12">
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Day', 'Total Footfall', 'Organisations visit', 'Visitor login'],
+          ['Monday',  900,      400,    500],
+          ['Tuesday',  817,      406,   411],
+          ['Wednesday',  866,     101,   765],
+          ['Thursday',  1103,      504,  599]
+        ]);
+
+        var options = {
+          title: 'Traffic management',
+          curveType: 'function',
+          legend: { position: 'right' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_c'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  
+    <div id="curve_c" style="width: 600px; height: 300px"></div>
+                </div>
+              </div>
+            </div>
             </div>
           </div>
         </div>
