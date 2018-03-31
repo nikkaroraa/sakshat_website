@@ -219,6 +219,182 @@
   margin-top: 5px;
 }
 
+{# css for chatroom#}
+.feeds .user-info-background {
+    background-position: center !important;
+    background-size: cover !important;
+    display: block;
+    height: 100px;
+    position: relative;
+    border-radius: 5px 5px 0 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.44) 0%, transparent 100%);
+  }
+
+  .feeds .user-profile-image {
+    position: absolute;
+    top: 26px;
+    left: 30px;
+    z-index: 99;
+    box-sizing: border-box;
+    height: 85px;
+    width: 85px;
+    border: 1px solid #FFFFFF;
+    -o-object-fit: cover;
+    object-fit: cover;
+  }
+
+  .feeds .create-feed .close {
+    position: absolute;
+    top: 10px;
+    right: 30px;
+    font-size: 27px;
+    font-weight: 100;
+    color: rgba(0, 0, 0, 0.6);
+    outline: none;
+    z-index: 99;
+  }
+
+  .feeds .create-feed p {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 16px;
+    line-height: 22px;
+    padding: 14px 10px 30px 10px;
+  }
+
+  textarea.no-border {
+    border: 0
+  }
+
+  textarea.no-border:focus {
+    border: 0
+  }
+
+  .create-feed textarea.no-expansion {
+    resize: none;
+    border: 0;
+  }
+
+  .create-feed textarea.no-expansion:focus {
+    outline: 0;
+    box-shadow: none;
+    border: 0;
+  }
+
+  textarea.comment_input.no-expansion {
+    resize: none;
+  }
+
+  textarea.comment_input.no-expansion:focus {
+    outline: 0;
+    box-shadow: none;
+    border: 1px solid #ced4da;
+  }
+
+
+  .feeds .add-image-button {
+    padding: 6px 20px 6px 0;
+    border-radius: 0 0 0 4px;
+    display: block;
+    font-size: 0.9em;
+    color: rgba(0, 0, 0, 0.6);
+    line-height: 21px;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .feeds .post-button {
+    padding: 6px 30px;
+    border-radius: 0 0 4px 0;
+    background-color: var(--theme-color);
+    display: block;
+    font-size: 0.9em;
+    color: #FFFFFF;
+    line-height: 21px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .feeds .feed-info {
+    font-size: 0.8em;
+  }
+
+  .feeds .feed-info .feed-user-info {
+    display: block;
+    height: 36px;
+    width: 36px;
+    margin: 0px 0px 6px 0px;
+    border-radius: 100px;
+    background-position: center !important;
+    background-size: cover !important;
+    -o-object-fit: cover;
+    object-fit: cover;
+  }
+
+  .interaction-count-container {
+    background: var(--content-bg);
+  }
+
+  .comment-image {
+    height: 30px;
+    width: 30px;
+    border-radius: 100px;
+    -o-object-fit: cover;
+    object-fit: cover;
+  }
+
+  .comment_input {
+    font-size: 0.8em;
+  }
+
+  .comments-info {
+    display: inline-block;
+    position: relative;
+    padding: 7px 10px;
+    margin: 0px 0px 10px 0px;
+    border-radius: 10px;
+    background-color: #F0F0F0;
+    width: auto;
+    max-width: 400px;
+  }
+
+  .commentor-name {
+    display: inline-block;
+    color: #0A0B09;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: normal;
+    margin: 4px 0px 5px 0px;
+    position: relative;
+    width: 100%;
+  }
+
+  .commentor-time {
+    display: inline-block;
+    left: inherit;
+    font-size: 12px;
+    font-weight: 100;
+    margin: 0px 0px 0px 10px !important;
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+  .commentor-comment {
+    font-size: 14px !important;
+    line-height: normal;
+    word-wrap: break-word;
+    padding-right: 0px;
+    margin: 5px 0px 0px 0px !important;
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .likes_count {
+    cursor: pointer
+  }
+
+  .likes_count:hover {
+    color: var(--theme-color)
+  }
+
 </style>
 {% endblock %}
 
@@ -547,16 +723,13 @@ At the outset, I am happy to inform you that Avishi is doing much better now and
                   <!-- Images used to open the lightbox -->
                   <div class="img-row">
                     <div class="img-column">
-                      <img src="http://www.whywesuffer.com/wp-content/uploads/2013/04/WWS-Women.jpg" class="img-fluid thumbnail hover-shadow">
+                      <img src="https://d2zcpk7yfyf2dq.cloudfront.net/milaap/image/upload/c_limit,w_1170/v1500417094/production/images/uploader_images/image1_1500417092.jpg" class="img-fluid thumbnail hover-shadow">
                     </div>
                     <div class="img-column">
-                      <img src="http://www.whywesuffer.com/wp-content/uploads/2013/04/WWS-Women.jpg" class="img-fluid thumbnail hover-shadow">
+                      <img src="https://d2zcpk7yfyf2dq.cloudfront.net/milaap/image/upload/c_limit,w_1170/v1500417722/production/images/uploader_images/image5_1500417721.jpg" class="img-fluid thumbnail hover-shadow">
                     </div>
                     <div class="img-column">
-                      <img src="http://www.whywesuffer.com/wp-content/uploads/2013/04/WWS-Women.jpg" class="img-fluid thumbnail hover-shadow">
-                    </div>
-                    <div class="img-column">
-                      <img src="http://www.whywesuffer.com/wp-content/uploads/2013/04/WWS-Women.jpg" class="img-fluid thumbnail hover-shadow">
+                      <img src="https://d2zcpk7yfyf2dq.cloudfront.net/milaap/image/upload/c_limit,w_1170/v1500417239/production/images/uploader_images/image2_1500417238.jpg" class="img-fluid thumbnail hover-shadow">
                     </div>
                   </div>
                 </div>
@@ -566,42 +739,46 @@ At the outset, I am happy to inform you that Avishi is doing much better now and
           <div class="tab-pane fade" id="discussion" role="tabpanel" aria-labelledby="discussion-tab">
             <div class="box-component">
               <div class="container">
-                <div class="col-sm-12">
-                  <h6>Discussion</h6>
-                </div>
-                <form action="">
-                  <div class="form-group row mt-sm-4">
+                <div class="main-content-container container-fluid">
+  <div class="main-content container feeds pb-5">
+    <div class="row">
+      <div class="col-md-8 column">
+    <div id="disqus_thread"><iframe id="dsq-app8456" name="dsq-app8456" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" width="360px" src="https://disqus.com/embed/comments/?base=default&amp;f=bmk030&amp;t_i=campaign-7187&amp;t_u=https%3A%2F%2Fmilaap.org%2Ffundraisers%2Fhelpsaveavishi&amp;t_e=Help%20My%20Daughter%20Live%20%23HelpSaveAvishi&amp;t_d=%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20Help%20My%20Daughter%20Live%20%23HelpSaveAvishi%20%20%20%20%20%20%20%20%20%20&amp;t_t=Help%20My%20Daughter%20Live%20%23HelpSaveAvishi&amp;s_o=default#version=341c6ac006cf1e349b79ef1033b8b11a" style="width: 1px !important; min-width: 360px !important; border: none !important; overflow: hidden !important; height: 3104px !important;" horizontalscrolling="no" verticalscrolling="no"></iframe></div>
+    <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'bmk030'; // required: replace example with your forum shortname
+      var disqus_identifier = 'campaign-7187';
+      var disqus_title = 'Help My Daughter Live #HelpSaveAvishi';
+      var disqus_url = 'https://milaap.org/fundraisers/helpsaveavishi';
 
-                    <h5 class="col-sm-1 col-form-label">Nikhil:</h5>
+        var disqus_config = function() {
+          this.page.remote_auth_s3 = 'eyJpZCI6NzQ1Njk1LCJ1c2VybmFtZSI6IkFzaHdpbiBKUCIsImVtYWlsIjoiYW9ubm9zYmlnQGdtYWlsLmNvbSIsInVybCI6Imh0dHBzOi8vbWlsYWFwLm9yZy91c2VyLzc0NTY5NSIsImF2YXRhciI6Ii9hc3NldHMvYm9ycm93ZXJfZHVtbXkxLmpwZyJ9 e1c121a3c5a327eff27af78749e8bb75ce973cc1 1522461616';
+          this.page.api_key = '9sKNtrv2SofyUin78YnifZfZf0JvHCiEEhleceJJuiOiqo1H7kvAwcrDMH7X2ZG5';
+        }
 
-                    <div class="col-sm-11">
-                      <textarea id="messageBox" rows="5" class="form-control" placeholder="Write here!!">
-                      </textarea>
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <div class="col-sm-10 offset-sm-2">
-                      <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                  </div>
-                </form>
-                <hr/>
-                <div class="row">
-                  <span class="col-sm-2 bold-weight">User 1 said</span>
-                  <p class="col-sm-10">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
-                </div>
-                <div class="row">
-                  <span class="col-sm-2 bold-weight">User 2 said</span>
-                  <p class="col-sm-10">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
-                </div>
-                <div class="row">
-                  <span class="col-sm-2 bold-weight">User 3 said</span>
-                  <p class="col-sm-10">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
-                </div>
-                <div class="row">
-                  <span class="col-sm-2 bold-weight">User 4 said</span>
-                  <p class="col-sm-10">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
-                </div>
+      // This adds the custom login/logout functionality
+        this.sso = {
+          name:   "Milaap",
+          button: "//assets.milaap.org/assets/lend-btn-2fc731cb434fc4d08f1a4489cb91ff83f0cf754f6ed64fea4e5d891e556c0095.png",
+          icon:   "//assets.milaap.org/assets/favicon-edd25c979c630ceb92a4d0053be394ba98d0edab24f517afd1a77f41fe81a0bd.ico",
+          url:    '/users/sign-in',
+          width:  "800",
+          height: "400"
+        };
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the &lt;a href="http://disqus.com/?ref_noscript" rel="external nofollow"&gt;comments powered by Disqus.&lt;/a&gt;</noscript>
+    
+  </div>
+    </div>
+  </div>
+</div>
               </div>
             </div>
           </div>
@@ -896,7 +1073,42 @@ At the outset, I am happy to inform you that Avishi is doing much better now and
       })
     });
 
-                  
+    // for chat 
+
+    <script>
+    $(function() {
+      $('.comment_input').keydown(function(){
+        let comment = $(this).val().trim();
+
+        $(this).closest('.row').find('.comment_form_field').val(comment)
+      })
+      $('.comment_input').keypress(function(e) {
+            // Enter pressed?
+            if(e.which == 10 || e.which == 13) {
+              e.preventDefault();
+              $(this).closest('.row').find('.comment_form').submit()
+            }
+      })
+
+      $('.post_update_input').keydown(function(){
+        let post = $(this).val().trim();
+        $(this).closest('.box-component').find('.post_form_field').val(post)
+      })
+      $('.post-button').on('click', function(e) {
+        $(this).closest('.box-component').find('.post_form').submit()
+      })
+
+      $('.likes_count').on('click', function(e) {
+        let count = $(this).find('.likes_count_num').text();
+        count++;
+        $(this).find('.likes_count_num').text(count);
+      })
+
+      $('.add-image-button').on('click', function(e) {
+        $('#post_image').click();
+      })
+    })
+  </script>              
               
   </script>
 {% endblock %}
