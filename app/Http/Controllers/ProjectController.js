@@ -263,6 +263,10 @@ class ProfileController {
 
     yield transaction.save()
 
+    let trx = {}
+    trx.transaction_id = transaction_id
+    trx.amount = request.input('amount')
+
     const donator = new Donator()
     donator.project_id = request.input('project_id')
     donator.user_id = request.input('user_id')
@@ -271,15 +275,18 @@ class ProfileController {
     yield donator.save()
 
 
-
+    let alldata = yield OrganisationProject.query().where('project_id', request.input('project_id')).with('project', 'organisation').fetch()
+    alldata = alldata.toJSON()
+    // response.ok(alldata)
     yield response.sendView('project.receipt', {
       user: user,
-      transaction_id: transaction_id
+      alldata: alldata,
+      trx: trx
     })
     return
   }
 
-  * getDonationPage (request, response) {
+  * getVolunteerPage (request, response) {
     let user = yield User.find(request.currentUser.id)
 
     user = user.toJSON()
