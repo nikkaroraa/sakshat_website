@@ -6,6 +6,71 @@
 {% endblock %}
 
 {% block content %}
+
+<div class="main-content-container container-fluid">
+  <div class="main-content container">
+    <div class="row px-sm-3">
+      <div class="col-sm-12 box-component mb-sm-3">
+        <h5 class=" pl-2 light-text bold-weight">Start a Collaboration</h5>
+      </div>
+    </div>
+    <div class="box-component mb-sm-3 p-sm-4">
+      <div class="col-sm-12 px-sm-0">
+        <h6 class="light-text bold-weight my-sm-3">Looking For <span class="mandatory-form-field">*</span></h6>
+        <input type="text" class="form-control" required>
+      </div>
+      <div class="col-sm-12 px-sm-0">
+        <h6 class="light-text bold-weight my-sm-3">Description <span class="mandatory-form-field">*</span></h6>
+        <input type="text" class="form-control" required>
+      </div>
+      <div class="col-sm-12 px-sm-0">
+        <h6 class="light-text bold-weight my-sm-3">Eligibility Criteria </h6>
+        <input type="text" class="form-control">
+      </div>
+      <div class="col-sm-12 px-sm-0">
+        <h6 class="light-text bold-weight my-sm-3">Deliverables <span class="mandatory-form-field">*</span></h6>
+        <input type="text" class="form-control" required>
+      </div>
+      <h6 class="light-text bold-weight mt-sm-5">Additional Information</h6>
+      <div class="col-sm-12 px-sm-0">
+        <h6 class="light-text bold-weight my-sm-3">Location <span class="mandatory-form-field">*</span></h6>
+        <input type="text" class="form-control" required>
+      </div>
+      <div class="col-sm-12 px-sm-0">
+        <h6 class="light-text bold-weight my-sm-3">Duration <span class="mandatory-form-field">*</span></h6>
+        <input type="text" class="form-control" required>
+      </div>
+      <div class="col-sm-12 px-sm-0">
+        <h6 class="light-text bold-weight my-sm-3">Deliverables <span class="mandatory-form-field">*</span></h6>
+        <input type="text" class="form-control" required>
+      </div>
+      </br>
+      <div class="col-sm-12 px-sm-0">
+        <div class="row">
+          <div class="col-sm-3 px-sm-0">
+            <h6 class="light-text bold-weight my-sm-3 ml-sm-3">Starts </h6>
+          </div>
+        </div>
+          <select class="custom-select" id="inputGroupSelect01">
+                <option value="None">None</option>
+                <option value="Private_sector_Companies">Immediate</option>
+                <option value="Cooperative_Societies">Within 1 month</option>
+                <option value="Registered_Societies">Within 2 months </option>
+                <option value="Trust">More than 2 months</option>
+              </select>
+        <div class="row justify-content-center mt-4">
+          <div class="col-sm-12 text-center">
+
+            <button type="button" class="btn btn-custom-designed" href="gallery">Submit</button>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 {% endblock %}
 
 {% block jsfooter %}

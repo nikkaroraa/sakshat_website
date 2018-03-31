@@ -1,5 +1,8 @@
 'use strict'
 
+const Database = use('Database')
+const User = use('App/Model/User')
+
 class CollaborationController {
 
   * index (request, response) {
