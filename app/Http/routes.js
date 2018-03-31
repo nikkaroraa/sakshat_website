@@ -87,6 +87,9 @@ Route.group('secured', function () {
     .addCollection(':id/:userID/volunteer', 'GET', (collection) => {
       collection.bindAction('ProjectController.getVolunteerPage')
     })
+    .addCollection(':id/uploadBill', 'POST', (collection) => {
+      collection.bindAction('ProjectController.uploadBill')
+    })
 
 
   Route.post('postDonate', 'ProjectController.postDonate')
@@ -97,5 +100,8 @@ Route.group('secured', function () {
     .addCollection('postComments/add', 'POST', (collection) => {
       collection.bindAction('CommentController.addPostComments')
     })
+
+  Route.resource('collaboration', 'CollaborationController')
+    .only(['index', 'store'])
 
 }).middleware('web')

@@ -7,15 +7,16 @@ const ProjectOwner = use('App/Model/ProjectOwner')
 const OrganisationProject = use('App/Model/OrganisationProject')
 const ProjectDoc = use('App/Model/ProjectDoc')
 const ProjectPaymentAccount = use('App/Model/ProjectPaymentAccount')
-
+const ProjectBill = use('App/Model/ProjectBill')
+const Transaction = use('App/Model/Transaction')
 const Organisation = use('App/Model/Organisation')
 const Volunteer = use('App/Model/Volunteer')
 const Donator = use('App/Model/Donator')
 const OrganisationOwner = use('App/Model/OrganisationOwner')
-const Transaction = use('App/Model/Transaction')
 const Helpers = use('Helpers')
 const fs = use('fs')
 const Env = use('Env')
+const moment = use('moment')
 
 class ProfileController {
   * index (request,response) {
@@ -190,30 +191,26 @@ class ProfileController {
     let projectDocs = yield ProjectDoc.query().where('project_id', id).fetch()
     let volunteers = yield Volunteer.query().where('project_id', id).with('user').fetch()
     let donators = yield Donator.query().where('project_id',id).with('user').fetch()
+    let transactions = yield Transaction.query().with('user', 'project').fetch()
 
     projectDetails = projectDetails.toJSON()
     projectDocs = projectDocs.toJSON()
-    volunteers = volunteers.toJSON();
-    donators = donators.toJSON();
+    volunteers = volunteers.toJSON()
+    donators = donators.toJSON()
+    transactions = transactions.toJSON()
 
-    // var info = {
-    //   author: data[0].user.username,
-    //   project_name: data[0].project.name,
-    //   tag_line: data[0].project.tag_line,
-    //   tag: data[0].project.tag,
-    //   project_description: data[0].project.description,
-    //   volunteers: volunteers,
-    //   donators: donators
-    // };
+    for (let i = 0; i < transactions.length; i++) {
+      transactions[i].creation_date = moment(transactions[i].created_at).format('DD MMM, YYYY')
+    }
 
-    // response.ok(projectDetails)
 
     yield response.sendView('project.view', {
       user: user,
       projectDetails: projectDetails,
       projectDocs: projectDocs,
       volunteers: volunteers,
-      donators: donators
+      donators: donators,
+      transactions: transactions
     })
     return
   }
@@ -315,6 +312,67 @@ class ProfileController {
     yield request
           .with({success: 'You will be contacted soon!'})
           .flash()
+
+    response.redirect('back')
+    return
+  }
+
+  * uploadBill (request, response) {
+
+    let user = yield User.find(request.currentUser.id)
+    user = user.toJSON()
+
+    // Get all the input data
+    let project_id = request.param('id')
+
+    const projectBill = new ProjectBill()
+    projectBill.project_id = project_id
+    projectBill.billAmount = request.input('billAmount')
+    projectBill.expenseDescription = request.input('expenseDescription')
+
+    yield projectBill.save()
+
+    let project_bill = yield ProjectBill.findBy('project_id', project_id)
+    project_bill = project_bill.toJSON()
+
+    let project_bill_id = project_bill.id
+
+    let image = null
+    let imageName = null
+    let imagePath = null
+    let imageExt = null
+
+    if (request.file('bill') !== undefined && request.file('bill') !== null && request.file('bill') !== '' && request.file('bill').clientSize() !== 0) {
+      if (!fs.existsSync(Helpers.publicPath('img/storage/organisations/projects_bills' + project_id))) {
+        fs.mkdirSync(Helpers.publicPath('img/storage/organisations/projects_bills' + project_id))
+      }
+
+      image = request.file('bill', {
+        maxSize: '10mb',
+        allowedExtensions: ['jpg', 'png', 'jpeg', 'gif', 'webp']
+      })
+
+      imageName = `${new Date().getTime()}_${image.clientName()}`
+
+      yield image.move(Helpers.publicPath('img/storage/organisations/projects_bills_' + project_id), imageName)
+
+      if (!image.moved()) {
+        response.badRequest(image.errors())
+        return
+      }
+
+      imagePath = Env.get('MANAGE_URL', 'localhost:4040') + 'img/storage/organisations/projects_bills_' + project_id + '/' + imageName
+      imageExt = image.extension()
+
+      const affectedRows = yield Database
+        .table('project_bills')
+        .where('id', project_id)
+        .update({ bill: imagePath })
+    }
+
+    yield request
+        .with({success: 'Bill uploaded successfully!'})
+        .flash()
 
     response.redirect('back')
     return

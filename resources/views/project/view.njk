@@ -395,7 +395,11 @@
     color: var(--theme-color)
   }
 
+
+
+
 </style>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.css">
 {% endblock %}
 
 {% block jshead %}{% endblock %}
@@ -481,6 +485,12 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" id="support-tab" data-toggle="tab" href="#support" role="tab" aria-controls="support" aria-selected="false">Support</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="upload-bills-tab" data-toggle="tab" href="#uploadbills" role="tab" aria-controls="uploadbills" aria-selected="false">Upload Bills</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="trx-logs-tab" data-toggle="tab" href="#trxlogs" role="tab" aria-controls="trxlogs" aria-selected="false">Transaction Logs</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" id="rating-tab" data-toggle="tab" href="#rating" role="tab" aria-controls="rating" aria-selected="false">Rating</a>
@@ -642,73 +652,74 @@
                 <div class="row">
                   <div class="col-sm-12">
                     <div class="container">
-  <div class="page-header">
-    <h1 id="timeline">Timeline</h1>
-  </div>
-  <ul class="timeline">
-    <li>
-      <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
-      <div class="timeline-panel">
-        <div class="timeline-heading">
-          <h4 class="timeline-title"><img class="fr-dib fr-fil fr-draggable" src="https://d2zcpk7yfyf2dq.cloudfront.net/milaap/image/upload/c_limit,w_1170/v1500417094/production/images/uploader_images/image1_1500417092.jpg" style="width: 380px; height: 240px;" data-full_image_url="https://d2zcpk7yfyf2dq.cloudfront.net/milaap/image/upload/v1500417094/production/images/uploader_images/image1_1500417092.jpg" data-thumb_url="https://d2zcpk7yfyf2dq.cloudfront.net/milaap/image/upload/c_fit,h_70,w_125/v1500417094/production/images/uploader_images/image1_1500417092.jpg" data-id="134735"></h4>
-          <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 11 hours ago </small></p>
-        </div>
-        <div class="timeline-body">
-          <p>Dear Supporters,
-At the outset, I am happy to inform you that Avishi is doing much better now and is on her path to recovery. The treatment has been going well and the enzyme "Arylsulfatase B" which was missing from her body (responsible for her rare genetic condition  MPS Type 6 / Mucopolysaccharidosis Type 6) is now being produced by her own body in adequate quantity. We are still at Netherlands and the treatment will take some more time.</p>
-        </div>
-      </div>
-    </li>
-    <li class="timeline-inverted">
-      <div class="timeline-panel">
-        <div class="timeline-heading">
-          <h2 class="timeline-title">Funding successful !</h2>
-          <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 11 hours ago </small></p>
-        </div>
-        <div class="timeline-body">
-          <p>Thanks you all for making this campaign successful</p>
-        </div>
-      </div>
-    </li>
-    <li class="timeline-inverted">
-      <div class="timeline-badge warning"><i class="glyphicon glyphicon-credit-card"></i></div>
-      <div class="timeline-panel">
-        <div class="timeline-heading">
-          <h4 class="timeline-title"><img class="fr-dib fr-fil fr-draggable" src="https://d2zcpk7yfyf2dq.cloudfront.net/milaap/image/upload/c_limit,w_1170/v1500417722/production/images/uploader_images/image5_1500417721.jpg" style="width: 380px; height: 240px;" data-full_image_url="https://d2zcpk7yfyf2dq.cloudfront.net/milaap/image/upload/v1500417722/production/images/uploader_images/image5_1500417721.jpg" data-thumb_url="https://d2zcpk7yfyf2dq.cloudfront.net/milaap/image/upload/c_fit,h_70,w_125/v1500417722/production/images/uploader_images/image5_1500417721.jpg" data-id="134745"></h4>
-          <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 2 hours ago </small></p>
-        </div>
-        <div class="timeline-body">
-          <p>Avishi was admitted to the hospital on 14-Nov-2016. After preparing her body for the new donor cells cells using Immunotherapy and Chemotherapy (which kills existing cells to make space for the new cells), the Stem Cell Transplantation took place on 25-Nov-2016. As mentioned in previous post, a Central Line (Hickman Catheter) was put on first day of hospital admission through a minor surgery on the right side of her chest. In the hospital room, they connected multiple IV Infusion lines to the Central Line. It started with two IV Infusion lines and there was a time when there were eight intravenous infusion lines connected at the same time through multiple extension connections. All the medicines were being given through these lines and her body was in a state of zero immunity (as her original body cells were destroyed or depleted to make space for infusion of new cells). </p>
-        </div>
-      </div>
-    </li>
-    <li>
-      <div class="timeline-badge danger"><i class="glyphicon glyphicon-credit-card"></i></div>
-      <div class="timeline-panel">
-        <div class="timeline-heading">
-          <h4 class="timeline-title"><img class="fr-dib fr-fil fr-draggable" src="https://d2zcpk7yfyf2dq.cloudfront.net/milaap/image/upload/c_limit,w_1170/v1500417239/production/images/uploader_images/image2_1500417238.jpg" style="width: 380px; height: 240px;" data-full_image_url="https://d2zcpk7yfyf2dq.cloudfront.net/milaap/image/upload/v1500417239/production/images/uploader_images/image2_1500417238.jpg" data-thumb_url="https://d2zcpk7yfyf2dq.cloudfront.net/milaap/image/upload/c_fit,h_70,w_125/v1500417239/production/images/uploader_images/image2_1500417238.jpg" data-id="134736"></h4>
-          <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 3 days ago </small></p>
-        </div>
-        <div class="timeline-body">
-          <p>The main process of transplanting the cells or infusion of new cells in Avishi's body was done on 25-November-2016. There was a lot of fear and anxiety as to how her body would react to the new cells. The first thirty minutes after infusion of new cells are very critical. Thankfully there were no complications and the infusion of new cells was declared as completed. These donor stem cells, once inside the body, slowly grow and multiply over a period of time.</p>
-        </div>
-      </div>
-    </li>
-    <li class="timeline-inverted">
-      <div class="timeline-panel">
-        <div class="timeline-heading">
-          <h2 class="timeline-title">Funding started</h2>
-          <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 11 hours ago </small></p>
-        </div>
-        <div class="timeline-body">
-          <p>For helping Avishi. Look for project details in the campaign page</p>
-        </div>
-      </div>
-    </li>
-  </ul>
-</div>
+                      <div class="page-header">
+                        <h1 id="timeline">Timeline</h1>
+                      </div>
+                      <div>
+                        <ul class="timeline">
+                          <li>
+                            <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
+                            <div class="timeline-panel">
+                              <div class="timeline-heading">
+                                <h4 class="timeline-title"><img class="fr-dib fr-fil fr-draggable" src="https://d2zcpk7yfyf2dq.cloudfront.net/milaap/image/upload/c_limit,w_1170/v1500417094/production/images/uploader_images/image1_1500417092.jpg" style="width: 380px; height: 240px;" data-full_image_url="https://d2zcpk7yfyf2dq.cloudfront.net/milaap/image/upload/v1500417094/production/images/uploader_images/image1_1500417092.jpg" data-thumb_url="https://d2zcpk7yfyf2dq.cloudfront.net/milaap/image/upload/c_fit,h_70,w_125/v1500417094/production/images/uploader_images/image1_1500417092.jpg" data-id="134735"></h4>
+                                <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 11 hours ago </small></p>
+                              </div>
+                              <div class="timeline-body">
+                                <p>Dear Supporters,
+                                  At the outset, I am happy to inform you that Avishi is doing much better now and is on her path to recovery. The treatment has been going well and the enzyme "Arylsulfatase B" which was missing from her body (responsible for her rare genetic condition  MPS Type 6 / Mucopolysaccharidosis Type 6) is now being produced by her own body in adequate quantity. We are still at Netherlands and the treatment will take some more time.</p>
+                              </div>
+                            </div>
+                          </li>
+                          <li class="timeline-inverted">
+                            <div class="timeline-panel">
+                              <div class="timeline-heading">
+                                <h2 class="timeline-title">Funding successful !</h2>
+                                <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 11 hours ago </small></p>
+                              </div>
+                              <div class="timeline-body">
+                                <p>Thanks you all for making this campaign successful</p>
+                              </div>
+                            </div>
+                          </li>
+                          <li class="timeline-inverted">
+                            <div class="timeline-badge warning"><i class="glyphicon glyphicon-credit-card"></i></div>
+                            <div class="timeline-panel">
+                              <div class="timeline-heading">
+                                <h4 class="timeline-title"><img class="fr-dib fr-fil fr-draggable" src="https://d2zcpk7yfyf2dq.cloudfront.net/milaap/image/upload/c_limit,w_1170/v1500417722/production/images/uploader_images/image5_1500417721.jpg" style="width: 380px; height: 240px;" data-full_image_url="https://d2zcpk7yfyf2dq.cloudfront.net/milaap/image/upload/v1500417722/production/images/uploader_images/image5_1500417721.jpg" data-thumb_url="https://d2zcpk7yfyf2dq.cloudfront.net/milaap/image/upload/c_fit,h_70,w_125/v1500417722/production/images/uploader_images/image5_1500417721.jpg" data-id="134745"></h4>
+                                <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 2 hours ago </small></p>
+                              </div>
+                              <div class="timeline-body">
+                                <p>Avishi was admitted to the hospital on 14-Nov-2016. After preparing her body for the new donor cells cells using Immunotherapy and Chemotherapy (which kills existing cells to make space for the new cells), the Stem Cell Transplantation took place on 25-Nov-2016. As mentioned in previous post, a Central Line (Hickman Catheter) was put on first day of hospital admission through a minor surgery on the right side of her chest. In the hospital room, they connected multiple IV Infusion lines to the Central Line. It started with two IV Infusion lines and there was a time when there were eight intravenous infusion lines connected at the same time through multiple extension connections. All the medicines were being given through these lines and her body was in a state of zero immunity (as her original body cells were destroyed or depleted to make space for infusion of new cells). </p>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="timeline-badge danger"><i class="glyphicon glyphicon-credit-card"></i></div>
+                            <div class="timeline-panel">
+                              <div class="timeline-heading">
+                                <h4 class="timeline-title"><img class="fr-dib fr-fil fr-draggable" src="https://d2zcpk7yfyf2dq.cloudfront.net/milaap/image/upload/c_limit,w_1170/v1500417239/production/images/uploader_images/image2_1500417238.jpg" style="width: 380px; height: 240px;" data-full_image_url="https://d2zcpk7yfyf2dq.cloudfront.net/milaap/image/upload/v1500417239/production/images/uploader_images/image2_1500417238.jpg" data-thumb_url="https://d2zcpk7yfyf2dq.cloudfront.net/milaap/image/upload/c_fit,h_70,w_125/v1500417239/production/images/uploader_images/image2_1500417238.jpg" data-id="134736"></h4>
+                                <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 3 days ago </small></p>
+                              </div>
+                              <div class="timeline-body">
+                                <p>The main process of transplanting the cells or infusion of new cells in Avishi's body was done on 25-November-2016. There was a lot of fear and anxiety as to how her body would react to the new cells. The first thirty minutes after infusion of new cells are very critical. Thankfully there were no complications and the infusion of new cells was declared as completed. These donor stem cells, once inside the body, slowly grow and multiply over a period of time.</p>
+                              </div>
+                            </div>
+                          </li>
+                          <li class="timeline-inverted">
+                            <div class="timeline-panel">
+                              <div class="timeline-heading">
+                                <h2 class="timeline-title">Funding started</h2>
+                                <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 11 hours ago </small></p>
+                              </div>
+                              <div class="timeline-body">
+                                <p>For helping Avishi. Look for project details in the campaign page</p>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
-
                 </div>
               </div>
             </div>
@@ -740,188 +751,41 @@ At the outset, I am happy to inform you that Avishi is doing much better now and
             <div class="box-component">
               <div class="container">
                 <div class="main-content-container container-fluid">
-  <div class="main-content container feeds pb-5">
-    <div class="row">
-      <div class="col-md-8 column">
-    <div id="disqus_thread"><iframe id="dsq-app8456" name="dsq-app8456" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" width="360px" src="https://disqus.com/embed/comments/?base=default&amp;f=bmk030&amp;t_i=campaign-7187&amp;t_u=https%3A%2F%2Fmilaap.org%2Ffundraisers%2Fhelpsaveavishi&amp;t_e=Help%20My%20Daughter%20Live%20%23HelpSaveAvishi&amp;t_d=%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20Help%20My%20Daughter%20Live%20%23HelpSaveAvishi%20%20%20%20%20%20%20%20%20%20&amp;t_t=Help%20My%20Daughter%20Live%20%23HelpSaveAvishi&amp;s_o=default#version=341c6ac006cf1e349b79ef1033b8b11a" style="width: 1px !important; min-width: 360px !important; border: none !important; overflow: hidden !important; height: 3104px !important;" horizontalscrolling="no" verticalscrolling="no"></iframe></div>
-    <script type="text/javascript">
-      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-      var disqus_shortname = 'bmk030'; // required: replace example with your forum shortname
-      var disqus_identifier = 'campaign-7187';
-      var disqus_title = 'Help My Daughter Live #HelpSaveAvishi';
-      var disqus_url = 'https://milaap.org/fundraisers/helpsaveavishi';
+                  <div class="main-content container feeds pb-5">
+                    <div class="row">
+                      <div class="col-md-8 column">
+                    <div id="disqus_thread"><iframe id="dsq-app8456" name="dsq-app8456" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" width="360px" src="https://disqus.com/embed/comments/?base=default&amp;f=bmk030&amp;t_i=campaign-7187&amp;t_u=https%3A%2F%2Fmilaap.org%2Ffundraisers%2Fhelpsaveavishi&amp;t_e=Help%20My%20Daughter%20Live%20%23HelpSaveAvishi&amp;t_d=%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20Help%20My%20Daughter%20Live%20%23HelpSaveAvishi%20%20%20%20%20%20%20%20%20%20&amp;t_t=Help%20My%20Daughter%20Live%20%23HelpSaveAvishi&amp;s_o=default#version=341c6ac006cf1e349b79ef1033b8b11a" style="width: 1px !important; min-width: 360px !important; border: none !important; overflow: hidden !important; height: 3104px !important;" horizontalscrolling="no" verticalscrolling="no"></iframe></div>
+                    <script type="text/javascript">
+                      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                      var disqus_shortname = 'bmk030'; // required: replace example with your forum shortname
+                      var disqus_identifier = 'campaign-7187';
+                      var disqus_title = 'Help My Daughter Live #HelpSaveAvishi';
+                      var disqus_url = 'https://milaap.org/fundraisers/helpsaveavishi';
 
-        var disqus_config = function() {
-          this.page.remote_auth_s3 = 'eyJpZCI6NzQ1Njk1LCJ1c2VybmFtZSI6IkFzaHdpbiBKUCIsImVtYWlsIjoiYW9ubm9zYmlnQGdtYWlsLmNvbSIsInVybCI6Imh0dHBzOi8vbWlsYWFwLm9yZy91c2VyLzc0NTY5NSIsImF2YXRhciI6Ii9hc3NldHMvYm9ycm93ZXJfZHVtbXkxLmpwZyJ9 e1c121a3c5a327eff27af78749e8bb75ce973cc1 1522461616';
-          this.page.api_key = '9sKNtrv2SofyUin78YnifZfZf0JvHCiEEhleceJJuiOiqo1H7kvAwcrDMH7X2ZG5';
-        }
+                        var disqus_config = function() {
+                          this.page.remote_auth_s3 = 'eyJpZCI6NzQ1Njk1LCJ1c2VybmFtZSI6IkFzaHdpbiBKUCIsImVtYWlsIjoiYW9ubm9zYmlnQGdtYWlsLmNvbSIsInVybCI6Imh0dHBzOi8vbWlsYWFwLm9yZy91c2VyLzc0NTY5NSIsImF2YXRhciI6Ii9hc3NldHMvYm9ycm93ZXJfZHVtbXkxLmpwZyJ9 e1c121a3c5a327eff27af78749e8bb75ce973cc1 1522461616';
+                          this.page.api_key = '9sKNtrv2SofyUin78YnifZfZf0JvHCiEEhleceJJuiOiqo1H7kvAwcrDMH7X2ZG5';
+                        }
 
-      // This adds the custom login/logout functionality
-        this.sso = {
-          name:   "Milaap",
-          button: "//assets.milaap.org/assets/lend-btn-2fc731cb434fc4d08f1a4489cb91ff83f0cf754f6ed64fea4e5d891e556c0095.png",
-          icon:   "//assets.milaap.org/assets/favicon-edd25c979c630ceb92a4d0053be394ba98d0edab24f517afd1a77f41fe81a0bd.ico",
-          url:    '/users/sign-in',
-          width:  "800",
-          height: "400"
-        };
+                      // This adds the custom login/logout functionality
+                        this.sso = {
+                          name:   "Milaap",
+                          button: "//assets.milaap.org/assets/lend-btn-2fc731cb434fc4d08f1a4489cb91ff83f0cf754f6ed64fea4e5d891e556c0095.png",
+                          icon:   "//assets.milaap.org/assets/favicon-edd25c979c630ceb92a4d0053be394ba98d0edab24f517afd1a77f41fe81a0bd.ico",
+                          url:    '/users/sign-in',
+                          width:  "800",
+                          height: "400"
+                        };
 
-      /* * * DON'T EDIT BELOW THIS LINE * * */
-      (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      })();
-    </script>
-    <noscript>Please enable JavaScript to view the &lt;a href="http://disqus.com/?ref_noscript" rel="external nofollow"&gt;comments powered by Disqus.&lt;/a&gt;</noscript>
+                      /* * * DON'T EDIT BELOW THIS LINE * * */
+                      (function() {
+                        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                      })();
+                    </script>
+                    <noscript>Please enable JavaScript to view the &lt;a href="http://disqus.com/?ref_noscript" rel="external nofollow"&gt;comments powered by Disqus.&lt;/a&gt;</noscript>
 
-  </div>
-    </div>
-  </div>
-</div>
-              </div>
-            </div>
-          </div>
-          <div class="tab-pane fade" id="support" role="tabpanel" aria-labelledby="support-tab">
-            <div class="box-component">
-              <div class="container">
-                <div class="row">
-                  <div class="col-sm-12">
-                    <h6>Support</h6>
-                  </div>
-                  <div class="col-sm-6 mt-sm-5">
-                    <h6>
-                      Volunteers
-                      <span class="badge badge-primary">{{ volunteers.length }}</span>
-                    </h6>
-                    <ul class="list-group">
-                    {% for volunteer in volunteers %}
-                      <li class="list-group-item">
-                        {% if volunteer.user.profile_image %}
-                          <img src="{{ volunteer.user.profile_image }}" class="support-user-image"/>
-                        {% else %}
-                          <img src="{{ url('/') }}img/defaults/default-profile.png" class="support-user-image"/>
-                        {% endif %}
-                        <a href="{{ url('/') }}user/{{ volunteer.user.id }}" target="_blank">{{ volunteer.user.name }}</a>
-                      </li>
-                    {% endfor %}
-                    </ul>
-                  </div>
-                  <div class="col-sm-6 mt-sm-5">
-                    <h6>
-                      Donators
-                      <span class="badge badge-primary">{{ donators.length }}</span>
-                    </h6>
-                    <ul class="list-group">
-                    {% for donator in donators %}
-                      <li class="list-group-item">
-                        {% if donator.user.profile_image %}
-                          <img src="{{ donator.user.profile_image }}" class="support-user-image"/>
-                        {% else %}
-                          <img src="{{ url('/') }}img/defaults/default-profile.png" class="support-user-image"/>
-                        {% endif %}
-                        &nbsp;&nbsp;
-                        <a href="{{ url('/') }}user/{{ donator.user.id }}" target="_blank">{{ donator.user.name }}</a>
-                      </li>
-                      {% endfor %}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="tab-pane fade" id="rating" role="tabpanel" aria-labelledby="rating-tab">
-            <div class="box-component">
-              <div class="container">
-                <div class="row">
-                  <div class="col-sm-6">
-                    <h6>Rate this project</h6>
-                  </div>
-                  <div class="col-sm-6">
-                    <h6>Only for donators</h6>
-                  </div>
-                </div>
-                <div class= "row">
-                  <div class="col-sm-12 mt-sm-5">
-
-                    <fieldset class="rating">
-
-                      <select id="example">
-                        <option value="1">5</option>
-                        <option value="1">10</option>
-                        <option value="1">15</option>
-                        <option value="1">20</option>
-                        <option value="1">25</option>
-                        <option value="1">30</option>
-                        <option value="1">35</option>
-                        <option value="1">40</option>
-                        <option value="1">45</option>
-                        <option value="1">50</option>
-                        <option value="1">55</option>
-                        <option value="1">60</option>
-                        <option value="1">65</option>
-                        <option value="1">70</option>
-                        <option value="1">75</option>
-                        <option value="2">80</option>
-                        <option value="3">85</option>
-                        <option value="4">90</option>
-                        <option value="5">95</option>
-                        <option value="6">100</option>
-                      </select>
-                    </fieldset>
-                  </div>
-                  <script>
-
-                    jQuery(function(){
-                      console.log("Hello Satyam")
-                    });
-                  </script>
-                  <div class="col-sm-12">
-                    <form action="">
-                      <div class="form-group row mt-sm-4">
-
-                        <h5 class="col-sm-2 col-form-label">Write a review:</h5>
-
-                        <div class="col-sm-8">
-                          <textarea id="messageBox" rows="5" class="form-control" placeholder="Write here!!">
-                      </textarea>
-                        </div>
-                        <div class="col-sm-2">
-                          <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="tab-pane fade" id="faq" role="tabpanel" aria-labelledby="faq-tab">
-            <div class="box-component">
-              <div class="container">
-                <div class="row">
-                  <div class="col-sm-12">
-                    <h6>Frequently Asked Questions</h6>
-                  </div>
-                  <div class="col-sm-12 pt-3">
-                    <div class="my-sm-4">
-                      <p class="bold-weight">Contrary to popular belief, Lorem Ipsum is not simply random text</p>
-                      <p>It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur,
-                        from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p>
-                    </div>
-                    <div class="my-sm-4">
-                      <p class="bold-weight">Contrary to popular belief, Lorem Ipsum is not simply random text</p>
-                      <p>It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur,
-                        from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p>
-                    </div>
-                    <div class="my-sm-4">
-                      <p class="bold-weight">Contrary to popular belief, Lorem Ipsum is not simply random text</p>
-                      <p>It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur,
-                        from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -929,7 +793,220 @@ At the outset, I am happy to inform you that Avishi is doing much better now and
           </div>
         </div>
       </div>
+      <div class="tab-pane fade" id="support" role="tabpanel" aria-labelledby="support-tab">
+        <div class="box-component">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-12">
+                <h6>Support</h6>
+              </div>
+              <div class="col-sm-6 mt-sm-5">
+                <h6>
+                  Volunteers
+                  <span class="badge badge-primary">{{ volunteers.length }}</span>
+                </h6>
+                <ul class="list-group">
+                {% for volunteer in volunteers %}
+                  <li class="list-group-item">
+                    {% if volunteer.user.profile_image %}
+                      <img src="{{ volunteer.user.profile_image }}" class="support-user-image"/>
+                    {% else %}
+                      <img src="{{ url('/') }}img/defaults/default-profile.png" class="support-user-image"/>
+                    {% endif %}
+                    <a href="{{ url('/') }}user/{{ volunteer.user.id }}" target="_blank">{{ volunteer.user.name }}</a>
+                  </li>
+                {% endfor %}
+                </ul>
+              </div>
+              <div class="col-sm-6 mt-sm-5">
+                <h6>
+                  Donators
+                  <span class="badge badge-primary">{{ donators.length }}</span>
+                </h6>
+                <ul class="list-group">
+                {% for donator in donators %}
+                  <li class="list-group-item">
+                    {% if donator.user.profile_image %}
+                      <img src="{{ donator.user.profile_image }}" class="support-user-image"/>
+                    {% else %}
+                      <img src="{{ url('/') }}img/defaults/default-profile.png" class="support-user-image"/>
+                    {% endif %}
+                    &nbsp;&nbsp;
+                    <a href="{{ url('/') }}user/{{ donator.user.id }}" target="_blank">{{ donator.user.name }}</a>
+                  </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="uploadbills" role="tabpanel" aria-labelledby="upload-bills-tab">
+        <div class="box-component">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-6">
+                <h6>Upload Bill Receipts</h6>
+              </div>
+            </div>
+            <div class= "row">
+              <div class="col-sm-12 mt-sm-5">
+                {% for projectDetail in projectDetails %}
+                  <form action="{{ url('/') }}project/{{ projectDetail.project.id }}/uploadBill" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                      <label for="billAmount">Bill Amount</label>
+                      <input type="number" class="form-control" id="billAmount" placeholder="Bill Amount" name="billAmount">
+                    </div>
+                    <div class="form-group">
+                      <label for="expenseDescription">Expense Description</label>
+                      <input type="text" class="form-control" id="expenseDescription" placeholder="Expense Description" name="expenseDescription">
+                    </div>
+                    <div class="form-group">
+                      <label for="bill">Upload Bill</label>
+                      <input type="file" class="form-control" id="bill" placeholder="Upload Bill" name="bill">
+                    </div>
+                    <div class="form-group">
+                      <input type="submit" class="btn btn-custom-designed" id="submit" name="submit" />
+                    </div>
+                  </form>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="trxlogs" role="tabpanel" aria-labelledby="trxlogs-tab">
+        <div class="box-component">
+          <div class="container">
+            <div class="row">
+              <h6>Transaction Logs</h6>
+            </div>
+            <div class= "row">
+              <div class="col-sm-12 mt-sm-5">
+                <table data-pagination="true" data-search="true" data-toggle="table" class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>Transaction ID</th>
+                      <th>Donator</th>
+                      <th>Project</th>
+                      <th>Amount</th>
+                      <th>Timestamp</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for transaction in transactions %}
+                    <tr>
+                      <td>{{ transaction.transaction_id }}</td>
+                      <td>{{ transaction.user.name }}</td>
+                      <td>{{ transaction.project.name }}</td>
+                      <td>{{ transaction.amount }}</td>
+                      <td>{{ transaction.creation_date }}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="rating" role="tabpanel" aria-labelledby="rating-tab">
+        <div class="box-component">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-6">
+                <h6>Rate this project</h6>
+              </div>
+              <div class="col-sm-6">
+                <h6>Only for donators</h6>
+              </div>
+            </div>
+            <div class= "row">
+              <div class="col-sm-12 mt-sm-5">
 
+                <fieldset class="rating">
+
+                  <select id="example">
+                    <option value="1">5</option>
+                    <option value="1">10</option>
+                    <option value="1">15</option>
+                    <option value="1">20</option>
+                    <option value="1">25</option>
+                    <option value="1">30</option>
+                    <option value="1">35</option>
+                    <option value="1">40</option>
+                    <option value="1">45</option>
+                    <option value="1">50</option>
+                    <option value="1">55</option>
+                    <option value="1">60</option>
+                    <option value="1">65</option>
+                    <option value="1">70</option>
+                    <option value="1">75</option>
+                    <option value="2">80</option>
+                    <option value="3">85</option>
+                    <option value="4">90</option>
+                    <option value="5">95</option>
+                    <option value="6">100</option>
+                  </select>
+                </fieldset>
+              </div>
+              <script>
+
+                jQuery(function(){
+                  console.log("Hello Satyam")
+                });
+              </script>
+              <div class="col-sm-12">
+                <form action="">
+                  <div class="form-group row mt-sm-4">
+
+                    <h5 class="col-sm-2 col-form-label">Write a review:</h5>
+
+                    <div class="col-sm-8">
+                      <textarea id="messageBox" rows="5" class="form-control" placeholder="Write here!!">
+                  </textarea>
+                    </div>
+                    <div class="col-sm-2">
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="faq" role="tabpanel" aria-labelledby="faq-tab">
+        <div class="box-component">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-12">
+                <h6>Frequently Asked Questions</h6>
+              </div>
+              <div class="col-sm-12 pt-3">
+                <div class="my-sm-4">
+                  <p class="bold-weight">Contrary to popular belief, Lorem Ipsum is not simply random text</p>
+                  <p>It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur,
+                    from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p>
+                </div>
+                <div class="my-sm-4">
+                  <p class="bold-weight">Contrary to popular belief, Lorem Ipsum is not simply random text</p>
+                  <p>It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur,
+                    from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p>
+                </div>
+                <div class="my-sm-4">
+                  <p class="bold-weight">Contrary to popular belief, Lorem Ipsum is not simply random text</p>
+                  <p>It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur,
+                    from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 {% endfor %}
@@ -1109,6 +1186,5 @@ At the outset, I am happy to inform you that Avishi is doing much better now and
       })
     })
   </script>
-
-  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.js"></script>
 {% endblock %}
