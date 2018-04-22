@@ -1,0 +1,5 @@
+node_modules/
+.idea/
+fingerprintjs2.iml
+*.log
+package-lock.json

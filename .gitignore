@@ -1,11 +1,11 @@
 # Node modules
-node_modules
+# node_modules
 
 # Ignoring everything inside storage directory
-storage/*
+# storage/*
 
 # Ignoring everything inside public/img/storage directory
-public/img/storage/*
+# public/img/storage/*
 
 # Keeping storage directory
 !storage/.gitkeep
